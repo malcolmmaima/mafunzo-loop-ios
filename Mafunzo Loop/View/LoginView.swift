@@ -50,11 +50,14 @@ struct LoginView: View {
                             .focused($dismissKeyboard)
                         // MARK: Login Button
                         Button(action: {
-                            Task { await logIn() }}) {
+                            Task {
+                                await logIn()
+                            }
+                        }, label: {
                             Text("Login")
                                  .accentColor(.white)
                                  .frame(width: 350, height: 50)
-                         }
+                        })
                         .background(Color.blue).opacity(otpViewModel.isLoading ? 0 : 1)
                         .overlay {
                             ProgressView()
