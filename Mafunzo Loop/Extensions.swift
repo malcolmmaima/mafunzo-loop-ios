@@ -24,7 +24,7 @@ extension Color {
     static let ViewBackground = Color("ViewColor")
     static let textLineColor = Color("textLineColor")
 }
-//MARK: - Verification Code Text Styling
+// MARK: Verification Code Text Styling
 struct CodeTextStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
