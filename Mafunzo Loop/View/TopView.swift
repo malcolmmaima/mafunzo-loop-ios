@@ -14,7 +14,7 @@ struct TopView: View {
             Image("black_student_happy")
                 .resizable()
                 .edgesIgnoringSafeArea(.top)
-        }.background(Color.blue).opacity(0.9)
+        }.background(.yellow).opacity(0.9)
     }
 }
 

@@ -28,15 +28,14 @@ struct SplashScreen: View {
                             .padding(.top, 50)
                             ProgressView()
                                 .scaleEffect(2)
-                                .font(.system(size:8))
+                                .font(.system(size: 8))
                                 .padding()
                                 .padding(.bottom, 10)
-                                .progressViewStyle(CircularProgressViewStyle(tint: Color.yellow))
+                                .progressViewStyle(CircularProgressViewStyle(tint: Color.blue))
                     }.frame(alignment: .bottom)
-                        
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(.blue).opacity(0.9)
+                .background(.yellow).opacity(0.9)
             } .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0 ) {
                     withAnimation {
