@@ -19,6 +19,15 @@
 		20021F18286E3494007D5329 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 20021F17286E3494007D5329 /* FirebaseFirestoreSwift */; };
 		20021F1A286E3494007D5329 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 20021F19286E3494007D5329 /* FirebaseMessaging */; };
 		20021F1C286E3494007D5329 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 20021F1B286E3494007D5329 /* FirebaseStorage */; };
+		20021F20286E439A007D5329 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20021F1F286E439A007D5329 /* User.swift */; };
+		20021F22286E467F007D5329 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20021F21286E467F007D5329 /* OTPViewModel.swift */; };
+		20021F26286E4948007D5329 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20021F25286E4948007D5329 /* LoginView.swift */; };
+		20021F28286E4983007D5329 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20021F27286E4983007D5329 /* Extensions.swift */; };
+		20372A5D28734F6200F3C0AF /* countryCode.json in Resources */ = {isa = PBXBuildFile; fileRef = 20372A5C28734F6100F3C0AF /* countryCode.json */; };
+		20372A5F28735A9800F3C0AF /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A5E28735A9800F3C0AF /* OTPView.swift */; };
+		20372A612873629900F3C0AF /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A602873629900F3C0AF /* TopView.swift */; };
+		203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C26286F10DC003F1570 /* CountryCode.swift */; };
+		203C6C29286F110E003F1570 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +38,15 @@
 		20021F05286E27C0007D5329 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		20021F0C286E29BD007D5329 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Mafunzo/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20021F1D286E3B67007D5329 /* Mafunzo-Loop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Mafunzo-Loop-Info.plist"; sourceTree = SOURCE_ROOT; };
+		20021F1F286E439A007D5329 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		20021F21286E467F007D5329 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
+		20021F25286E4948007D5329 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		20021F27286E4983007D5329 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		20372A5C28734F6100F3C0AF /* countryCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = countryCode.json; path = ../../../../../Downloads/countryCode.json; sourceTree = "<group>"; };
+		20372A5E28735A9800F3C0AF /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		20372A602873629900F3C0AF /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		203C6C26286F10DC003F1570 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
+		203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,12 +86,17 @@
 		20021EFD286E27BB007D5329 /* Mafunzo Loop */ = {
 			isa = PBXGroup;
 			children = (
+				20372A5C28734F6100F3C0AF /* countryCode.json */,
+				20021F24286E4935007D5329 /* View */,
+				20021F23286E4687007D5329 /* ViewModel */,
+				20021F1E286E4385007D5329 /* Model */,
 				20021F1D286E3B67007D5329 /* Mafunzo-Loop-Info.plist */,
 				20021F0C286E29BD007D5329 /* GoogleService-Info.plist */,
 				20021EFE286E27BB007D5329 /* Mafunzo_LoopApp.swift */,
 				20021F00286E27BB007D5329 /* ContentView.swift */,
 				20021F02286E27C0007D5329 /* Assets.xcassets */,
 				20021F04286E27C0007D5329 /* Preview Content */,
+				20021F27286E4983007D5329 /* Extensions.swift */,
 			);
 			path = "Mafunzo Loop";
 			sourceTree = "<group>";
@@ -84,6 +107,34 @@
 				20021F05286E27C0007D5329 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		20021F1E286E4385007D5329 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20021F1F286E439A007D5329 /* User.swift */,
+				203C6C26286F10DC003F1570 /* CountryCode.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20021F23286E4687007D5329 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20021F21286E467F007D5329 /* OTPViewModel.swift */,
+				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20021F24286E4935007D5329 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20021F25286E4948007D5329 /* LoginView.swift */,
+				20372A5E28735A9800F3C0AF /* OTPView.swift */,
+				20372A602873629900F3C0AF /* TopView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +210,7 @@
 				20021F06286E27C0007D5329 /* Preview Assets.xcassets in Resources */,
 				20021F03286E27C0007D5329 /* Assets.xcassets in Resources */,
 				20021F0D286E29BD007D5329 /* GoogleService-Info.plist in Resources */,
+				20372A5D28734F6200F3C0AF /* countryCode.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,8 +221,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				203C6C29286F110E003F1570 /* CountryCodeViewModel.swift in Sources */,
 				20021F01286E27BB007D5329 /* ContentView.swift in Sources */,
+				203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */,
+				20021F28286E4983007D5329 /* Extensions.swift in Sources */,
+				20021F22286E467F007D5329 /* OTPViewModel.swift in Sources */,
+				20372A5F28735A9800F3C0AF /* OTPView.swift in Sources */,
+				20372A612873629900F3C0AF /* TopView.swift in Sources */,
 				20021EFF286E27BB007D5329 /* Mafunzo_LoopApp.swift in Sources */,
+				20021F26286E4948007D5329 /* LoginView.swift in Sources */,
+				20021F20286E439A007D5329 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
