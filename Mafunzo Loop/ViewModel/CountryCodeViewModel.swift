@@ -25,6 +25,5 @@ class CountryCodeViewModel: ObservableObject {
         let data = try? Data(contentsOf: countryCodeData)
         let code = try? JSONDecoder().decode([CountryData].self, from: data!)
         self.codeCountry = code!
-        
     }
 }

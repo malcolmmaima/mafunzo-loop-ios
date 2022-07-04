@@ -29,7 +29,6 @@ class User: Codable, ObservableObject, Identifiable {
     init() {}
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-    
         mobileNumber = try container.decode(Int.self, forKey: .mobileNumber)
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
