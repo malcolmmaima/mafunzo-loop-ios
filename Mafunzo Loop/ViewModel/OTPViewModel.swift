@@ -23,7 +23,6 @@ class OTPViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var verificationTag: String?
     @AppStorage("log_status") var log_status = false
-    
     // MARK: Send OTP
     func sendOTP(phone: String) async {
         do {

@@ -12,7 +12,6 @@ import SwiftUI
 struct RoundedCornersShape: Shape {
     let corners: UIRectCorner
     let radius: CGFloat
-    
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(roundedRect: rect,
                                 byRoundingCorners: corners,
@@ -25,7 +24,7 @@ extension Color {
     static let ViewBackground = Color("ViewColor")
     static let textLineColor = Color("textLineColor")
 }
-//MARK: -Verification Code Text Styling
+//MARK: - Verification Code Text Styling
 struct CodeTextStyle: ViewModifier {
     func body(content: Content) -> some View {
         content

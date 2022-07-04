@@ -53,9 +53,8 @@ struct LoginView: View {
                             Task {
                                 await logIn()
                             }
-                        })
-                        {
-                             Text("Login")
+                        }) {
+                            Text("Login")
                                  .accentColor(.white)
                                  .frame(width: 350, height: 50)
                          }

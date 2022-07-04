@@ -126,18 +126,18 @@ struct OTPView: View {
     @ViewBuilder
     func OTPField() -> some View {
         HStack (spacing: 16) {
-            ForEach(0..<6,id: \.self) { index in
+            ForEach(0..<6, id: \.self) { index in
                 VStack(spacing: 8) {
                     TextField("", text: $otpViewModel.otpFields[index])
                         .vCodeStyle()
-                        .focused($activeField,equals: activeStateForIndex(index: index))
+                        .focused($activeField, equals: activeStateForIndex(index: index))
                 }
                 .frame(width: 40)
             }
         }
     }
     // MARK: TextField Status
-    func activeStateForIndex(index: Int)-> OTPField {
+    func activeStateForIndex(index: Int) -> OTPField {
         switch index {
         case 0: return .field1
         case 1: return .field2
