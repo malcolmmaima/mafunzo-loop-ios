@@ -12,7 +12,6 @@ class CountryCodeViewModel: ObservableObject {
     init() {
         loadData()
     }
-           
     // MARK: Loading Country JSON FIle
     /**
             @countryCodeData - Data from JsonFile (countryCode.json)

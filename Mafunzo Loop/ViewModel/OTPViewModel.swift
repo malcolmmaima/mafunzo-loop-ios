@@ -46,7 +46,7 @@ class OTPViewModel: ObservableObject {
                 partialResult + value
             }
             let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationCode, verificationCode: otpText)
-            let _ = try await Auth.auth().signIn(with: credential)
+            _ = try await Auth.auth().signIn(with: credential)
             DispatchQueue.main.async {[self] in
                 isLoading = false
                 log_status = true

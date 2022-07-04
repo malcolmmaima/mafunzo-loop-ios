@@ -50,10 +50,7 @@ struct LoginView: View {
                             .focused($dismissKeyboard)
                         // MARK: Login Button
                         Button(action: {
-                            Task {
-                                await logIn()
-                            }
-                        }) {
+                            Task { await logIn() }}) {
                             Text("Login")
                                  .accentColor(.white)
                                  .frame(width: 350, height: 50)
