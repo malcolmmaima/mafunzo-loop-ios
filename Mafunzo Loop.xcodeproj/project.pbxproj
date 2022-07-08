@@ -29,6 +29,7 @@
 		203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C26286F10DC003F1570 /* CountryCode.swift */; };
 		203C6C29286F110E003F1570 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */; };
 		2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E8402873894F00DBA7AE /* SplashScreen.swift */; };
+		2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E84228742ACD00DBA7AE /* AccountSetupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		203C6C26286F10DC003F1570 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
 		2042E8402873894F00DBA7AE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		2042E84228742ACD00DBA7AE /* AccountSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				20372A5E28735A9800F3C0AF /* OTPView.swift */,
 				20372A602873629900F3C0AF /* TopView.swift */,
 				2042E8402873894F00DBA7AE /* SplashScreen.swift */,
+				2042E84228742ACD00DBA7AE /* AccountSetupView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				203C6C29286F110E003F1570 /* CountryCodeViewModel.swift in Sources */,
 				20021F01286E27BB007D5329 /* ContentView.swift in Sources */,
+				2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */,
 				203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */,
 				20021F28286E4983007D5329 /* Extensions.swift in Sources */,
 				20021F22286E467F007D5329 /* OTPViewModel.swift in Sources */,
