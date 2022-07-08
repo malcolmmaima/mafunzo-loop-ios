@@ -76,6 +76,7 @@ struct LoginView: View {
                                 .fill(Color.ViewBackground)
                         )
                         .offset(y: -50)
+                    // hide keyboard
                     .toolbar {
                         ToolbarItemGroup(placement: .keyboard) {
                             Spacer()
@@ -88,7 +89,7 @@ struct LoginView: View {
             }
             .background {
                 NavigationLink(tag: "VERIFICATION", selection: $otpViewModel.verificationTag) {
-                    OTPView()
+                    OTPView(number: mobile())
                         .environmentObject(otpViewModel)
                 } label: {}
                     .labelsHidden()
@@ -96,19 +97,19 @@ struct LoginView: View {
             .alert(otpViewModel.errorMsg, isPresented: $otpViewModel.showAlert) {}
         }
     }
+    //Join country code & number
+    func mobile() -> String {
+        let countryCodeSelect = countryDetails.codeCountry[selectedCode].dialCode
+        let numberPlaced = Int(number)
+        let numberConvert = "\(numberPlaced ?? 0)" //changing back to String
+        let phoneNumber = countryCodeSelect + numberConvert
+        return phoneNumber
+    }
     // MARK: LOGIN
     func logIn() async {
-        let countryCodeSelect = countryDetails.codeCountry[selectedCode].dialCode
-        //print("number: \(number)")
-        let numberPlaced = Int(number) // removing the leading '0' by changing to Int
-        //print("numberPlaced: \(numberPlaced!)")
-        let numberConvert = "\(numberPlaced!)" //changing back to String
-        let phoneNumber = countryCodeSelect + numberConvert
-        //print(phoneNumber)
-        await otpViewModel.sendOTP(phone: phoneNumber)
+        await otpViewModel.sendOTP(phone: mobile())
     }
 }
-
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
        LoginView()
