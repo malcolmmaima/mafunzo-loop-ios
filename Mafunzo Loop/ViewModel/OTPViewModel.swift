@@ -15,7 +15,6 @@ class OTPViewModel: ObservableObject {
     @Published var otpText: String = ""
     @Published var otpFields: [String] = Array(repeating: "", count: 6)
     @Published var countryCode = ""
-    
     @Published var accountType = ["PARENT", "TEACHER", "STUDENT", "BUS_DRIVER"]
     @Published var accountSelected = 0
     @Published var schoolSelected = 0
