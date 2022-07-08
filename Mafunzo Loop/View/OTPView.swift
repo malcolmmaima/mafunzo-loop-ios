@@ -10,6 +10,7 @@ import SwiftUI
 struct OTPView: View {
     @EnvironmentObject var otpViewModel: OTPViewModel
     @FocusState var activeField: OTPField?
+    var number: String
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -47,7 +48,6 @@ struct OTPView: View {
                     Text("Did not receive OTP?")
                         .fontWeight(.light)
                         .foregroundColor(.gray)
-                        //.underline()
                         .padding(.top, 20)
                     // MARK: RESEND OTP
                     Button {
@@ -72,8 +72,12 @@ struct OTPView: View {
                     )
                     .offset(y: -50)
             }
+            // Tap to hide keyboard
             .onTapGesture {
                 self.hideKeyboard()
+            }
+            .fullScreenCover(isPresented: $otpViewModel.toAccountSetup) {
+                AccountSetupView(number: number, user: User())
             }
             .alert(otpViewModel.errorMsg, isPresented: $otpViewModel.showAlert) {}
         }
@@ -148,13 +152,11 @@ struct OTPView: View {
         }
     }
 }
-
 struct OTP_View_Previews: PreviewProvider {
     static var previews: some View {
-        OTPView()
+        OTPView(number: "")
     }
 }
-
 enum OTPField {
     case field1
     case field2
