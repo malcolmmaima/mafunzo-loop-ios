@@ -41,6 +41,19 @@ extension View {
         modifier(CodeTextStyle())
     }
 }
+// MARK: Text Field Styling
+struct TextFieldStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+        .frame(maxWidth: .infinity)
+        .overlay(VStack{Divider().frame(height: 2).background(Color.textLineColor).offset(x: 0, y: 15)})
+    }
+}
+extension View {
+    func textFieldStyling() -> some View {
+        modifier(TextFieldStyle())
+    }
+}
 // MARK: Hide Keyboard
 #if canImport(UIKit)
 extension View {
