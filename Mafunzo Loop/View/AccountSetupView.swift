@@ -20,7 +20,7 @@ struct AccountSetupView: View {
       NavigationView {
             GeometryReader { geo in
                 VStack {
-                    setupTopView()
+                    SetupTopView()
                         .frame(height: geo.size.height * 0.19)
                     VStack {
                         VStack {
@@ -123,7 +123,7 @@ struct AccountSetupView: View {
     }
 }
 // MARK: TOP VIEW
-struct setupTopView: View {
+struct SetupTopView: View {
     var body: some View {
         VStack {
             Text("Setup Account")
