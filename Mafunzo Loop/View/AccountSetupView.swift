@@ -55,7 +55,9 @@ struct AccountSetupView: View {
                                     .listRowSeparator(.hidden)
                                 Section {
                                     Button {
-                                             createAccount()
+                                        Task {
+                                           await createAccount()
+                                        }
                                     } label: {
                                         Text("Next")
                                             .foregroundColor(.white)
@@ -106,13 +108,13 @@ struct AccountSetupView: View {
         formatter.dateFormat = "yyyyMMddhhmmss"
         return (formatter.string(from: Date()) as NSString) as String
     }
-    func createAccount() {
+    func createAccount() async {
         let schoolSelected = otpViewModel.user.schools[otpViewModel.schoolSelected]
         let school = [schoolSelected]
         itemSelected()
         let dateCreated = Int(generateCurrentTimeStamp()) ?? 0
         user.dateCreated = dateCreated
-        otpViewModel.setupAccount(number: number, user: user, school: school)
+        await otpViewModel.setupAccount(number: number, user: user, school: school)
     }
     // MARK: Check Textfield status
     func checkTexts() -> Bool {

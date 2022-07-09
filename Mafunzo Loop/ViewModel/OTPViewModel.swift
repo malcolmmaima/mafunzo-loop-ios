@@ -101,12 +101,13 @@ class OTPViewModel: ObservableObject {
         }
     }
     // MARK: SETUP ACCOUNT
-    func setupAccount(number: String, user: User, school: [String]) {
+    func setupAccount(number: String, user: User, school: [String]) async {
+        do {
             print("Phone number At setup Account \(number)")
             isLoading = true
             let db = Firestore.firestore()
             let ref = db.collection("users").document(number)
-            ref.setData([
+            try await ref.setData([
                 "accountType": user.accountType,
                 "dateCreated": user.dateCreated,
                 "email": user.email,
@@ -114,15 +115,13 @@ class OTPViewModel: ObservableObject {
                 "lastName": user.lastName,
                 "profilePic": user.profilePic,
                 "schools": school
-            ]) { error in
-                if let error = error {
-                    self.handleError(error: error.localizedDescription)
-                    print(error.localizedDescription)
-                }
+            ])
+            DispatchQueue.main.async {[self] in
+                isLoading = false
+                log_status = true
             }
-        DispatchQueue.main.async {[self] in
-            isLoading = false
-            log_status = true
+        } catch {
+            handleError(error: error.localizedDescription)
         }
     }
     // MARK: ERROR HANDLER
