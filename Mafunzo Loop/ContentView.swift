@@ -12,8 +12,7 @@ struct ContentView: View {
     var body: some View {
         if log_status {
             // MARK: To Home View
-            Text("Home")
-                .navigationTitle("Home")
+            HomeView()
         } else {
             LoginView()
         }
