@@ -23,6 +23,7 @@ struct RoundedCornersShape: Shape {
 extension Color {
     static let ViewBackground = Color("ViewColor")
     static let textLineColor = Color("textLineColor")
+    static let homeCategory = Color("homeCategory")
 }
 // MARK: Verification Code Text Styling
 struct CodeTextStyle: ViewModifier {
