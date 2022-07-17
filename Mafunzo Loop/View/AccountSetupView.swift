@@ -45,8 +45,8 @@ struct AccountSetupView: View {
                                     }
                                     .textFieldStyling()
                                     Picker(selection: $otpViewModel.schoolSelected, label: Text("School")) {
-                                        ForEach(0 ..< otpViewModel.user.schools.count) {
-                                            Text(self.otpViewModel.user.schools[$0])
+                                        ForEach(0 ..< otpViewModel.user.schools.count, id: \.self) {
+                                            Text("\(self.otpViewModel.user.schools[$0].schoolName)")
                                         }
                                     }
                                     .textFieldStyling()
@@ -90,7 +90,9 @@ struct AccountSetupView: View {
                          )
                          .offset(y: -55)
                 }
+                NavigationLink(destination: HomeView(), isActive: $otpViewModel.toHomeScreen, label: EmptyView.init)
             }
+          .alert(otpViewModel.errorMsg, isPresented: $otpViewModel.showAlert) {}
        }
     }
     // selected items
@@ -109,7 +111,7 @@ struct AccountSetupView: View {
         return (formatter.string(from: Date()) as NSString) as String
     }
     func createAccount() async {
-        let schoolSelected = otpViewModel.user.schools[otpViewModel.schoolSelected]
+        let schoolSelected = otpViewModel.user.schools[otpViewModel.schoolSelected].id
         let school = [schoolSelected]
         itemSelected()
         let dateCreated = Int(generateCurrentTimeStamp()) ?? 0
