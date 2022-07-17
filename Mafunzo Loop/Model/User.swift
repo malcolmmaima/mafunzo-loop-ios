@@ -21,7 +21,7 @@ class User: Codable, ObservableObject, Identifiable {
     @Published var lastName = ""
     @Published var email = ""
     @Published var accountType = ""
-    @Published var schools: [String] = []
+    @Published var schools: [SchoolData] = []
     @Published var dateCreated: Int = 0
     @Published var profilePic = ""
     init() {}
@@ -30,7 +30,7 @@ class User: Codable, ObservableObject, Identifiable {
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
         accountType = try container.decode(String.self, forKey: .accountType)
-        schools = try container.decode([String].self, forKey: .schools)
+        schools = try container.decode([SchoolData].self, forKey: .schools)
         dateCreated = try container.decode(Int.self, forKey: .dateCreated)
         profilePic = try container.decode(String.self, forKey: .profilePic)
     }
@@ -44,4 +44,10 @@ class User: Codable, ObservableObject, Identifiable {
         try container.encode(dateCreated, forKey: .dateCreated)
         try container.encode(profilePic, forKey: .profilePic)
     }
+}
+
+struct SchoolData: Codable, Identifiable {
+    var id: String
+    var schoolLocation: String
+    var schoolName: String
 }
