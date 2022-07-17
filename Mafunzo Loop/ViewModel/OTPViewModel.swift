@@ -11,6 +11,7 @@ import Firebase
 
 class OTPViewModel: ObservableObject {
     @Published var user: User = .init()
+    @Published var schoolData = SchoolData(id: "", schoolLocation: "", schoolName: "")
     //OTP
     @Published var otpText: String = ""
     @Published var otpFields: [String] = Array(repeating: "", count: 6)
@@ -20,6 +21,7 @@ class OTPViewModel: ObservableObject {
     @Published var schoolSelected = 0
     // VIEWS
     @Published var toAccountSetup = false
+    @Published var toHomeScreen = false
     // MARK: Error
     @Published var showAlert: Bool = false
     @Published var errorMsg = ""
@@ -33,7 +35,6 @@ class OTPViewModel: ObservableObject {
     //Initialze functions
     init() {
         getSchools()
-        //getAccountType()
     }
     // MARK: Send OTP
     func sendOTP(phone: String) async {
@@ -51,7 +52,7 @@ class OTPViewModel: ObservableObject {
         }
     }
     // MARK: VERIFY OTP
-    func verifyOTP() async {
+    func verifyOTP(phone: String) async {
         do {
             isLoading = true
             otpText = otpFields.reduce("") { partialResult, value in
@@ -59,9 +60,30 @@ class OTPViewModel: ObservableObject {
             }
             let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationCode, verificationCode: otpText)
             _ = try await Auth.auth().signIn(with: credential)
-            DispatchQueue.main.async {[self] in
-                isLoading = false
-                toAccountSetup = true
+            await checkUserStatus(number: phone)
+        } catch {
+            handleError(error: error.localizedDescription)
+        }
+    }
+    // MARK: Check if user Exists
+    func checkUserStatus(number: String) async {
+        do {
+            let docRef = db.collection("users").document(number)
+            let doc = try await docRef.getDocument()
+            if(!doc.exists) {
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.toAccountSetup = true
+                }
+                print("User Does not exist")
+            } else {
+                UserDefaults.standard.set(number, forKey: "userNumber") //save number
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.toHomeScreen = true
+                    self.log_status = true
+                }
+                print("User Details \(String(describing: doc.data()))")
             }
         } catch {
             handleError(error: error.localizedDescription)
@@ -80,9 +102,14 @@ class OTPViewModel: ObservableObject {
             }
             if let snapshot = snapshot {
                 for document in snapshot.documents {
-                    let data = document.data()
-                    let schoolDetails = data["schoolName"] as? String ?? ""
-                    self.user.schools.append(schoolDetails)
+                    if document == document {
+                        let data = document.data()
+                        let docId = document.documentID
+                        let schoolName = data["schoolName"] as? String ?? ""
+                        let schoolLocation = data["schoolLocation"] as? String ?? ""
+                        let schoolDataList = SchoolData(id: docId, schoolLocation: schoolLocation, schoolName: schoolName)
+                        self.user.schools.append(schoolDataList)
+                    }
                 }
             }
         }
@@ -116,9 +143,11 @@ class OTPViewModel: ObservableObject {
                 "profilePic": user.profilePic,
                 "schools": school
             ])
-            DispatchQueue.main.async {[self] in
-                isLoading = false
-                log_status = true
+            DispatchQueue.main.async {
+                self.isLoading = false
+                self.toHomeScreen = true
+                self.log_status = true
+                UserDefaults.standard.set(number, forKey: "userNumber") //save number
             }
         } catch {
             handleError(error: error.localizedDescription)
