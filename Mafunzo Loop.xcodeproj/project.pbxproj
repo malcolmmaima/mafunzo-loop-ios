@@ -23,6 +23,7 @@
 		20021F22286E467F007D5329 /* OTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20021F21286E467F007D5329 /* OTPViewModel.swift */; };
 		20021F26286E4948007D5329 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20021F25286E4948007D5329 /* LoginView.swift */; };
 		20021F28286E4983007D5329 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20021F27286E4983007D5329 /* Extensions.swift */; };
+		202457A92879A64000FE180E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202457A82879A64000FE180E /* UserViewModel.swift */; };
 		20372A5D28734F6200F3C0AF /* countryCode.json in Resources */ = {isa = PBXBuildFile; fileRef = 20372A5C28734F6100F3C0AF /* countryCode.json */; };
 		20372A5F28735A9800F3C0AF /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A5E28735A9800F3C0AF /* OTPView.swift */; };
 		20372A612873629900F3C0AF /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A602873629900F3C0AF /* TopView.swift */; };
@@ -45,6 +46,7 @@
 		20021F21286E467F007D5329 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		20021F25286E4948007D5329 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		20021F27286E4983007D5329 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		202457A82879A64000FE180E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		20372A5C28734F6100F3C0AF /* countryCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = countryCode.json; path = ../../../../../Downloads/countryCode.json; sourceTree = "<group>"; };
 		20372A5E28735A9800F3C0AF /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		20372A602873629900F3C0AF /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				20021F21286E467F007D5329 /* OTPViewModel.swift */,
 				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
+				202457A82879A64000FE180E /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				20BC55C92878B3150018AACA /* HomeView.swift in Sources */,
 				2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */,
 				203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */,
+				202457A92879A64000FE180E /* UserViewModel.swift in Sources */,
 				20021F28286E4983007D5329 /* Extensions.swift in Sources */,
 				20021F22286E467F007D5329 /* OTPViewModel.swift in Sources */,
 				20372A5F28735A9800F3C0AF /* OTPView.swift in Sources */,
