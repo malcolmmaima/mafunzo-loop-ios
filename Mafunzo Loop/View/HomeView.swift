@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var userViewModel: UserViewModel
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -19,8 +20,22 @@ struct HomeView: View {
                         CategoryCell(image: "ic_requests", CategoryTitle: "Requests", image2: "ic_teachers", CategoryTitle2: "Teachers")
                         CategoryCell(image: "ic_school_bus", CategoryTitle: "School Bus", image2: "ic_contacts", CategoryTitle2: "Contacts")
                     }
-                    .offset(y: -50)
-                }.frame(height: 600)
+                    .frame(height: geo.size.height * 0.7)
+                   .offset(y: -50)
+                    Button {
+                        print("")
+                    } label: {
+                        Text(userViewModel.schoolD.schoolName)
+                            .font(.body)
+                            .foregroundColor(.black)
+                            .frame(width: 350, height: 35)
+                    }
+                    .background(
+                        RoundedCornersShape(corners: .allCorners, radius: 20)
+                            .fill(Color.homeCategory)
+                    )
+                    .shadow(radius: 1)
+                }
                 .padding()
              // MARK: Curving view
                  .background(
@@ -30,14 +45,16 @@ struct HomeView: View {
                  .offset(y: -50)
             }
             .background(Color.ViewBackground)
+            .navigationBarHidden(true)
         }
     }
 }
 // MARK: TOP VIEW
 struct HomeTopView: View {
+    @EnvironmentObject var userViewModel: UserViewModel
     var body: some View {
         HStack {
-            Text("Hi Admin")
+            Text("Hi, \(userViewModel.user.firstName)")
                 .foregroundColor(.white)
                 .font(.title2)
                 .bold()
@@ -66,7 +83,7 @@ struct CategoryCell: View {
                 Text(CategoryTitle)
                     .font(.body)
             } .padding()
-                .frame(width: 140, height: 140)
+                .frame(width: 160, height: 160)
             .background(
                 RoundedCornersShape(corners: .allCorners, radius: 20)
                     .fill(Color.homeCategory)
@@ -80,25 +97,21 @@ struct CategoryCell: View {
                 Text(CategoryTitle2)
                     .font(.body)
             } .padding()
-                .frame(width: 140, height: 140)
+                .frame(width: 160, height: 160)
             .background(
                 RoundedCornersShape(corners: .allCorners, radius: 20)
                     .fill(Color.homeCategory)
             )
             .shadow(radius: 1)
         }
-        .padding()
-        .padding(.bottom, 20)
+        .padding(.horizontal, 10)
+       .padding(.bottom, 8)
             .background(Color.clear)
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
             HomeView()
-            HomeTopView()
-            CategoryCell(image: "ic_announcement", CategoryTitle: "Announcements", image2: "ic_calendar", CategoryTitle2: "Calendar")
-        }
     }
 }
