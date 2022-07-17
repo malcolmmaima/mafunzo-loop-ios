@@ -28,7 +28,7 @@ struct OTPView: View {
                     // MARK: VERIFY Button
                     Button {
                         Task {
-                          await otpViewModel.verifyOTP()
+                          await otpViewModel.verifyOTP(phone: number)
                         }
                     } label: {
                         Text("Verify")
@@ -79,6 +79,7 @@ struct OTPView: View {
             .fullScreenCover(isPresented: $otpViewModel.toAccountSetup) {
                 AccountSetupView(number: number, user: User())
             }
+            NavigationLink(destination: HomeView(), isActive: $otpViewModel.toHomeScreen, label: EmptyView.init)
             .alert(otpViewModel.errorMsg, isPresented: $otpViewModel.showAlert) {}
         }
     }
