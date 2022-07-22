@@ -128,7 +128,7 @@ struct HomeCell: View {
                 HStack {
                     // MARK: Announcements
                     NavigationLink {
-                        AnnoucementView()
+                        AnnoucementListView()
                     } label: {
                         VStack {
                             Image("ic_announcement")
