@@ -24,6 +24,7 @@ extension Color {
     static let ViewBackground = Color("ViewColor")
     static let textLineColor = Color("textLineColor")
     static let homeCategory = Color("homeCategory")
+    static let buttonHomeColor = Color("ButtonTextHome")
 }
 // MARK: Verification Code Text Styling
 struct CodeTextStyle: ViewModifier {
