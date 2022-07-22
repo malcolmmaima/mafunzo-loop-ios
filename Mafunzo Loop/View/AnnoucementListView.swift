@@ -22,7 +22,7 @@ struct AnnoucementListView: View {
                     List {
                         ForEach(annoucementViewModel.announcements , id: \.announcementTitle) { annoucements in
                             NavigationLink(destination: AnnouncementView(announcement: annoucements)) {
-                                AnnouncementViewCell(image: annoucements.announcementImage, Title: annoucements.announcementTitle, date: annoucements.announcementTime, announcementBody: annoucements.announcementBody)
+                                AnnouncementListViewCell(image: annoucements.announcementImage, Title: annoucements.announcementTitle, date: annoucements.announcementTime, announcementBody: annoucements.announcementBody)
                                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
                             }
                         }
