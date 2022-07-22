@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Calendar: Codable {
+struct CalendarEvents: Codable {
     let id: String
     let description: String
     let end: String
