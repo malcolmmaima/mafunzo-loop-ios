@@ -25,10 +25,11 @@ struct AnnoucementListView: View {
                                 AnnouncementListViewCell(image: annoucements.announcementImage, Title: annoucements.announcementTitle, date: annoucements.announcementTime, announcementBody: annoucements.announcementBody)
                                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
                             }
+                            .listRowSeparator(.hidden)
                         }
                         .listRowBackground(Color.ViewBackground)
                     }
-                    .listStyle(SidebarListStyle())
+                    .listStyle(.insetGrouped)
                     .padding(.top, 25)
                     .refreshable {
                         annoucementViewModel.fetchAnnoucements()
