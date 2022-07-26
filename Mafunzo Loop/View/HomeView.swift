@@ -18,9 +18,6 @@ struct HomeView: View {
                     VStack {
                         ScrollView {
                             HomeCell()
-    //                        CategoryCell(image: "ic_announcement", CategoryTitle: "Announcements", image2: "ic_calendar", CategoryTitle2: "Calendar")
-    //                        CategoryCell(image: "ic_requests", CategoryTitle: "Requests", image2: "ic_teachers", CategoryTitle2: "Teachers")
-    //                        CategoryCell(image: "ic_school_bus", CategoryTitle: "School Bus", image2: "ic_contacts", CategoryTitle2: "Contacts")
                         }
                         .frame(height: geo.size.height * 0.7)
                        .offset(y: -50)
@@ -72,58 +69,9 @@ struct HomeTopView: View {
         .background(Color.yellow)
     }
 }
-// MARK: Category Cell
-struct CategoryCell: View {
-    @State var image: String
-    @State var CategoryTitle: String
-    @State var image2: String
-    @State var CategoryTitle2: String
-    var body: some View {
-        HStack {
-            VStack {
-                Button {
-                    print("Clicked")
-                } label: {
-                    VStack {
-                        Image(image)
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                        Text(CategoryTitle)
-                            .font(.body)
-                    }
-                }
-            } .padding()
-                .frame(width: 160, height: 160)
-            .background(
-                RoundedCornersShape(corners: .allCorners, radius: 20)
-                    .fill(Color.homeCategory)
-            )
-            .shadow(radius: 1)
-            Spacer()
-            VStack {
-                Image(image2)
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                Text(CategoryTitle2)
-                    .font(.body)
-            } .padding()
-                .frame(width: 160, height: 160)
-            .background(
-                RoundedCornersShape(corners: .allCorners, radius: 20)
-                    .fill(Color.homeCategory)
-            )
-            .shadow(radius: 1)
-        }
-        .padding(.horizontal, 10)
-       .padding(.bottom, 8)
-            .background(Color.clear)
-    }
-}
-
+// MARK: Item Home Modules
 struct HomeCell: View {
-    @State var toAccouncement = false
     var body: some View {
-       // NavigationView {
             VStack {
                 HStack {
                     // MARK: Announcements
@@ -148,8 +96,8 @@ struct HomeCell: View {
                     .shadow(radius: 1)
                     Spacer()
                     // MARK: Calendar
-                    Button {
-                        print("")
+                    NavigationLink {
+                        CalendarView()
                     } label: {
                         VStack {
                             Image("ic_calendar")
@@ -269,7 +217,7 @@ struct HomeCell: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-            //HomeView()
+        //HomeView()
         HomeCell()
     }
 }
