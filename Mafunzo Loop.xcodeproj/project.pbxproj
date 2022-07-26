@@ -37,6 +37,11 @@
 		20B2CB9D28855A25008C1BE8 /* AnnoucementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */; };
 		20B2CB9F28855C7E008C1BE8 /* AnnoucementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */; };
 		20BC55C92878B3150018AACA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC55C82878B3140018AACA /* HomeView.swift */; };
+		20C7C7E328900E6C00D8FB32 /* UpcommingEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */; };
+		20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA01F2288B22E0009AC923 /* CalendarEvents.swift */; };
+		20CA01F5288B237A009AC923 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA01F4288B237A009AC923 /* CalendarViewModel.swift */; };
+		20D64B99288AC70500F7F104 /* CalendarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D64B98288AC70500F7F104 /* CalendarListView.swift */; };
+		20D64B9B288ACA5D00F7F104 /* EventListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D64B9A288ACA5D00F7F104 /* EventListViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +70,11 @@
 		20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoucementViewModel.swift; sourceTree = "<group>"; };
 		20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoucementListView.swift; sourceTree = "<group>"; };
 		20BC55C82878B3140018AACA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingEventsView.swift; sourceTree = "<group>"; };
+		20CA01F2288B22E0009AC923 /* CalendarEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvents.swift; sourceTree = "<group>"; };
+		20CA01F4288B237A009AC923 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		20D64B98288AC70500F7F104 /* CalendarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarListView.swift; sourceTree = "<group>"; };
+		20D64B9A288ACA5D00F7F104 /* EventListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +143,7 @@
 				20021F1F286E439A007D5329 /* User.swift */,
 				203C6C26286F10DC003F1570 /* CountryCode.swift */,
 				20B2CB9A28855976008C1BE8 /* Annoucement.swift */,
+				20CA01F2288B22E0009AC923 /* CalendarEvents.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +155,7 @@
 				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
 				202457A82879A64000FE180E /* UserViewModel.swift */,
 				20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */,
+				20CA01F4288B237A009AC923 /* CalendarViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -160,6 +172,9 @@
 				20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */,
 				205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */,
 				205CAADF28873FA10050FEED /* AnnouncementView.swift */,
+				20D64B98288AC70500F7F104 /* CalendarListView.swift */,
+				20D64B9A288ACA5D00F7F104 /* EventListViewCell.swift */,
+				20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,13 +266,18 @@
 				203C6C29286F110E003F1570 /* CountryCodeViewModel.swift in Sources */,
 				20021F01286E27BB007D5329 /* ContentView.swift in Sources */,
 				20BC55C92878B3150018AACA /* HomeView.swift in Sources */,
+				20C7C7E328900E6C00D8FB32 /* UpcommingEventsView.swift in Sources */,
 				2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */,
 				203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */,
+				20CA01F5288B237A009AC923 /* CalendarViewModel.swift in Sources */,
 				202457A92879A64000FE180E /* UserViewModel.swift in Sources */,
+				20D64B9B288ACA5D00F7F104 /* EventListViewCell.swift in Sources */,
 				20021F28286E4983007D5329 /* Extensions.swift in Sources */,
 				205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */,
 				20021F22286E467F007D5329 /* OTPViewModel.swift in Sources */,
 				20372A5F28735A9800F3C0AF /* OTPView.swift in Sources */,
+				20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */,
+				20D64B99288AC70500F7F104 /* CalendarListView.swift in Sources */,
 				2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */,
 				20372A612873629900F3C0AF /* TopView.swift in Sources */,
 				20021EFF286E27BB007D5329 /* Mafunzo_LoopApp.swift in Sources */,
