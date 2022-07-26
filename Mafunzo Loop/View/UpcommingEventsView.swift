@@ -28,8 +28,8 @@ struct UpcommingEventsView: View {
                         calendarViewModel.showUpcommingEvents()
                     }
                 }
-                //.padding()
-                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding()
+                .frame(maxWidth: .infinity)
                 .background(
                     RoundedCornersShape(corners: .allCorners, radius: 40)
                         .fill(Color.ViewBackground)
