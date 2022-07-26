@@ -10,8 +10,8 @@ import Foundation
 struct CalendarEvents: Codable {
     let id: String
     let description: String
-    let end: String
-    let start: String
+    let end: Int
+    let start: Int
     let location: String
     let title: String
 }
