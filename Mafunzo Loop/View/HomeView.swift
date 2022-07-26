@@ -26,7 +26,7 @@ struct HomeView: View {
                         } label: {
                             Text(userViewModel.schoolD.schoolName)
                                 .font(.body)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color.buttonHomeColor)
                                 .frame(width: 350, height: 35)
                         }
                         .background(
