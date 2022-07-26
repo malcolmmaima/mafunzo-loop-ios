@@ -97,7 +97,7 @@ struct HomeCell: View {
                     Spacer()
                     // MARK: Calendar
                     NavigationLink {
-                        CalendarView()
+                        CalendarListView()
                     } label: {
                         VStack {
                             Image("ic_calendar")
