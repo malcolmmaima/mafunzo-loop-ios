@@ -72,7 +72,7 @@ class CalendarViewModel: ObservableObject {
         print("Converted \(convertDay)")
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 10800) // GMT+0300 - 1080 seconds = 3hrs
         print("New Converted Day \(dateFormatter.string(from: convertDay))")
         let newDate = dateFormatter.string(from: convertDay)
         print("String Date to Date Type: \(dateFormatter.date(from: newDate) ?? Date.now)")
