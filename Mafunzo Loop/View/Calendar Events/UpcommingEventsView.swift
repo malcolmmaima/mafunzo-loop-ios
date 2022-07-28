@@ -17,7 +17,9 @@ struct UpcommingEventsView: View {
                 VStack {
                     List {
                          ForEach(calendarViewModel.calendarEvents, id: \.id) { event in
-                                      EventListViewCell(date: event.start, title: event.title, startingTime: event.start, ending: event.end)
+                             NavigationLink(destination: EventView(event: event)){
+                                 EventListViewCell(date: event.start, title: event.title, startingTime: event.start, ending: event.end)
+                             }
                                  .listRowSeparator(.hidden)
                          }
                          .listRowBackground(Color.ViewBackground)
