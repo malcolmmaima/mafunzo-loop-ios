@@ -121,8 +121,8 @@ struct HomeCell: View {
                     .background(Color.clear)
                 HStack {
                     // MARK: Requests
-                    Button {
-                        print("")
+                    NavigationLink {
+                        RequestView(request: Request())
                     } label: {
                         VStack {
                             Image("ic_requests")
