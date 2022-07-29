@@ -40,6 +40,7 @@
 		20B2CB9D28855A25008C1BE8 /* AnnoucementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */; };
 		20B2CB9F28855C7E008C1BE8 /* AnnoucementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */; };
 		20B94882289438D600198903 /* RequestListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B94881289438D600198903 /* RequestListViewCell.swift */; };
+		20B9488428948CC200198903 /* RequestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9488328948CC200198903 /* RequestListView.swift */; };
 		20BC55C92878B3150018AACA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC55C82878B3140018AACA /* HomeView.swift */; };
 		20C7C7E328900E6C00D8FB32 /* UpcommingEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */; };
 		20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E5289272B700D8FB32 /* EventView.swift */; };
@@ -78,6 +79,7 @@
 		20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoucementViewModel.swift; sourceTree = "<group>"; };
 		20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoucementListView.swift; sourceTree = "<group>"; };
 		20B94881289438D600198903 /* RequestListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListViewCell.swift; sourceTree = "<group>"; };
+		20B9488328948CC200198903 /* RequestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListView.swift; sourceTree = "<group>"; };
 		20BC55C82878B3140018AACA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingEventsView.swift; sourceTree = "<group>"; };
 		20C7C7E5289272B700D8FB32 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				2016ADEA2892AB7E0025BA98 /* RequestView.swift */,
 				20B94881289438D600198903 /* RequestListViewCell.swift */,
+				20B9488328948CC200198903 /* RequestListView.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */,
 				20D64B99288AC70500F7F104 /* CalendarListView.swift in Sources */,
 				2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */,
+				20B9488428948CC200198903 /* RequestListView.swift in Sources */,
 				20372A612873629900F3C0AF /* TopView.swift in Sources */,
 				20021EFF286E27BB007D5329 /* Mafunzo_LoopApp.swift in Sources */,
 				20B2CB9F28855C7E008C1BE8 /* AnnoucementListView.swift in Sources */,

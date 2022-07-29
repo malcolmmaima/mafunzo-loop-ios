@@ -56,7 +56,7 @@ struct RequestView: View {
                     .listStyle(InsetGroupedListStyle())
                     
                     NavigationLink {
-                        UpcommingEventsView()
+                        RequestListView()
                     } label: {
                         Text("View all requests")
                             .foregroundColor(.blue)
