@@ -39,7 +39,7 @@ struct RequestView: View {
                             } label: {
                                 Text("Submit")
                                     .foregroundColor(.white)
-                                    .frame(height: 30)
+                                    .frame(height: 40)
                                     .frame(maxWidth: .infinity)
                             }
                             .background(Color.blue).opacity(requestViewModel.isLoading ? 0 : 1)
@@ -49,31 +49,26 @@ struct RequestView: View {
                             }
                             .cornerRadius(5)
                         }
-                        //.padding()
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
                     }
-                    .frame(height: geo.size.height * 0.55)
+                    .frame(height: geo.size.height * 0.50)
                     .listStyle(InsetGroupedListStyle())
                     
                     NavigationLink {
                         UpcommingEventsView()
                     } label: {
-                        Text("View all upcoming")
+                        Text("View all requests")
                             .foregroundColor(.blue)
                             .font(.body)
                     }
-//                    List {
-//                         ForEach(calendarViewModel.calendarEvents, id: \.id) { event in
-//                             NavigationLink(destination: EventView(event: event)) {
-//                                 EventListViewCell(date: event.start, title: event.title, startingTime: event.start, ending: event.end)
-//                                     .buttonStyle(PlainButtonStyle())
-//                             }
-//                                 .listRowSeparator(.hidden)
-//                         }
-//                         .listRowBackground(Color.ViewBackground)
-//                     }
-//                    .listStyle(.plain)
+                    List {
+                        ForEach(requestViewModel.requestFetch, id: \.id) {
+                            request in
+                            RequestListViewCell(requestTitle: request.subject, requestStatus: request.status, createdDate: request.createdAt)
+                                .listRowSeparator(.hidden)
+                        }.listRowBackground(Color.ViewBackground)
+                    }.listStyle(.plain)
                 }
                 .padding()
                 .frame(minWidth: 0, maxWidth: .infinity)
@@ -95,17 +90,6 @@ struct RequestView: View {
          return false
      }
      */
-    /*
-     // selected items
-     func itemSelected() {
-         //Passing item category
-         let accountTypeSelected = otpViewModel.accountType[otpViewModel.accountSelected]
-         user.firstName = otpViewModel.user.firstName
-         user.lastName = otpViewModel.user.lastName
-         user.email = otpViewModel.user.email
-         user.accountType = accountTypeSelected
-     }
-     */
     //Request Types
     func submitRequest() async {
         let requestType = requestViewModel.request_type.types[requestViewModel.requestSelected]
@@ -115,7 +99,7 @@ struct RequestView: View {
         request.message = requestViewModel.request.message
         request.createdAt = generateCurrentTimeStamp()
         
-        await requestViewModel.createRequest(request: request)
+        await requestViewModel.submitRequest(request: request)
     }
     //TimeStamp
     func generateCurrentTimeStamp () -> Int {
