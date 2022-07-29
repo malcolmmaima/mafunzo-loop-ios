@@ -17,8 +17,12 @@ struct SplashScreen: View {
         } else {
             VStack {
                 VStack {
-                    Image("mafunzo_round_logo")
+                    Image("app_log")
                         .resizable()
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.black.opacity(0.1),lineWidth:4)
+                            .shadow(color: Color.gray, radius: 5, x: -2, y: 0))
+                        .mask(Circle().padding(.leading, -30))
                         .frame(width: 200, height: 200, alignment: .center)
                         .padding(.top, 20)
                     Spacer()
