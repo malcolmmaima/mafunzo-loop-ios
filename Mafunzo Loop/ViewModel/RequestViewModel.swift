@@ -15,25 +15,22 @@ class RequestViewModel: ObservableObject {
     @Published var verificationCode: String = ""
     //Status
     @Published var isLoading: Bool = false
-    @Published var request: Request = .init()
+    //Model
     @Published var requestSelected = 0
-//    @Published var request_type = [Request_Types]()
+    @Published var request: Request = .init()
+    @Published var requestFetch = [RequestDecoder]()
     @Published var request_type = Request_Types(types: [])
-//    @Published var showAlert: Bool = false
-
     //Firebase
     let db = Firestore.firestore()
-    
     init() {
-         getAccountTypes()
+        getAccountTypes()
+        getRequests()
     }
     
-    //MARK : Get Account Types
+    //MARK: Get Account Types
     func getAccountTypes() {
-        //remove all accounts
-      //  request_type.removeAll()
             let ref = db.collection("app_settings").document(" request_types")
-        ref.getDocument(source: .server) { document, error in
+        ref.getDocument(source: .default) { document, error in
             if let document = document {
                 let data = document.data()
                 let requestTypesArray = data?["types"] as? [String] ?? []
@@ -45,19 +42,19 @@ class RequestViewModel: ObservableObject {
         }
     }
     
-    //MARK: Create Request
-    func createRequest(request: Request) async {
+    //MARK: Submit Request
+    func submitRequest(request: Request) async {
         do {
             isLoading = true
             let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
+            let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
+            let userNumber = String(describing: userSavedNumber)
             let schoolID = String(describing: schoolStored)
-            print("Get School ID \(schoolID)")
-            
             if schoolID != "" {
-                let ref = db.collection("requests").document(schoolID).collection("+254790457258").document()
+                let ref = db.collection("requests").document(schoolID).collection(userNumber).document()
                 try await ref.setData([
                     "createdAt": request.createdAt,
-                    //"id": request.
+                    "id": ref.documentID, // auto generated Document ID
                     "message": request.message,
                     "status": request.status,
                     "subject": request.subject,
@@ -69,6 +66,43 @@ class RequestViewModel: ObservableObject {
             }
         } catch {
             print("Error!! \(error.localizedDescription)")
+        }
+    }
+    
+    // MARK: Get ALL Requests
+    func getRequests() {
+      requestFetch.removeAll()
+        let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
+        let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
+        let userNumber = String(describing: userSavedNumber)
+        let schoolID = String(describing: schoolStored)
+        
+        if schoolID != "" {
+            let requestRef = db.collection("requests").document(schoolID).collection(userNumber)
+                //.order(by: "createdAt")
+            requestRef.getDocuments(source: .default) { requestDoc, error in
+                guard error == nil else {
+                    print("Error!! \(error!.localizedDescription)")
+                    return
+                }
+                if let results = requestDoc {
+                    for document in results.documents {
+                        if document == document {
+                            let data = document.data()
+                            let id = data["id"] as? String ?? ""
+                            let createdAt = data["createdAt"] as? Int ?? 0
+                            let message = data["message"] as? String ?? ""
+                            let status = data["status"] as? String ?? ""
+                            let subject = data["subject"] as? String ?? ""
+                            let type = data["type"] as? String ?? ""
+                        
+                            let statusRawValue = RequestStatus(rawValue: status) // Pass status String as a RequestStatus raw Value
+                            let requestData = RequestDecoder(createdAt: createdAt, id: id, message: message, status: statusRawValue!, subject: subject, type: type)
+                                self.requestFetch.append(requestData)
+                        }
+                    }
+                }
+            }
         }
     }
 }
