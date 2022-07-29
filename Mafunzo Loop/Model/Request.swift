@@ -7,14 +7,6 @@
 
 import Foundation
 
-/*
- createdAt              1658412091386
- id                 "Cu91v5vXmvWdJX7RUywj"
- message                "pending"
- status                 "PENDING"
- subject                "Pending request"
- type               "GENERAL_REQUEST"
- */
 class Request: Codable, ObservableObject, Identifiable {
     enum CodingKeys: CodingKey {
         case createdAt
@@ -53,7 +45,22 @@ class Request: Codable, ObservableObject, Identifiable {
         try container.encode(type, forKey: .type)
     }
 }
-
+struct RequestDecoder: Codable {
+    let createdAt: Int
+    let id: String
+    let message: String
+    let status: RequestStatus
+    let subject: String
+    let type: String
+}
 struct Request_Types: Codable {
     var types: [String]
+}
+
+enum RequestStatus: String, Codable {
+    case REQUEST_STATUS_PENDING = "PENDING"
+    case REQUEST_STATUS_PROCESSING = "PROCESSING"
+    case REQUEST_STATUS_CANCELLED = "CANCELLED"
+    case REQUEST_STATUS_REJECTED = "REJECTED"
+    case REQUEST_STATUS_APPROVED = "APPROVED"
 }
