@@ -34,7 +34,7 @@ struct RequestListViewCell: View {
         }
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 10)
-                .fill(Color.ViewBackground)
+                .fill(Color.homeCategory)
         )
         .shadow(radius: 2.0)
     }
