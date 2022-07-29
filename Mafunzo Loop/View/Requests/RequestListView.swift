@@ -19,8 +19,10 @@ struct RequestListView: View {
                     List {
                         ForEach(requestViewModel.requestFetch, id: \.id) {
                             request in
-                            RequestListViewCell(requestTitle: request.subject, requestStatus: request.status, createdDate: request.createdAt)
-                                .listRowSeparator(.hidden)
+                            NavigationLink(destination: RequestViewInfo(status: request.status, requestInfo: request)) {
+                                RequestListViewCell(requestTitle: request.subject, requestStatus: request.status, createdDate: request.createdAt)
+                            }
+                            .listRowSeparator(.hidden)
                         }.listRowBackground(Color.ViewBackground)
                     }.listStyle(.plain)
                     .padding(.top, 25)
