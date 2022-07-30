@@ -24,7 +24,6 @@ class RequestViewModel: ObservableObject {
     let db = Firestore.firestore()
     init() {
         getAccountTypes()
-        getRequests()
     }
     
     //MARK: Get Account Types
@@ -71,6 +70,7 @@ class RequestViewModel: ObservableObject {
     
     // MARK: Get ALL Requests
     func getRequests() {
+        isLoading = true
       requestFetch.removeAll()
         let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
         let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
@@ -97,7 +97,45 @@ class RequestViewModel: ObservableObject {
                         
                             let statusRawValue = RequestStatus(rawValue: status) // Pass status String as a RequestStatus raw Value
                             let requestData = RequestDecoder(createdAt: createdAt, id: id, message: message, status: statusRawValue!, subject: subject, type: type)
+                            self.requestFetch.append(requestData) //Add all Requests to [RequestDecoder]
+                            self.isLoading = false
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getAllRequests() {
+        isLoading = true
+      requestFetch.removeAll()
+        let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
+        let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
+        let userNumber = String(describing: userSavedNumber)
+        let schoolID = String(describing: schoolStored)
+        
+        if schoolID != "" {
+            let requestRef = db.collection("requests").document(schoolID).collection(userNumber).order(by: "createdAt", descending: true)
+            requestRef.getDocuments(source: .default) { requestDoc, error in
+                guard error == nil else {
+                    print("Error!! \(error!.localizedDescription)")
+                    return
+                }
+                if let results = requestDoc {
+                    for document in results.documents {
+                        if document == document {
+                            let data = document.data()
+                            let id = data["id"] as? String ?? ""
+                            let createdAt = data["createdAt"] as? Int ?? 0
+                            let message = data["message"] as? String ?? ""
+                            let status = data["status"] as? String ?? ""
+                            let subject = data["subject"] as? String ?? ""
+                            let type = data["type"] as? String ?? ""
+                        
+                            let statusRawValue = RequestStatus(rawValue: status) // Pass status String as a RequestStatus raw Value
+                            let requestData = RequestDecoder(createdAt: createdAt, id: id, message: message, status: statusRawValue!, subject: subject, type: type)
                                 self.requestFetch.append(requestData)
+                            self.isLoading = false
                         }
                     }
                 }
