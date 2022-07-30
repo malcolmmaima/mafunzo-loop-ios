@@ -32,17 +32,29 @@ struct CalendarListView: View {
                             .foregroundColor(.blue)
                             .font(.body)
                     }
-                   List {
-                        ForEach(calendarViewModel.calendarEvents, id: \.id) { event in
-                            NavigationLink(destination: EventView(event: event)) {
-                                EventListViewCell(date: event.start, title: event.title, startingTime: event.start, ending: event.end)
-                                    .buttonStyle(PlainButtonStyle())
-                            }
-                                .listRowSeparator(.hidden)
-                        }
-                        .listRowBackground(Color.ViewBackground)
+                    ZStack {
+                        List {
+                             ForEach(calendarViewModel.calendarEvents, id: \.id) { event in
+                                 NavigationLink(destination: EventView(event: event)) {
+                                     EventListViewCell(date: event.start, title: event.title, startingTime: event.start, ending: event.end)
+                                         .buttonStyle(PlainButtonStyle())
+                                 }
+                                     .listRowSeparator(.hidden)
+                             }
+                             .listRowBackground(Color.ViewBackground)
+                         }
+                        .listStyle(.plain)
+                        
+                        Text("No available Events")
+                           .opacity(calendarViewModel.noEvent ? 1 : 0)
                     }
-                   .listStyle(.plain)
+                   .overlay {
+                       ProgressView()
+                           .opacity(calendarViewModel.isLoading ? 1 : 0)
+                           .font(.system(size: 2))
+                           .padding()
+                           .progressViewStyle(CircularProgressViewStyle(tint: Color.yellow))
+                    }
                 }
                 .padding()
                 .frame(minWidth: 0, maxWidth: .infinity)
