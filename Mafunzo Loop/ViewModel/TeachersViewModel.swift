@@ -19,9 +19,6 @@ class TeachersViewModel: ObservableObject {
     @Published var teacher = [Teacher]()
     //Firebase
     let db = Firestore.firestore()
-    init() {
-        getAllTeachers()
-    }
     
     // MARK: GET ALL Teachers
     func getAllTeachers() {
