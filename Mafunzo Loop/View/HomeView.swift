@@ -142,8 +142,8 @@ struct HomeCell: View {
                     .shadow(radius: 1)
                     Spacer()
                     // MARK: Teachers
-                    Button {
-                        print("")
+                    NavigationLink {
+                        TeachersListView()
                     } label: {
                         VStack {
                             Image("ic_teachers")
