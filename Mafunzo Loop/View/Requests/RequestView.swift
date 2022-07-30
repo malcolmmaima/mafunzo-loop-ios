@@ -47,12 +47,14 @@ struct RequestView: View {
                                 ProgressView()
                                     .opacity(requestViewModel.isLoading ? 1 : 0)
                             }
+                            .disabled(requestViewModel.request.subject == "" && requestViewModel.request.message == "")
+                            .opacity(requestViewModel.request.subject == "" && requestViewModel.request.message == "" ? 0.4 : 1)
                             .cornerRadius(5)
                         }
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
                     }
-                    .frame(height: geo.size.height * 0.50)
+                    .frame(height: geo.size.height * 0.55)
                     .listStyle(InsetGroupedListStyle())
                     
                     NavigationLink {
@@ -62,16 +64,21 @@ struct RequestView: View {
                             .foregroundColor(.blue)
                             .font(.body)
                     }
-                    List {
-                        ForEach(requestViewModel.requestFetch, id: \.id) {
-                            request in
-                            NavigationLink(destination: RequestViewInfo(status: request.status, requestInfo: request)) {
-                                RequestListViewCell(requestTitle: request.subject, requestStatus: request.status, createdDate: request.createdAt)
-                            }
-                            .listRowSeparator(.hidden)
-                        }.listRowBackground(Color.ViewBackground)
+                    ZStack {
+                        List {
+                            ForEach(requestViewModel.requestFetch, id: \.id) {
+                                request in
+                                NavigationLink(destination: RequestViewInfo(status: request.status, requestInfo: request)) {
+                                    RequestListViewCell(requestTitle: request.subject, requestStatus: request.status, createdDate: request.createdAt)
+                                }
+                                .listRowSeparator(.hidden)
+                            }.listRowBackground(Color.ViewBackground)
+                        }
+                        .listStyle(.plain)
+                        
+                        Text("No Requests")
+                            .opacity(requestViewModel.noRequest ? 1 : 0)
                     }
-                    .listStyle(.plain)
                     .overlay {
                         ProgressView()
                             .opacity(requestViewModel.isLoading ? 1 : 0)
