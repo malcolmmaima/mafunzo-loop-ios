@@ -78,8 +78,7 @@ class RequestViewModel: ObservableObject {
         let schoolID = String(describing: schoolStored)
         
         if schoolID != "" {
-            let requestRef = db.collection("requests").document(schoolID).collection(userNumber)
-                //.order(by: "createdAt")
+            let requestRef = db.collection("requests").document(schoolID).collection(userNumber).order(by: "createdAt", descending: true).limit(to: 3)
             requestRef.getDocuments(source: .default) { requestDoc, error in
                 guard error == nil else {
                     print("Error!! \(error!.localizedDescription)")
