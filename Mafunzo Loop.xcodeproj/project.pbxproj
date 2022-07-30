@@ -151,17 +151,25 @@
 		20021F24286E4935007D5329 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				204CFF402895AAEA00AF92A7 /* Announcement */,
 				20021F25286E4948007D5329 /* LoginView.swift */,
 				20372A5E28735A9800F3C0AF /* OTPView.swift */,
 				20372A602873629900F3C0AF /* TopView.swift */,
 				2042E8402873894F00DBA7AE /* SplashScreen.swift */,
 				2042E84228742ACD00DBA7AE /* AccountSetupView.swift */,
 				20BC55C82878B3140018AACA /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		204CFF402895AAEA00AF92A7 /* Announcement */ = {
+			isa = PBXGroup;
+			children = (
 				20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */,
 				205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */,
 				205CAADF28873FA10050FEED /* AnnouncementView.swift */,
 			);
-			path = View;
+			path = Announcement;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
