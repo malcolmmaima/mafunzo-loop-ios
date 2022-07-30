@@ -70,7 +70,15 @@ struct RequestView: View {
                             }
                             .listRowSeparator(.hidden)
                         }.listRowBackground(Color.ViewBackground)
-                    }.listStyle(.plain)
+                    }
+                    .listStyle(.plain)
+                    .overlay {
+                        ProgressView()
+                            .opacity(requestViewModel.isLoading ? 1 : 0)
+                            .font(.system(size: 2))
+                            .padding()
+                            .progressViewStyle(CircularProgressViewStyle(tint: Color.yellow))
+                        }
                 }
                 .padding()
                 .frame(minWidth: 0, maxWidth: .infinity)
@@ -80,6 +88,8 @@ struct RequestView: View {
                 )
                 .offset(y: -55)
             }
+        }.onAppear {
+            requestViewModel.getRequests()
         }
         .navigationBarTitle(Text("Requests"), displayMode: .inline)
     }

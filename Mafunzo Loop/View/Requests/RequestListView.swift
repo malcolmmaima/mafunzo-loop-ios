@@ -27,7 +27,7 @@ struct RequestListView: View {
                     }.listStyle(.plain)
                     .padding(.top, 25)
                     .refreshable {
-                        requestViewModel.getRequests()
+                        requestViewModel.getAllRequests()
                     }
                 }
                 .padding()
@@ -38,6 +38,15 @@ struct RequestListView: View {
                 )
                 .offset(y: -55)
             }
+            .overlay {
+                ProgressView()
+                    .opacity(requestViewModel.isLoading ? 1 : 0)
+                    .font(.system(size: 2))
+                    .padding()
+                    .progressViewStyle(CircularProgressViewStyle(tint: Color.yellow))
+            }
+        }.onAppear {
+            requestViewModel.getAllRequests()
         }
         .navigationBarTitle(Text("My Requests"), displayMode: .inline)
     }
