@@ -31,11 +31,8 @@
 		203C6C29286F110E003F1570 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */; };
 		2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E8402873894F00DBA7AE /* SplashScreen.swift */; };
 		2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E84228742ACD00DBA7AE /* AccountSetupView.swift */; };
-		205CAADE2886AE570050FEED /* AnnouncementListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */; };
-		205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADF28873FA10050FEED /* AnnouncementView.swift */; };
 		20B2CB9B28855976008C1BE8 /* Annoucement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9A28855976008C1BE8 /* Annoucement.swift */; };
 		20B2CB9D28855A25008C1BE8 /* AnnoucementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */; };
-		20B2CB9F28855C7E008C1BE8 /* AnnoucementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */; };
 		20BC55C92878B3150018AACA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC55C82878B3140018AACA /* HomeView.swift */; };
 		20C7C7E328900E6C00D8FB32 /* UpcommingEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */; };
 		20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E5289272B700D8FB32 /* EventView.swift */; };
@@ -65,11 +62,8 @@
 		203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
 		2042E8402873894F00DBA7AE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		2042E84228742ACD00DBA7AE /* AccountSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupView.swift; sourceTree = "<group>"; };
-		205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListViewCell.swift; sourceTree = "<group>"; };
-		205CAADF28873FA10050FEED /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		20B2CB9A28855976008C1BE8 /* Annoucement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annoucement.swift; sourceTree = "<group>"; };
 		20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoucementViewModel.swift; sourceTree = "<group>"; };
-		20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoucementListView.swift; sourceTree = "<group>"; };
 		20BC55C82878B3140018AACA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingEventsView.swift; sourceTree = "<group>"; };
 		20C7C7E5289272B700D8FB32 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
@@ -172,9 +166,6 @@
 				2042E8402873894F00DBA7AE /* SplashScreen.swift */,
 				2042E84228742ACD00DBA7AE /* AccountSetupView.swift */,
 				20BC55C82878B3140018AACA /* HomeView.swift */,
-				20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */,
-				205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */,
-				205CAADF28873FA10050FEED /* AnnouncementView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,7 +276,6 @@
 				20D64B9B288ACA5D00F7F104 /* EventListViewCell.swift in Sources */,
 				20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */,
 				20021F28286E4983007D5329 /* Extensions.swift in Sources */,
-				205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */,
 				20021F22286E467F007D5329 /* OTPViewModel.swift in Sources */,
 				20372A5F28735A9800F3C0AF /* OTPView.swift in Sources */,
 				20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */,
@@ -293,8 +283,6 @@
 				2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */,
 				20372A612873629900F3C0AF /* TopView.swift in Sources */,
 				20021EFF286E27BB007D5329 /* Mafunzo_LoopApp.swift in Sources */,
-				20B2CB9F28855C7E008C1BE8 /* AnnoucementListView.swift in Sources */,
-				205CAADE2886AE570050FEED /* AnnouncementListViewCell.swift in Sources */,
 				20B2CB9B28855976008C1BE8 /* Annoucement.swift in Sources */,
 				20021F26286E4948007D5329 /* LoginView.swift in Sources */,
 				20B2CB9D28855A25008C1BE8 /* AnnoucementViewModel.swift in Sources */,
