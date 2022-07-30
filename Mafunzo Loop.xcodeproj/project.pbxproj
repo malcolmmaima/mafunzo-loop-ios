@@ -35,6 +35,8 @@
 		2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E8402873894F00DBA7AE /* SplashScreen.swift */; };
 		2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E84228742ACD00DBA7AE /* AccountSetupView.swift */; };
 		204CFF3728955B5600AF92A7 /* TeachersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3628955B5600AF92A7 /* TeachersListView.swift */; };
+		204CFF3928955CEA00AF92A7 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3828955CEA00AF92A7 /* Teacher.swift */; };
+		204CFF3B28955DC800AF92A7 /* TeachersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */; };
 		205CAADE2886AE570050FEED /* AnnouncementListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */; };
 		205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADF28873FA10050FEED /* AnnouncementView.swift */; };
 		20B2CB9B28855976008C1BE8 /* Annoucement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9A28855976008C1BE8 /* Annoucement.swift */; };
@@ -76,6 +78,8 @@
 		2042E8402873894F00DBA7AE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		2042E84228742ACD00DBA7AE /* AccountSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupView.swift; sourceTree = "<group>"; };
 		204CFF3628955B5600AF92A7 /* TeachersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersListView.swift; sourceTree = "<group>"; };
+		204CFF3828955CEA00AF92A7 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
+		204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersViewModel.swift; sourceTree = "<group>"; };
 		205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListViewCell.swift; sourceTree = "<group>"; };
 		205CAADF28873FA10050FEED /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		20B2CB9A28855976008C1BE8 /* Annoucement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annoucement.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 				20B2CB9A28855976008C1BE8 /* Annoucement.swift */,
 				20CA01F2288B22E0009AC923 /* CalendarEvents.swift */,
 				2016ADE82892A8F80025BA98 /* Request.swift */,
+				204CFF3828955CEA00AF92A7 /* Teacher.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 				20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */,
 				20CA01F4288B237A009AC923 /* CalendarViewModel.swift */,
 				2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */,
+				204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 				203C6C29286F110E003F1570 /* CountryCodeViewModel.swift in Sources */,
 				2016ADE92892A8F80025BA98 /* Request.swift in Sources */,
 				20021F01286E27BB007D5329 /* ContentView.swift in Sources */,
+				204CFF3B28955DC800AF92A7 /* TeachersViewModel.swift in Sources */,
 				20B94882289438D600198903 /* RequestListViewCell.swift in Sources */,
 				20BC55C92878B3150018AACA /* HomeView.swift in Sources */,
 				20C7C7E328900E6C00D8FB32 /* UpcommingEventsView.swift in Sources */,
@@ -332,6 +339,7 @@
 				20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */,
 				20D64B99288AC70500F7F104 /* CalendarListView.swift in Sources */,
 				2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */,
+				204CFF3928955CEA00AF92A7 /* Teacher.swift in Sources */,
 				20B9488428948CC200198903 /* RequestListView.swift in Sources */,
 				20372A612873629900F3C0AF /* TopView.swift in Sources */,
 				204CFF3728955B5600AF92A7 /* TeachersListView.swift in Sources */,
