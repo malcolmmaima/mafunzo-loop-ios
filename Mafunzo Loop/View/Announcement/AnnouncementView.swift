@@ -10,7 +10,6 @@ import SwiftUI
 struct AnnouncementView: View {
     var announcement: Annoucements
     var body: some View {
-       // NavigationView {
             GeometryReader { geo in
                 VStack(spacing: 5) {
                     AnnoucementTopView()
@@ -41,8 +40,6 @@ struct AnnouncementView: View {
                     )
                     .offset(y: -55)
                 }
-           // }
-           // .navigationBarHidden(true)
         }
     }
     func dateFormattered() -> String {
