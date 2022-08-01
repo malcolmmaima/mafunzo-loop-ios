@@ -189,15 +189,12 @@
 		20021F24286E4935007D5329 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				208D5AC62897F70A0082FBD3 /* Verification */,
 				208D5AC52897F15A0082FBD3 /* Announcement */,
 				204CFF3528955B1F00AF92A7 /* Teachers */,
 				2016ADE72892A8D80025BA98 /* Requests */,
 				20C7C7E42892726F00D8FB32 /* Calendar Events */,
-				20021F25286E4948007D5329 /* LoginView.swift */,
-				20372A5E28735A9800F3C0AF /* OTPView.swift */,
-				20372A602873629900F3C0AF /* TopView.swift */,
 				2042E8402873894F00DBA7AE /* SplashScreen.swift */,
-				2042E84228742ACD00DBA7AE /* AccountSetupView.swift */,
 				20BC55C82878B3140018AACA /* HomeView.swift */,
 			);
 			path = View;
@@ -232,6 +229,17 @@
 				205CAADF28873FA10050FEED /* AnnouncementView.swift */,
 			);
 			path = Announcement;
+			sourceTree = "<group>";
+		};
+		208D5AC62897F70A0082FBD3 /* Verification */ = {
+			isa = PBXGroup;
+			children = (
+				20372A602873629900F3C0AF /* TopView.swift */,
+				20021F25286E4948007D5329 /* LoginView.swift */,
+				20372A5E28735A9800F3C0AF /* OTPView.swift */,
+				2042E84228742ACD00DBA7AE /* AccountSetupView.swift */,
+			);
+			path = Verification;
 			sourceTree = "<group>";
 		};
 		20C7C7E42892726F00D8FB32 /* Calendar Events */ = {

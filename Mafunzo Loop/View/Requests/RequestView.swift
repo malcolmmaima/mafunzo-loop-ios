@@ -53,9 +53,12 @@ struct RequestView: View {
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
                     }
-                    .frame(height: geo.size.height * 0.55)
+                    .frame(height: geo.size.height * 0.53)
                     .listStyle(InsetGroupedListStyle())
-                    
+                    .onAppear(perform: {
+                        UITableView.appearance().backgroundColor = UIColor.clear
+                        UITableViewCell.appearance().backgroundColor = UIColor.clear
+                    })
                     NavigationLink {
                         RequestListView()
                     } label: {
