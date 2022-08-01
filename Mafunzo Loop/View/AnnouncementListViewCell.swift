@@ -4,7 +4,6 @@
 //
 //  Created by Mroot on 19/07/2022.
 //
-
 import SwiftUI
 
 struct AnnouncementListViewCell: View {

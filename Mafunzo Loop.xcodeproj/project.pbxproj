@@ -11,7 +11,6 @@
 		20021F01286E27BB007D5329 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20021F00286E27BB007D5329 /* ContentView.swift */; };
 		20021F03286E27C0007D5329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20021F02286E27C0007D5329 /* Assets.xcassets */; };
 		20021F06286E27C0007D5329 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20021F05286E27C0007D5329 /* Preview Assets.xcassets */; };
-		20021F0D286E29BD007D5329 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 20021F0C286E29BD007D5329 /* GoogleService-Info.plist */; };
 		20021F10286E3494007D5329 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 20021F0F286E3494007D5329 /* FirebaseAnalytics */; };
 		20021F12286E3494007D5329 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 20021F11286E3494007D5329 /* FirebaseAuth */; };
 		20021F14286E3494007D5329 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 20021F13286E3494007D5329 /* FirebaseCrashlytics */; };
@@ -27,7 +26,6 @@
 		2016ADEB2892AB7E0025BA98 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2016ADEA2892AB7E0025BA98 /* RequestView.swift */; };
 		2016ADED2892DBDB0025BA98 /* RequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */; };
 		202457A92879A64000FE180E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202457A82879A64000FE180E /* UserViewModel.swift */; };
-		20372A5D28734F6200F3C0AF /* countryCode.json in Resources */ = {isa = PBXBuildFile; fileRef = 20372A5C28734F6100F3C0AF /* countryCode.json */; };
 		20372A5F28735A9800F3C0AF /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A5E28735A9800F3C0AF /* OTPView.swift */; };
 		20372A612873629900F3C0AF /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A602873629900F3C0AF /* TopView.swift */; };
 		203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C26286F10DC003F1570 /* CountryCode.swift */; };
@@ -41,6 +39,8 @@
 		204CFF3F2895682F00AF92A7 /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3E2895682F00AF92A7 /* TeacherView.swift */; };
 		205CAADE2886AE570050FEED /* AnnouncementListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */; };
 		205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADF28873FA10050FEED /* AnnouncementView.swift */; };
+		208D5AC22897ED6B0082FBD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */; };
+		208D5AC42897EF570082FBD3 /* countryCode.json in Resources */ = {isa = PBXBuildFile; fileRef = 208D5AC32897EF570082FBD3 /* countryCode.json */; };
 		20B2CB9B28855976008C1BE8 /* Annoucement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9A28855976008C1BE8 /* Annoucement.swift */; };
 		20B2CB9D28855A25008C1BE8 /* AnnoucementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */; };
 		20B2CB9F28855C7E008C1BE8 /* AnnoucementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */; };
@@ -62,8 +62,6 @@
 		20021F00286E27BB007D5329 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		20021F02286E27C0007D5329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20021F05286E27C0007D5329 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		20021F0C286E29BD007D5329 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Mafunzo/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		20021F1D286E3B67007D5329 /* Mafunzo-Loop-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Mafunzo-Loop-Info.plist"; sourceTree = SOURCE_ROOT; };
 		20021F1F286E439A007D5329 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20021F21286E467F007D5329 /* OTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewModel.swift; sourceTree = "<group>"; };
 		20021F25286E4948007D5329 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 		2016ADEA2892AB7E0025BA98 /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
 		2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewModel.swift; sourceTree = "<group>"; };
 		202457A82879A64000FE180E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		20372A5C28734F6100F3C0AF /* countryCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = countryCode.json; path = ../../../../../Downloads/countryCode.json; sourceTree = "<group>"; };
 		20372A5E28735A9800F3C0AF /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		20372A602873629900F3C0AF /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		203C6C26286F10DC003F1570 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
@@ -86,6 +83,8 @@
 		204CFF3E2895682F00AF92A7 /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
 		205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListViewCell.swift; sourceTree = "<group>"; };
 		205CAADF28873FA10050FEED /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
+		208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		208D5AC32897EF570082FBD3 /* countryCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = countryCode.json; path = "Mafunzo Loop/countryCode.json"; sourceTree = "<group>"; };
 		20B2CB9A28855976008C1BE8 /* Annoucement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annoucement.swift; sourceTree = "<group>"; };
 		20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoucementViewModel.swift; sourceTree = "<group>"; };
 		20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoucementListView.swift; sourceTree = "<group>"; };
@@ -122,6 +121,7 @@
 		20021EF2286E27BB007D5329 = {
 			isa = PBXGroup;
 			children = (
+				208D5AC32897EF570082FBD3 /* countryCode.json */,
 				20021EFD286E27BB007D5329 /* Mafunzo Loop */,
 				20021EFC286E27BB007D5329 /* Products */,
 			);
@@ -138,12 +138,10 @@
 		20021EFD286E27BB007D5329 /* Mafunzo Loop */ = {
 			isa = PBXGroup;
 			children = (
-				20372A5C28734F6100F3C0AF /* countryCode.json */,
+				208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */,
 				20021F24286E4935007D5329 /* View */,
 				20021F23286E4687007D5329 /* ViewModel */,
 				20021F1E286E4385007D5329 /* Model */,
-				20021F1D286E3B67007D5329 /* Mafunzo-Loop-Info.plist */,
-				20021F0C286E29BD007D5329 /* GoogleService-Info.plist */,
 				20021EFE286E27BB007D5329 /* Mafunzo_LoopApp.swift */,
 				20021F00286E27BB007D5329 /* ContentView.swift */,
 				20021F02286E27C0007D5329 /* Assets.xcassets */,
@@ -311,8 +309,8 @@
 			files = (
 				20021F06286E27C0007D5329 /* Preview Assets.xcassets in Resources */,
 				20021F03286E27C0007D5329 /* Assets.xcassets in Resources */,
-				20021F0D286E29BD007D5329 /* GoogleService-Info.plist in Resources */,
-				20372A5D28734F6200F3C0AF /* countryCode.json in Resources */,
+				208D5AC22897ED6B0082FBD3 /* GoogleService-Info.plist in Resources */,
+				208D5AC42897EF570082FBD3 /* countryCode.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

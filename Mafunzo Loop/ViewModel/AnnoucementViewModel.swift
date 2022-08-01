@@ -13,9 +13,9 @@ class AnnoucementViewModel: ObservableObject {
     // MARK: Error
     @Published var showAlert: Bool = false
     @Published var errorMsg = ""
-    @Published var verificationCode: String = ""
     //Status
     @Published var isLoading: Bool = false
+    @Published var noAnnouncement: Bool = false
     //Firebase
     let db = Firestore.firestore()
     init() {
@@ -30,20 +30,27 @@ class AnnoucementViewModel: ObservableObject {
         print("Get School ID \(schoolID)")
        if schoolID != "" {
             isLoading = true
+           noAnnouncement = false
             let ref = db.collection("announcements").document(schoolID).collection("PARENT")
-           ref.getDocuments { snapshot, error in
+           ref.getDocuments { announcementSnapshot, error in
                guard error == nil else {
                    print(error!.localizedDescription)
                    return
                }
-               if let snapshot = snapshot {
+               if let snapshot = announcementSnapshot {
+                   if snapshot.documents == [] {
+                       self.isLoading = false
+                       self.noAnnouncement = true
+                   }
                    for document in snapshot.documents {
+                       self.noAnnouncement = false
                        let body = document["announcementBody"] as? String ?? ""
                        let image = document["announcementImage"] as? String ?? ""
                        let time = document["announcementTime"] as? Int ?? 0
                        let title = document["announcementTitle"] as? String ?? ""
                        let anouncement = Annoucements(announcementBody: body, announcementImage: image, announcementTime: time, announcementTitle: title)
                        self.announcements.append(anouncement)
+                       self.isLoading = false
                    }
                }
            }
