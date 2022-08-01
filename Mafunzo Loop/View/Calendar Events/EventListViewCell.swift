@@ -4,7 +4,6 @@
 //
 //  Created by Mroot on 22/07/2022.
 //
-
 import SwiftUI
 
 struct EventListViewCell: View {
@@ -18,23 +17,30 @@ struct EventListViewCell: View {
                 Text(getDate())
                     .foregroundColor(.blue)
             }
+            .frame(width: 52.0, height: 45)
             .padding()
-            .background(.yellow)
-            VStack {
-                Text(title)
-                    .font(.title3)
-                    .lineLimit(1)
-                Text("\(eventTime(time:startingTime)) - \(eventTime(time: ending))")
-                    .foregroundColor(.blue)
+            .background(
+                RoundedCornersShape(corners: [.topLeft, .bottomLeft], radius: 10)
+                    .fill(Color.yellow)
+            )
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Text(title)
+                        .font(.title3)
+                        .lineLimit(1)
+                    Text("\(eventTime(time:startingTime)) - \(eventTime(time: ending))")
+                        .foregroundColor(.blue)
+                }
+                Spacer()
             }
+            .padding()
+            .frame(width: 250)
         }
-       .padding()
-       .frame(maxWidth: .infinity)
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 10)
                 .fill(Color.homeCategory)
         )
-        .shadow(radius: 1)
+        .shadow(radius: 2.0)
     }
     // MARK: DATE CONVERSION
     //to Day & Month (25th July)
