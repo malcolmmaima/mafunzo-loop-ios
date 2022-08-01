@@ -26,12 +26,15 @@ struct TeacherListViewCell: View {
             VStack(alignment: .leading) {
                 Text("\(firstName) \(lastName)")
                     .foregroundColor(Color.buttonHomeColor)
-                Text("English, Kiswahili, Maths")
+                Text(subjects.joined(separator: ", "))
+                    .multilineTextAlignment(.leading)
                     .foregroundColor(.blue)
-                Text("Grade: 8, 9, 10")
+                Text(grades.joined(separator: ", "))
+                    .multilineTextAlignment(.leading)
                     .foregroundColor(.green)
                 Text(bio)
-                    .foregroundColor(.yellow)
+                    .foregroundColor(.orange)
+                    .font(.body)
             }
             .frame(width: 200)
         }
