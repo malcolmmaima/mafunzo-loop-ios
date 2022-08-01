@@ -4,7 +4,6 @@
 //
 //  Created by Mroot on 28/07/2022.
 //
-
 import SwiftUI
 
 struct EventView: View {
