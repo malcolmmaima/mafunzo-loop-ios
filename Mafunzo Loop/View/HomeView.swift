@@ -48,6 +48,9 @@ struct HomeView: View {
             }
             .navigationBarHidden(true)
         }
+        .onAppear {
+            userViewModel.getSchoolIDFromDetails()
+        }
     }
 }
 // MARK: TOP VIEW
@@ -67,6 +70,9 @@ struct HomeTopView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding()
         .background(Color.yellow)
+        .onAppear {
+            userViewModel.getUserDetails()
+        }
     }
 }
 // MARK: Item Home Modules

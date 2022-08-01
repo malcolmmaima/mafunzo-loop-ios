@@ -43,7 +43,7 @@ class UserViewModel: ObservableObject {
                     let schoolID = schoolData.joined(separator: " ")
                     UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
                     self.user.accountType = userData?["accountType"] as? String ?? ""
-                    print("User School \(schoolID)")
+                    print("User School \(self.user.firstName)")
                 } else {
                     print(error?.localizedDescription ?? "No Data Found")
                 }
