@@ -4,39 +4,41 @@
 //
 //  Created by Mroot on 30/07/2022.
 //
-
 import SwiftUI
 
 struct RequestListView: View {
     @StateObject var requestViewModel = RequestViewModel()
     var body: some View {
         GeometryReader { geo in
-            VStack {
-                AnnoucementTopView()
-                    .frame(height: geo.size.height * 0.09)
+            ZStack {
                 VStack {
-                    
-                    List {
-                        ForEach(requestViewModel.requestFetch, id: \.id) {
-                            request in
-                            NavigationLink(destination: RequestViewInfo(status: request.status, requestInfo: request)) {
-                                RequestListViewCell(requestTitle: request.subject, requestStatus: request.status, createdDate: request.createdAt)
-                            }
-                            .listRowSeparator(.hidden)
-                        }.listRowBackground(Color.ViewBackground)
-                    }.listStyle(.plain)
-                    .padding(.top, 25)
-                    .refreshable {
-                        requestViewModel.getAllRequests()
+                    AnnoucementTopView()
+                        .frame(height: geo.size.height * 0.09)
+                    VStack {
+                        List {
+                            ForEach(requestViewModel.requestFetch, id: \.id) {
+                                request in
+                                NavigationLink(destination: RequestViewInfo(status: request.status, requestInfo: request)) {
+                                    RequestListViewCell(requestTitle: request.subject, requestStatus: request.status, createdDate: request.createdAt)
+                                }
+                                .listRowSeparator(.hidden)
+                            }.listRowBackground(Color.ViewBackground)
+                        }.listStyle(.plain)
+                        .padding(.top, 25)
+                        .refreshable {
+                            requestViewModel.getAllRequests()
+                        }
                     }
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedCornersShape(corners: .allCorners, radius: 40)
+                            .fill(Color.ViewBackground)
+                    )
+                    .offset(y: -55)
                 }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(
-                    RoundedCornersShape(corners: .allCorners, radius: 40)
-                        .fill(Color.ViewBackground)
-                )
-                .offset(y: -55)
+                Text("No Requests")
+                    .opacity(requestViewModel.noRequest ? 1 : 0)
             }
             .overlay {
                 ProgressView()

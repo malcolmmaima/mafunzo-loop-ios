@@ -4,7 +4,6 @@
 //
 //  Created by Mroot on 28/07/2022.
 //
-
 import Foundation
 import Firebase
 
@@ -12,9 +11,9 @@ class RequestViewModel: ObservableObject {
     // MARK: Error
     @Published var showAlert: Bool = false
     @Published var errorMsg = ""
-    @Published var verificationCode: String = ""
     //Status
     @Published var isLoading: Bool = false
+    @Published var noRequest: Bool = false
     //Model
     @Published var requestSelected = 0
     @Published var request: Request = .init()
@@ -71,6 +70,7 @@ class RequestViewModel: ObservableObject {
     // MARK: Get ALL Requests
     func getRequests() {
         isLoading = true
+        noRequest = false
       requestFetch.removeAll()
         let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
         let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
@@ -85,7 +85,12 @@ class RequestViewModel: ObservableObject {
                     return
                 }
                 if let results = requestDoc {
+                    if results.documents == [] { //check result in calendar
+                        self.isLoading = false
+                        self.noRequest = true
+                    }
                     for document in results.documents {
+                        self.noRequest = false
                         if document == document {
                             let data = document.data()
                             let id = data["id"] as? String ?? ""
@@ -108,6 +113,7 @@ class RequestViewModel: ObservableObject {
     
     func getAllRequests() {
         isLoading = true
+        noRequest = false
       requestFetch.removeAll()
         let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
         let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
@@ -122,7 +128,12 @@ class RequestViewModel: ObservableObject {
                     return
                 }
                 if let results = requestDoc {
+                    if results.documents == [] { //check result in calendar
+                        self.isLoading = false
+                        self.noRequest = true
+                    }
                     for document in results.documents {
+                        self.noRequest = false
                         if document == document {
                             let data = document.data()
                             let id = data["id"] as? String ?? ""

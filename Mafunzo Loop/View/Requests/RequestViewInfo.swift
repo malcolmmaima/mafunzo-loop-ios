@@ -4,7 +4,6 @@
 //
 //  Created by Mroot on 30/07/2022.
 //
-
 import SwiftUI
 
 struct RequestViewInfo: View {

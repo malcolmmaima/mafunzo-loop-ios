@@ -4,7 +4,6 @@
 //
 //  Created by Mroot on 29/07/2022.
 //
-
 import SwiftUI
 
 struct RequestListViewCell: View {
@@ -67,6 +66,6 @@ struct RequestListViewCell: View {
 
 struct RequestListViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        RequestListViewCell(requestTitle: "Meals gjhgjfjfjhfhjf", requestStatus: .REQUEST_STATUS_CANCELLED, createdDate: 1659093825119)
+        RequestListViewCell(requestTitle: "Meals", requestStatus: .REQUEST_STATUS_CANCELLED, createdDate: 1659093825119)
     }
 }
