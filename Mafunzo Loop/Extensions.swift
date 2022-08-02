@@ -73,3 +73,14 @@ extension View {
     }
 }
 #endif
+
+extension UserDefaults {
+    enum Keys: String, CaseIterable {
+        case schoolID
+        case userNumber
+        case log_status
+    }
+    func reset() {
+        Keys.allCases.forEach { removeObject(forKey: $0.rawValue) }
+    }
+}
