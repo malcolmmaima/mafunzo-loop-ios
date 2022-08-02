@@ -57,4 +57,12 @@ class TeachersViewModel: ObservableObject {
             }
         }
     }
+    // MARK: ERROR HANDLER
+    func handleError(error: String) {
+        DispatchQueue.main.async {
+            self.isLoading = false
+            self.errorMsg = error
+            self.showAlert.toggle()
+        }
+    }
 }
