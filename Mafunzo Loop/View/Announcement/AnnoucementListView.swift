@@ -12,7 +12,7 @@ struct AnnoucementListView: View {
         GeometryReader { geo in
             ZStack {
                 VStack {
-                    AnnoucementTopView()
+                    NavigationTopView()
                         .frame(height: geo.size.height * 0.09)
                     VStack {
                         List {
@@ -50,16 +50,6 @@ struct AnnoucementListView: View {
             }
         }
         .navigationBarTitle(Text("Announcements"), displayMode: .inline)
-    }
-}
-
-// MARK: TOP VIEW
-struct AnnoucementTopView: View {
-    var body: some View {
-        VStack {
-            Text("")
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.yellow)
     }
 }
 

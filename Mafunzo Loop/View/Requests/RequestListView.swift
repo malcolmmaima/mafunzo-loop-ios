@@ -12,7 +12,7 @@ struct RequestListView: View {
         GeometryReader { geo in
             ZStack {
                 VStack {
-                    AnnoucementTopView()
+                    NavigationTopView()
                         .frame(height: geo.size.height * 0.09)
                     VStack {
                         List {
@@ -51,6 +51,7 @@ struct RequestListView: View {
             requestViewModel.getAllRequests()
         }
         .navigationBarTitle(Text("My Requests"), displayMode: .inline)
+        .alert(requestViewModel.errorMsg, isPresented: $requestViewModel.showAlert) {}
     }
 }
 

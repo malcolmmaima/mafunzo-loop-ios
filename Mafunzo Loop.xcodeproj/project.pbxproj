@@ -41,6 +41,8 @@
 		205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADF28873FA10050FEED /* AnnouncementView.swift */; };
 		208D5AC22897ED6B0082FBD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */; };
 		208D5AC42897EF570082FBD3 /* countryCode.json in Resources */ = {isa = PBXBuildFile; fileRef = 208D5AC32897EF570082FBD3 /* countryCode.json */; };
+		208D5AC828981DBE0082FBD3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208D5AC728981DBE0082FBD3 /* Settings.swift */; };
+		208D5ACA289855360082FBD3 /* NavigationTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208D5AC9289855360082FBD3 /* NavigationTopView.swift */; };
 		20B2CB9B28855976008C1BE8 /* Annoucement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9A28855976008C1BE8 /* Annoucement.swift */; };
 		20B2CB9D28855A25008C1BE8 /* AnnoucementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */; };
 		20B2CB9F28855C7E008C1BE8 /* AnnoucementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */; };
@@ -85,6 +87,8 @@
 		205CAADF28873FA10050FEED /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		208D5AC32897EF570082FBD3 /* countryCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = countryCode.json; path = "Mafunzo Loop/countryCode.json"; sourceTree = "<group>"; };
+		208D5AC728981DBE0082FBD3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		208D5AC9289855360082FBD3 /* NavigationTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTopView.swift; sourceTree = "<group>"; };
 		20B2CB9A28855976008C1BE8 /* Annoucement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Annoucement.swift; sourceTree = "<group>"; };
 		20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoucementViewModel.swift; sourceTree = "<group>"; };
 		20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnoucementListView.swift; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 				20C7C7E42892726F00D8FB32 /* Calendar Events */,
 				2042E8402873894F00DBA7AE /* SplashScreen.swift */,
 				20BC55C82878B3140018AACA /* HomeView.swift */,
+				208D5AC728981DBE0082FBD3 /* Settings.swift */,
+				208D5AC9289855360082FBD3 /* NavigationTopView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -354,6 +360,8 @@
 				20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */,
 				20B9488628948E7600198903 /* RequestViewInfo.swift in Sources */,
 				20021F28286E4983007D5329 /* Extensions.swift in Sources */,
+				208D5AC828981DBE0082FBD3 /* Settings.swift in Sources */,
+				208D5ACA289855360082FBD3 /* NavigationTopView.swift in Sources */,
 				205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */,
 				20021F22286E467F007D5329 /* OTPViewModel.swift in Sources */,
 				2016ADEB2892AB7E0025BA98 /* RequestView.swift in Sources */,

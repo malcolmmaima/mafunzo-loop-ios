@@ -12,7 +12,7 @@ struct RequestView: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-                AnnoucementTopView()
+                NavigationTopView()
                     .frame(height: geo.size.height * 0.1)
                 VStack {
                     Form {

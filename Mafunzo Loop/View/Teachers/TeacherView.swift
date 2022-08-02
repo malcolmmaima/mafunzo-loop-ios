@@ -12,7 +12,7 @@ struct TeacherView: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-                AnnoucementTopView()
+                NavigationTopView()
                     .frame(height: geo.size.height * 0.1)
                 VStack(alignment: .leading) {
                     HStack {

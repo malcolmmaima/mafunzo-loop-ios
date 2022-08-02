@@ -12,7 +12,7 @@ struct UpcommingEventsView: View {
         GeometryReader { geo in
             ZStack {
                 VStack {
-                    AnnoucementTopView()
+                    NavigationTopView()
                         .frame(height: geo.size.height * 0.09)
                     VStack {
                         List {
