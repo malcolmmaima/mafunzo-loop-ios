@@ -148,6 +148,8 @@ class OTPViewModel: ObservableObject {
                 self.toHomeScreen = true
                 self.log_status = true
                 UserDefaults.standard.set(number, forKey: "userNumber") //save number
+                //UserDefaults.standard.set(true, forKey: UserDefaults.Keys.allowDownloadsOverCellular.rawValue)
+                UserDefaults.standard.set(true, forKey: "selectedSchool")
             }
         } catch {
             handleError(error: error.localizedDescription)
