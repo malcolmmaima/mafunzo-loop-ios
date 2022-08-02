@@ -90,7 +90,9 @@ struct AccountSetupView: View {
                          )
                          .offset(y: -55)
                 }
-                NavigationLink(destination: HomeView(), isActive: $otpViewModel.toHomeScreen, label: EmptyView.init)
+                    .fullScreenCover(isPresented: $otpViewModel.toHomeScreen) {
+                            HomeView()
+                    }
             }
           .alert(otpViewModel.errorMsg, isPresented: $otpViewModel.showAlert) {}
        }
