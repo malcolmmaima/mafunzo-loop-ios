@@ -81,6 +81,7 @@ class RequestViewModel: ObservableObject {
             let requestRef = db.collection("requests").document(schoolID).collection(userNumber).order(by: "createdAt", descending: true).limit(to: 3)
             requestRef.getDocuments(source: .default) { requestDoc, error in
                 guard error == nil else {
+                    self.handleError(error: error!.localizedDescription)
                     print("Error!! \(error!.localizedDescription)")
                     return
                 }
@@ -104,6 +105,9 @@ class RequestViewModel: ObservableObject {
                             let requestData = RequestDecoder(createdAt: createdAt, id: id, message: message, status: statusRawValue!, subject: subject, type: type)
                             self.requestFetch.append(requestData) //Add all Requests to [RequestDecoder]
                             self.isLoading = false
+                        } else {
+                            self.handleError(error: error?.localizedDescription ?? "Unable to fetch Requests at this time, Please try again Later")
+                            print(error?.localizedDescription ?? "Unable to fetch Requests at this time, Please try again Later")
                         }
                     }
                 }
@@ -124,6 +128,7 @@ class RequestViewModel: ObservableObject {
             let requestRef = db.collection("requests").document(schoolID).collection(userNumber).order(by: "createdAt", descending: true)
             requestRef.getDocuments(source: .default) { requestDoc, error in
                 guard error == nil else {
+                    self.handleError(error: error!.localizedDescription)
                     print("Error!! \(error!.localizedDescription)")
                     return
                 }
@@ -147,10 +152,21 @@ class RequestViewModel: ObservableObject {
                             let requestData = RequestDecoder(createdAt: createdAt, id: id, message: message, status: statusRawValue!, subject: subject, type: type)
                                 self.requestFetch.append(requestData)
                             self.isLoading = false
+                        } else {
+                            self.handleError(error: error?.localizedDescription ?? "Unable to fetch Requests at this time, Please try again Later")
+                            print(error?.localizedDescription ?? "Unable to fetch Requests at this time, Please try again Later")
                         }
                     }
                 }
             }
+        }
+    }
+    // MARK: ERROR HANDLER
+    func handleError(error: String) {
+        DispatchQueue.main.async {
+            self.isLoading = false
+            self.errorMsg = error
+            self.showAlert.toggle()
         }
     }
 }
