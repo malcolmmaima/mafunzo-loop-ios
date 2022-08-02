@@ -6,14 +6,43 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct HomeView: View {
     @EnvironmentObject var userViewModel: UserViewModel
+    @State var settings: Bool = false
+    @State var logout: Bool = false
+    @State private var showLogoutAlert = false
     var body: some View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
-                    HomeTopView()
+                   //HomeTopView
+                    HStack {
+                        Text("Hi, \(userViewModel.user.firstName)")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                            .bold()
+                        Spacer()
+                        Menu {
+                            Button("Settings") {
+                                self.settings = true
+                            }
+                            Button("Logout") {
+//                                Logout()
+//                                self.settings = true
+                                showLogoutAlert = true
+                            }
+                        } label: {
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .frame(width: 45, height: 45)
+                                .foregroundColor(Color.buttonHomeColor)
+                        }
+                    }.padding()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                        .padding()
+                        .background(Color.yellow)
                         .frame(height: geo.size.height * 0.25)
                     VStack {
                         ScrollView {
@@ -22,6 +51,7 @@ struct HomeView: View {
                         .frame(height: geo.size.height * 0.7)
                        .offset(y: -50)
                         Button {
+                            // MARK: SCHOOL BUTTON
                             print("")
                         } label: {
                             Text(userViewModel.schoolD.schoolName)
@@ -47,15 +77,49 @@ struct HomeView: View {
                 .navigationBarHidden(true)
             }
             .navigationBarHidden(true)
+            .background(
+                NavigationLink(destination: Settings(), isActive: $settings) {
+                    EmptyView()
+            })
+            .fullScreenCover(isPresented: $logout) {
+                    LoginView()
+            }
         }
         .onAppear {
+            userViewModel.getUserDetails()
             userViewModel.getSchoolIDFromDetails()
         }
+        // MARK: Logout Alert
+                .alert(isPresented: $showLogoutAlert) {
+                    Alert(
+                        title: Text("Logout!!"),
+                        message: Text("Are you sure you want to logout?"),
+                        primaryButton: .default(
+                            Text("Cancel")
+                        ),
+                        secondaryButton: .destructive(Text("Logout"), action: {
+                        Logout()
+                        logout.toggle()
+                    }))
+                }
+    }
+    func Logout() {
+            do {
+                UserDefaults.standard.reset()
+                @AppStorage("log_status") var log_status = true
+                try Auth.auth().signOut()
+            } catch {
+                print("already logged out")
+                
+            }
     }
 }
 // MARK: TOP VIEW
 struct HomeTopView: View {
+    @State var settings: Bool = false
+    @State var logout: Bool = false
     @EnvironmentObject var userViewModel: UserViewModel
+    //@StateObject var userViewModel = UserViewModel()
     var body: some View {
         HStack {
             Text("Hi, \(userViewModel.user.firstName)")
@@ -63,9 +127,20 @@ struct HomeTopView: View {
                 .font(.title2)
                 .bold()
             Spacer()
-            Image(systemName: "person.circle.fill")
-                .resizable()
-                .frame(width: 45, height: 45)
+            Menu {
+                NavigationLink {
+                    Settings()
+                } label: {
+                     Text("Settings")
+                }
+            } label: {
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .frame(width: 45, height: 45)
+            }
+//                Image(systemName: "person.circle.fill")
+//                    .resizable()
+//                    .frame(width: 45, height: 45)
         }.padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding()
@@ -224,6 +299,7 @@ struct HomeCell: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         //HomeView()
-        HomeCell()
+       // HomeCell()
+        HomeTopView()
     }
 }
