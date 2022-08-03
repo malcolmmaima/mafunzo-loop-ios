@@ -138,9 +138,6 @@ struct HomeTopView: View {
                     .resizable()
                     .frame(width: 45, height: 45)
             }
-//                Image(systemName: "person.circle.fill")
-//                    .resizable()
-//                    .frame(width: 45, height: 45)
         }.padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .padding()
@@ -248,14 +245,14 @@ struct HomeCell: View {
                     .background(Color.clear)
                 HStack {
                     // MARK: Bus
-                    Button {
-                        print("")
+                    NavigationLink {
+                       SubjectView()
                     } label: {
                         VStack {
-                            Image("ic_school_bus")
+                            Image("ic_timetable")
                                 .resizable()
                                 .frame(width: 80, height: 80)
-                            Text("Bus")
+                            Text("Timetable")
                                 .font(.body)
                         }
                     }
@@ -273,10 +270,10 @@ struct HomeCell: View {
                         print("")
                     } label: {
                         VStack {
-                            Image("ic_contacts")
+                            Image("ic_school_bus")
                                 .resizable()
                                 .frame(width: 80, height: 80)
-                            Text("Contacts")
+                            Text("School bus")
                                 .font(.body)
                         }
                     }
