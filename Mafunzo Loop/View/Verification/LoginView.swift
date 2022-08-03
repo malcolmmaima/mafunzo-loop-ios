@@ -17,6 +17,8 @@ struct LoginView: View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
+                    let userNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
+                    let _ = print("User Number Value from Defaults: \(userNumber)")
                     // MARK: - Top View
                     TopView()
                         .frame(height: geo.size.height * 0.5, alignment: .top)

@@ -106,17 +106,16 @@ struct AccountSetupView: View {
         user.email = otpViewModel.user.email
         user.accountType = accountTypeSelected
     }
-    //TimeStamp
-    func generateCurrentTimeStamp () -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMddhhmmss"
-        return (formatter.string(from: Date()) as NSString) as String
-    }
+
     func createAccount() async {
+        //current time
+        let currentTime = Date.now
+        let currentTimeMillisecond = currentTime.millisecondsSince1970
+        // school selected
         let schoolSelected = otpViewModel.user.schools[otpViewModel.schoolSelected].id
         let school = [schoolSelected]
         itemSelected()
-        let dateCreated = Int(generateCurrentTimeStamp()) ?? 0
+        let dateCreated = Int(currentTimeMillisecond)
         user.dateCreated = dateCreated
         await otpViewModel.setupAccount(number: number, user: user, school: school)
     }
