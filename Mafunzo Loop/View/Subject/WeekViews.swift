@@ -27,15 +27,15 @@ struct Monday: View {
             }.listRowBackground(Color.ViewBackground)
         }.listStyle(.plain)
             .refreshable {
-                subjectViewModel.getSubjecta(selectedGrade: gradeSelected, timeTableDay: daySelected)
+                subjectViewModel.getSubject(selectedGrade: gradeSelected, timeTableDay: daySelected)
             }
             .onChange(of: gradeSelected) { grade in
                 print("Grade------- \(grade)")
-                subjectViewModel.getSubjecta(selectedGrade: grade, timeTableDay: daySelected)
+                subjectViewModel.getSubject(selectedGrade: grade, timeTableDay: daySelected)
 //                subjectViewModel.getSubjecta(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: subjectViewModel.selectedDay)
             }
         .onAppear {
-            subjectViewModel.getSubjecta(selectedGrade: gradeSelected, timeTableDay: daySelected)
+            subjectViewModel.getSubject(selectedGrade: gradeSelected, timeTableDay: daySelected)
         }
     }
 }

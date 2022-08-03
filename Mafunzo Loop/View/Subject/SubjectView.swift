@@ -24,7 +24,7 @@ struct SubjectView: View {
                                 Text(self.subjectViewModel.grades[$0])
                             }
                         }.onChange(of: subjectViewModel.selectedGrade) { newGrade in
-                            subjectViewModel.getSubjecta(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: subjectViewModel.selectedDay)
+                            subjectViewModel.getSubject(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: subjectViewModel.selectedDay)
                         }
                     }.padding()
                     
@@ -33,7 +33,7 @@ struct SubjectView: View {
                     }.padding()
                         .onChange(of: subjectViewModel.selectedDay) { newValue in
                             print("New Value \(newValue)")
-                            subjectViewModel.getSubjecta(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: newValue)
+                            subjectViewModel.getSubject(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: newValue)
                     }
 //                    let _ = print("Selected Day is: \(selectedCategory)")
 //                    let _ = print("Converted \(selectedGrades(grade: grades[selectedGrade]))")

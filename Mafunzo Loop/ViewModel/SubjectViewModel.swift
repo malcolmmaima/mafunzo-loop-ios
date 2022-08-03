@@ -29,31 +29,7 @@ class SubjectViewModel: ObservableObject {
     
     
     // MARK: GET Subject
-//    func getSubject() {
-//        subject.removeAll()
-//        let subjectRef = db.collection("subjects").document(" LQvFVzvUTDLezBxaU90z").collection("grade_10")
-//        subjectRef.getDocuments(source: .default) { subjectQuerySnapshot, error in
-//            guard error == nil else {
-//                print(error!.localizedDescription)
-//                return
-//            }
-//            if let subjectDoc = subjectQuerySnapshot {
-//                for documents in subjectDoc.documents {
-//                    let data = documents.data()
-//                    let assignedTeacher = data["assignedTeacher"] as? String ?? ""
-//                    let subjectName = data["subjectName"] as? String ?? ""
-//                    let startTime = data["startTime"] as? Int ?? 0
-//                    let endTime = data["endTime"] as? Int ?? 0
-//                    let dayOfWeek = data["dayOfWeek"] as? Int ?? 0
-//
-//                    let subjectInfo = Subject(assignedTeacher: assignedTeacher, dayOfWeek: dayOfWeek, endTime: endTime, startTime: startTime, subjectName: subjectName)
-//                    self.subject.append(subjectInfo)
-//                    print("Subject Data \(documents.data())")
-//                }
-//            }
-//        }
-//    }
-    func getSubjecta(selectedGrade: String, timeTableDay: Int) {
+    func getSubject(selectedGrade: String, timeTableDay: Int) {
         subject.removeAll()
         print("Selected Grade at Func: \(selectedGrade)")
         print("Time Table Day: \(timeTableDay)")
