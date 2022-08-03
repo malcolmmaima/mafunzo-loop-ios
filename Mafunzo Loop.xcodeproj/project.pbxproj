@@ -26,6 +26,9 @@
 		2016ADEB2892AB7E0025BA98 /* RequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2016ADEA2892AB7E0025BA98 /* RequestView.swift */; };
 		2016ADED2892DBDB0025BA98 /* RequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */; };
 		202457A92879A64000FE180E /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202457A82879A64000FE180E /* UserViewModel.swift */; };
+		202C825D289A546B0009854E /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C825C289A546A0009854E /* Subject.swift */; };
+		202C825F289A5A7F0009854E /* SubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C825E289A5A7F0009854E /* SubjectViewModel.swift */; };
+		202C8262289A5B500009854E /* SubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C8261289A5B500009854E /* SubjectView.swift */; };
 		20372A5F28735A9800F3C0AF /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A5E28735A9800F3C0AF /* OTPView.swift */; };
 		20372A612873629900F3C0AF /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A602873629900F3C0AF /* TopView.swift */; };
 		203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C26286F10DC003F1570 /* CountryCode.swift */; };
@@ -37,6 +40,8 @@
 		204CFF3B28955DC800AF92A7 /* TeachersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */; };
 		204CFF3D289563B300AF92A7 /* TeacherListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3C289563B300AF92A7 /* TeacherListViewCell.swift */; };
 		204CFF3F2895682F00AF92A7 /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3E2895682F00AF92A7 /* TeacherView.swift */; };
+		2054AF8E289A9A9400D56363 /* WeekViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2054AF8D289A9A9400D56363 /* WeekViews.swift */; };
+		2054AF90289ACF1300D56363 /* SubjectListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2054AF8F289ACF1300D56363 /* SubjectListViewCell.swift */; };
 		205CAADE2886AE570050FEED /* AnnouncementListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */; };
 		205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADF28873FA10050FEED /* AnnouncementView.swift */; };
 		208D5AC22897ED6B0082FBD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */; };
@@ -72,6 +77,9 @@
 		2016ADEA2892AB7E0025BA98 /* RequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestView.swift; sourceTree = "<group>"; };
 		2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewModel.swift; sourceTree = "<group>"; };
 		202457A82879A64000FE180E /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		202C825C289A546A0009854E /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		202C825E289A5A7F0009854E /* SubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewModel.swift; sourceTree = "<group>"; };
+		202C8261289A5B500009854E /* SubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectView.swift; sourceTree = "<group>"; };
 		20372A5E28735A9800F3C0AF /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 		20372A602873629900F3C0AF /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		203C6C26286F10DC003F1570 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
@@ -83,6 +91,8 @@
 		204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersViewModel.swift; sourceTree = "<group>"; };
 		204CFF3C289563B300AF92A7 /* TeacherListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherListViewCell.swift; sourceTree = "<group>"; };
 		204CFF3E2895682F00AF92A7 /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
+		2054AF8D289A9A9400D56363 /* WeekViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViews.swift; sourceTree = "<group>"; };
+		2054AF8F289ACF1300D56363 /* SubjectListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListViewCell.swift; sourceTree = "<group>"; };
 		205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListViewCell.swift; sourceTree = "<group>"; };
 		205CAADF28873FA10050FEED /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -172,6 +182,7 @@
 				20CA01F2288B22E0009AC923 /* CalendarEvents.swift */,
 				2016ADE82892A8F80025BA98 /* Request.swift */,
 				204CFF3828955CEA00AF92A7 /* Teacher.swift */,
+				202C825C289A546A0009854E /* Subject.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +197,7 @@
 				20CA01F4288B237A009AC923 /* CalendarViewModel.swift */,
 				2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */,
 				204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */,
+				202C825E289A5A7F0009854E /* SubjectViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -193,6 +205,7 @@
 		20021F24286E4935007D5329 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				202C8260289A5B3A0009854E /* Subject */,
 				208D5AC62897F70A0082FBD3 /* Verification */,
 				208D5AC52897F15A0082FBD3 /* Announcement */,
 				204CFF3528955B1F00AF92A7 /* Teachers */,
@@ -215,6 +228,16 @@
 				20B9488528948E7600198903 /* RequestViewInfo.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		202C8260289A5B3A0009854E /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				202C8261289A5B500009854E /* SubjectView.swift */,
+				2054AF8D289A9A9400D56363 /* WeekViews.swift */,
+				2054AF8F289ACF1300D56363 /* SubjectListViewCell.swift */,
+			);
+			path = Subject;
 			sourceTree = "<group>";
 		};
 		204CFF3528955B1F00AF92A7 /* Teachers */ = {
@@ -349,17 +372,21 @@
 				204CFF3B28955DC800AF92A7 /* TeachersViewModel.swift in Sources */,
 				20B94882289438D600198903 /* RequestListViewCell.swift in Sources */,
 				20BC55C92878B3150018AACA /* HomeView.swift in Sources */,
+				202C8262289A5B500009854E /* SubjectView.swift in Sources */,
 				20C7C7E328900E6C00D8FB32 /* UpcommingEventsView.swift in Sources */,
 				2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */,
 				203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */,
 				204CFF3D289563B300AF92A7 /* TeacherListViewCell.swift in Sources */,
 				20CA01F5288B237A009AC923 /* CalendarViewModel.swift in Sources */,
 				204CFF3F2895682F00AF92A7 /* TeacherView.swift in Sources */,
+				202C825F289A5A7F0009854E /* SubjectViewModel.swift in Sources */,
 				202457A92879A64000FE180E /* UserViewModel.swift in Sources */,
 				20D64B9B288ACA5D00F7F104 /* EventListViewCell.swift in Sources */,
 				20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */,
 				20B9488628948E7600198903 /* RequestViewInfo.swift in Sources */,
 				20021F28286E4983007D5329 /* Extensions.swift in Sources */,
+				2054AF8E289A9A9400D56363 /* WeekViews.swift in Sources */,
+				202C825D289A546B0009854E /* Subject.swift in Sources */,
 				208D5AC828981DBE0082FBD3 /* Settings.swift in Sources */,
 				208D5ACA289855360082FBD3 /* NavigationTopView.swift in Sources */,
 				205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */,
@@ -375,6 +402,7 @@
 				204CFF3728955B5600AF92A7 /* TeachersListView.swift in Sources */,
 				20021EFF286E27BB007D5329 /* Mafunzo_LoopApp.swift in Sources */,
 				20B2CB9F28855C7E008C1BE8 /* AnnoucementListView.swift in Sources */,
+				2054AF90289ACF1300D56363 /* SubjectListViewCell.swift in Sources */,
 				205CAADE2886AE570050FEED /* AnnouncementListViewCell.swift in Sources */,
 				20B2CB9B28855976008C1BE8 /* Annoucement.swift in Sources */,
 				20021F26286E4948007D5329 /* LoginView.swift in Sources */,
