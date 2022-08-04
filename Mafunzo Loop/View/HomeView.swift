@@ -18,7 +18,7 @@ struct HomeView: View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
-                   //HomeTopView
+                   // MARK: TopView
                     HStack {
                         Text("Hi, \(userViewModel.name)")
                             .foregroundColor(.white)
