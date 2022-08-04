@@ -208,7 +208,7 @@ struct HomeCell: View {
                 HStack {
                     // MARK: Bus
                     NavigationLink {
-                       SubjectView()
+                       TimetableView()
                     } label: {
                         VStack {
                             Image("ic_timetable")

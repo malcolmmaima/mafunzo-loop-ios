@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 
-class SubjectViewModel: ObservableObject {
+class TimetableViewModel: ObservableObject {
     @Published var selectedDay: Int = 0
     @Published var selectedGrade: Int = 0
     @Published var grades = ["Grade 1", "Grade 2", "Grade 3", "Grade 4", "Grade 5", "Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"]
@@ -20,7 +20,7 @@ class SubjectViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var noSubject: Bool = false
     //Model
-    @Published var subject = [Subject]()
+    @Published var timeTable = [Timetable]()
     //Firebase
     let db = Firestore.firestore()
     
@@ -30,7 +30,7 @@ class SubjectViewModel: ObservableObject {
         print("Selected Grade at Func: \(selectedGrade) && Time Table Day: \(timeTableDay)")
         noSubject = false
         isLoading = true
-        subject.removeAll()
+        timeTable.removeAll()
         let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
         let schoolID = String(describing: schoolStored)
         //check school status
@@ -55,8 +55,8 @@ class SubjectViewModel: ObservableObject {
                         let endTime = data["endTime"] as? Int ?? 0
                         let dayOfWeek = data["dayOfWeek"] as? Int ?? 0
                         DispatchQueue.main.async {
-                            let subjectInfo = Subject(assignedTeacher: assignedTeacher, dayOfWeek: dayOfWeek, endTime: endTime, startTime: startTime, subjectName: subjectName)
-                            self.subject.append(subjectInfo)
+                            let subjectInfo = Timetable(assignedTeacher: assignedTeacher, dayOfWeek: dayOfWeek, endTime: endTime, startTime: startTime, subjectName: subjectName)
+                            self.timeTable.append(subjectInfo)
                             self.isLoading = false
                             print("Subject Data \(documents.data())")
                         }

@@ -6,15 +6,8 @@
 //
 
 import Foundation
-/*
- assignedTeacher
- dayOfWeek
- endTime
- startTime
- subjectName
- */
 
-struct Subject: Codable {
+struct Timetable: Codable {
     var assignedTeacher: String
     var dayOfWeek: Int
     var endTime: Int

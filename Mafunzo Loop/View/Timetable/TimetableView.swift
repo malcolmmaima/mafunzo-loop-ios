@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct SubjectView: View {
-    @StateObject var subjectViewModel = SubjectViewModel()
+struct TimetableView: View {
+    @StateObject var timeTableViewModel = TimetableViewModel()
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -18,46 +18,46 @@ struct SubjectView: View {
                     HStack {
                         Text("Select Grade")
                         Spacer()
-                        Picker(selection: $subjectViewModel.selectedGrade, label: Text("Grade")) {
-                            ForEach(0..<subjectViewModel.grades.count, id: \.self) {
-                                Text(self.subjectViewModel.grades[$0])
+                        Picker(selection: $timeTableViewModel.selectedGrade, label: Text("Grade")) {
+                            ForEach(0..<timeTableViewModel.grades.count, id: \.self) {
+                                Text(self.timeTableViewModel.grades[$0])
                             }
-                        }.onChange(of: subjectViewModel.selectedGrade) { newGrade in
-                            let selected = self.subjectViewModel.grades[newGrade]
+                        }.onChange(of: timeTableViewModel.selectedGrade) { newGrade in
+                            let selected = self.timeTableViewModel.grades[newGrade]
                             let convertedGrade = (selectedGrades(grade: selected))
                             print("New Grade \(convertedGrade)")
-                            subjectViewModel.getSubject(selectedGrade: convertedGrade, timeTableDay: subjectViewModel.selectedDay)
+                            timeTableViewModel.getSubject(selectedGrade: convertedGrade, timeTableDay: timeTableViewModel.selectedDay)
                         }
                     }.padding()
                     
-                    Tabs( tabs: .constant(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]), selection: $subjectViewModel.selectedDay, underlineColor: .blue) { day, isSelected in
+                    Tabs( tabs: .constant(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]), selection: $timeTableViewModel.selectedDay, underlineColor: .blue) { day, isSelected in
                         Text(day)
                     }.padding()
-                        .onChange(of: subjectViewModel.selectedDay) { newValue in
+                        .onChange(of: timeTableViewModel.selectedDay) { newValue in
                             print("New Value \(newValue)")
-                            subjectViewModel.getSubject(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: newValue)
+                            timeTableViewModel.getSubject(selectedGrade: selectedGrades(grade: timeTableViewModel.grades[timeTableViewModel.selectedGrade]), timeTableDay: newValue)
                     }
-                    switch(subjectViewModel.selectedDay) {
+                    switch(timeTableViewModel.selectedDay) {
                     case 0: Day()
                     case 1: Day()
                     case 2: Day()
                     case 3: Day()
                     case 4: Day()
                     default:
-                        Day()
+                        Text("Please select Grade and Day")
                     }
                     ZStack {
                         List {
-                            ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
-                                SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
+                            ForEach(timeTableViewModel.timeTable, id: \.dayOfWeek) { subject in
+                                TimetableListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
                                     .listRowSeparator(.hidden)
                             }.listRowBackground(Color.ViewBackground)
                         }.listStyle(.plain)
                         Text("No Subjects")
-                           .opacity(subjectViewModel.noSubject ? 1 : 0)
+                           .opacity(timeTableViewModel.noSubject ? 1 : 0)
                     }        .overlay {
                         ProgressView()
-                            .opacity(subjectViewModel.isLoading ? 1 : 0)
+                            .opacity(timeTableViewModel.isLoading ? 1 : 0)
                             .font(.system(size: 3))
                             .padding()
                             .progressViewStyle(CircularProgressViewStyle(tint: Color.blue))
@@ -83,17 +83,15 @@ struct SubjectView: View {
 }
 
 struct Day: View {
-    @StateObject var subjectViewModel = SubjectViewModel()
+    @StateObject var subjectViewModel = TimetableViewModel()
     var body: some View {
         ZStack {
         }
     }
 }
 
-
-
 struct SubjectView_Previews: PreviewProvider {
     static var previews: some View {
-        SubjectView()
+        TimetableView()
     }
 }

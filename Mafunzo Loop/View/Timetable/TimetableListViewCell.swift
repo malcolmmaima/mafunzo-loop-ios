@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SubjectListViewCell: View {
+struct TimetableListViewCell: View {
     @State var subjectName: String
     @State var startTime: Int
     @State var endTime: Int
@@ -42,6 +42,6 @@ struct SubjectListViewCell: View {
 
 struct SubjectListViewCell_Previews: PreviewProvider {
     static var previews: some View {
-        SubjectListViewCell(subjectName: "Maths", startTime: 1658774866603, endTime: 1658784888401)
+        TimetableListViewCell(subjectName: "Maths", startTime: 1658774866603, endTime: 1658784888401)
     }
 }
