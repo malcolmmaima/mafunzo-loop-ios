@@ -9,7 +9,8 @@ import SwiftUI
 import Firebase
 
 struct HomeView: View {
-    @EnvironmentObject var userViewModel: UserViewModel
+    @ObservedObject var userViewModel = UserViewModel()
+    @ObservedObject var user: User
     @State var settings: Bool = false
     @State var logout: Bool = false
     @State private var showLogoutAlert = false
@@ -17,9 +18,9 @@ struct HomeView: View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
-                   //HomeTopView
+                   // MARK: TopView
                     HStack {
-                        Text("Hi, \(userViewModel.user.firstName)")
+                        Text("Hi, \(userViewModel.name)")
                             .foregroundColor(.white)
                             .font(.title2)
                             .bold()
@@ -29,8 +30,6 @@ struct HomeView: View {
                                 self.settings = true
                             }
                             Button("Logout") {
-//                                Logout()
-//                                self.settings = true
                                 showLogoutAlert = true
                             }
                         } label: {
@@ -54,7 +53,7 @@ struct HomeView: View {
                             // MARK: SCHOOL BUTTON
                             print("")
                         } label: {
-                            Text(userViewModel.schoolD.schoolName)
+                            Text(userViewModel.fetchedSchool)
                                 .font(.body)
                                 .foregroundColor(Color.buttonHomeColor)
                                 .frame(width: 350, height: 35)
@@ -85,10 +84,6 @@ struct HomeView: View {
                     LoginView()
             }
         }
-        .onAppear {
-            userViewModel.getUserDetails()
-            userViewModel.getSchoolIDFromDetails()
-        }
         // MARK: Logout Alert
                 .alert(isPresented: $showLogoutAlert) {
                     Alert(
@@ -112,42 +107,6 @@ struct HomeView: View {
                 print("already logged out")
                 
             }
-    }
-}
-// MARK: TOP VIEW
-struct HomeTopView: View {
-    @State var settings: Bool = false
-    @State var logout: Bool = false
-    @EnvironmentObject var userViewModel: UserViewModel
-    //@StateObject var userViewModel = UserViewModel()
-    var body: some View {
-        HStack {
-            Text("Hi, \(userViewModel.user.firstName)")
-                .foregroundColor(.white)
-                .font(.title2)
-                .bold()
-            Spacer()
-            Menu {
-                NavigationLink {
-                    Settings()
-                } label: {
-                     Text("Settings")
-                }
-            } label: {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .frame(width: 45, height: 45)
-            }
-//                Image(systemName: "person.circle.fill")
-//                    .resizable()
-//                    .frame(width: 45, height: 45)
-        }.padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .padding()
-        .background(Color.yellow)
-        .onAppear {
-            userViewModel.getUserDetails()
-        }
     }
 }
 // MARK: Item Home Modules
@@ -248,14 +207,14 @@ struct HomeCell: View {
                     .background(Color.clear)
                 HStack {
                     // MARK: Bus
-                    Button {
-                        print("")
+                    NavigationLink {
+                       TimetableView()
                     } label: {
                         VStack {
-                            Image("ic_school_bus")
+                            Image("ic_timetable")
                                 .resizable()
                                 .frame(width: 80, height: 80)
-                            Text("Bus")
+                            Text("Timetable")
                                 .font(.body)
                         }
                     }
@@ -273,10 +232,10 @@ struct HomeCell: View {
                         print("")
                     } label: {
                         VStack {
-                            Image("ic_contacts")
+                            Image("ic_school_bus")
                                 .resizable()
                                 .frame(width: 80, height: 80)
-                            Text("Contacts")
+                            Text("School bus")
                                 .font(.body)
                         }
                     }
@@ -298,8 +257,6 @@ struct HomeCell: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        //HomeView()
-       // HomeCell()
-        HomeTopView()
+        HomeView(user: User())
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Settings: View {
-    @EnvironmentObject var userViewModel: UserViewModel
+    @ObservedObject var userViewModel = UserViewModel()
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -21,45 +21,44 @@ struct Settings: View {
                                 .textFieldStyling()
                             TextField("Second Name", text: $userViewModel.user.lastName)
                                 .textFieldStyling()
+                                .padding(.top, 40)
                             TextField("Email Address", text: $userViewModel.user.email)
                                 .textFieldStyling()
-//                            Picker(selection: $otpViewModel.accountSelected, label: Text("Account Type")) {
-//                                ForEach(0 ..< otpViewModel.accountType.count) {
-//                                    Text(self.otpViewModel.accountType[$0])
-//                                }
-//                            }
-//                            .textFieldStyling()
-
-                        }.padding()
+                                .padding(.top, 40)
+                        }
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
-//                        Section {
-//                            Button {
-//                                Task {
-//                                   await createAccount()
-//                                }
-//                            } label: {
-//                                Text("Next")
-//                                    .foregroundColor(.white)
-//                                    .frame(height: 50)
-//                                    .frame(maxWidth: .infinity)
-//                            }
-//                            .background(Color.blue).opacity(otpViewModel.isLoading ? 0 : 1)
-//                            .overlay {
-//                                ProgressView()
-//                                    .opacity(otpViewModel.isLoading ? 1 : 0)
-//                            }
-//                            .cornerRadius(5)
-//                            .padding(.top, 40)
+                        Section {
+                            Button {
+                                // MARK: UPDATE
+                                print("")
+                            } label: {
+                                Text("Update")
+                                    .foregroundColor(.white)
+                                    .frame(height: 50)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .background(Color.blue).opacity(userViewModel.isLoading ? 0 : 1)
+                            .overlay {
+                                ProgressView()
+                                    .opacity(userViewModel.isLoading ? 1 : 0)
+                            }
+                            .cornerRadius(5)
+                            .padding(.top, 40)
 //                            .disabled(checkTexts())
 //                            .opacity(checkTexts() ? 0.4 : 1)
-//                        }
-//                        .padding()
-//                        .listRowBackground(Color.clear)
-//                        .listRowSeparator(.hidden)
+                        }
+                        .padding()
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
                     }
                     .listStyle(InsetGroupedListStyle())
+                    .onAppear(perform: {
+                        UITableView.appearance().backgroundColor = UIColor.clear
+                        UITableViewCell.appearance().backgroundColor = UIColor.clear
+                    })
                 }
+                .padding()
                 .background(
                     RoundedCornersShape(corners: .allCorners, radius: 40)
                         .fill(Color.ViewBackground)

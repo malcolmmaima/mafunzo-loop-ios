@@ -30,6 +30,7 @@ class User: Codable, ObservableObject, Identifiable {
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
         accountType = try container.decode(String.self, forKey: .accountType)
+        email = try container.decode(String.self, forKey: .email)
         schools = try container.decode([SchoolData].self, forKey: .schools)
         dateCreated = try container.decode(Int.self, forKey: .dateCreated)
         profilePic = try container.decode(String.self, forKey: .profilePic)

@@ -102,15 +102,6 @@ struct RequestView: View {
         }
         .navigationBarTitle(Text("Requests"), displayMode: .inline)
     }
-    /*
-     // MARK: Check Textfield status
-     func checkTexts() -> Bool {
-         if otpViewModel.user.firstName == "" || otpViewModel.user.lastName == "" || otpViewModel.user.email == "" {
-             return true
-         }
-         return false
-     }
-     */
     //Request Types
     func submitRequest() async {
         let requestType = requestViewModel.request_type.types[requestViewModel.requestSelected]

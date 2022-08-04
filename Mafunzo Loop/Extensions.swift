@@ -84,3 +84,63 @@ extension UserDefaults {
         Keys.allCases.forEach { removeObject(forKey: $0.rawValue) }
     }
 }
+
+
+//Tab View
+//MARK: -TabView Controller
+struct Tabs<Label: View>: View {
+  @Binding var tabs: [String] // The tab titles
+  @Binding var selection: Int // Currently selected tab
+  let underlineColor: Color // Color of the underline of the selected tab
+  // Tab label rendering closure - provides the current title and if it's the currently selected tab
+  let label: (String, Bool) -> Label
+
+  var body: some View {
+    // Pack the tabs horizontally and allow them to be scrolled
+    ScrollView(.horizontal, showsIndicators: false) {
+      HStack(alignment: .center, spacing: 30) {
+        ForEach(tabs, id: \.self) {
+          self.tab(title: $0)
+        }
+      }.padding(.horizontal, 3) // Tuck the out-most elements in a bit
+  }
+  }
+
+  private func tab(title: String) -> some View {
+    let index = self.tabs.firstIndex(of: title)!
+    let isSelected = index == selection
+    return Button(action: {
+      // Allows for animated transitions of the underline, as well as other views on the same screen
+      withAnimation {
+         self.selection = index
+      }
+    }) {
+      label(title, isSelected)
+            //.borderedCaption()
+            .font(.system(size: 13, weight: .bold, design: .default))
+            .padding(10)
+            .frame(width: 100)
+            .foregroundColor(isSelected ? .white : .gray)
+            .background(isSelected ? .blue : .clear)
+            .cornerRadius(20)
+    }
+  }
+}
+
+struct BorderedCaption: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 13, weight: .bold, design: .default))
+            .padding(10)
+            .frame(width: 100)
+            .foregroundColor(.white)
+            .background(.blue)
+            .cornerRadius(20)
+    }
+}
+
+extension View {
+    func borderedCaption() -> some View {
+        modifier(BorderedCaption())
+    }
+}
