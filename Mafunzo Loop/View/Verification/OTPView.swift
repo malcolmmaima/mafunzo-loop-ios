@@ -79,7 +79,7 @@ struct OTPView: View {
             .fullScreenCover(isPresented: $otpViewModel.toAccountSetup) {
                 AccountSetupView(number: number, user: User())
             }
-            NavigationLink(destination: HomeView(), isActive: $otpViewModel.toHomeScreen, label: EmptyView.init)
+            NavigationLink(destination:  HomeView(user: User()), isActive: $otpViewModel.toHomeScreen, label: EmptyView.init)
             .alert(otpViewModel.errorMsg, isPresented: $otpViewModel.showAlert) {}
         }
     }

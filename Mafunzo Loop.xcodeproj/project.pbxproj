@@ -59,6 +59,7 @@
 		20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E5289272B700D8FB32 /* EventView.swift */; };
 		20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA01F2288B22E0009AC923 /* CalendarEvents.swift */; };
 		20CA01F5288B237A009AC923 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA01F4288B237A009AC923 /* CalendarViewModel.swift */; };
+		20D3814A289C170E00D08651 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D38149289C170E00D08651 /* Test.swift */; };
 		20D64B99288AC70500F7F104 /* CalendarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D64B98288AC70500F7F104 /* CalendarListView.swift */; };
 		20D64B9B288ACA5D00F7F104 /* EventListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D64B9A288ACA5D00F7F104 /* EventListViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -110,6 +111,7 @@
 		20C7C7E5289272B700D8FB32 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		20CA01F2288B22E0009AC923 /* CalendarEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvents.swift; sourceTree = "<group>"; };
 		20CA01F4288B237A009AC923 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		20D38149289C170E00D08651 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		20D64B98288AC70500F7F104 /* CalendarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarListView.swift; sourceTree = "<group>"; };
 		20D64B9A288ACA5D00F7F104 /* EventListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,6 +217,7 @@
 				20BC55C82878B3140018AACA /* HomeView.swift */,
 				208D5AC728981DBE0082FBD3 /* Settings.swift */,
 				208D5AC9289855360082FBD3 /* NavigationTopView.swift */,
+				20D38149289C170E00D08651 /* Test.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				20021F01286E27BB007D5329 /* ContentView.swift in Sources */,
 				204CFF3B28955DC800AF92A7 /* TeachersViewModel.swift in Sources */,
 				20B94882289438D600198903 /* RequestListViewCell.swift in Sources */,
+				20D3814A289C170E00D08651 /* Test.swift in Sources */,
 				20BC55C92878B3150018AACA /* HomeView.swift in Sources */,
 				202C8262289A5B500009854E /* SubjectView.swift in Sources */,
 				20C7C7E328900E6C00D8FB32 /* UpcommingEventsView.swift in Sources */,

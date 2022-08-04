@@ -11,6 +11,8 @@ class UserViewModel: ObservableObject {
     @Published var user: User = .init()
     var schoolD = SchoolData(id: "", schoolLocation: "", schoolName: "")
     var schoolID: String = ""
+    @Published var name = ""
+    @Published var fetchedSchool = ""
     // VIEWS
     // MARK: Error
     @Published var showAlert: Bool = false
@@ -20,7 +22,7 @@ class UserViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     //Firebase
     let db = Firestore.firestore()
-    //Initialze functions
+//    //Initialze functions
     init() {
         getUserDetails()
         getSchoolIDFromDetails()
@@ -35,15 +37,18 @@ class UserViewModel: ObservableObject {
             let docRef = db.collection("users").document(number)
             docRef.getDocument(source: .server) { document, error in
                 if let document = document {
-                    let userData = document.data()
-                    self.user.firstName = userData?["firstName"] as? String ?? ""
-                    self.user.lastName = userData?["lastName"] as? String ?? ""
-                    self.user.email = userData?["email"] as? String ?? ""
-                    let schoolData = userData?["schools"] as? [String] ?? []
-                    let schoolID = schoolData.joined(separator: " ")
-                    UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
-                    self.user.accountType = userData?["accountType"] as? String ?? ""
-                    print("User School \(self.user.firstName)")
+                    DispatchQueue.main.async {
+                        let userData = document.data()
+                        self.user.firstName = userData?["firstName"] as? String ?? ""
+                        self.user.lastName = userData?["lastName"] as? String ?? ""
+                        self.user.email = userData?["email"] as? String ?? ""
+                        let schoolData = userData?["schools"] as? [String] ?? []
+                        let schoolID = schoolData.joined(separator: " ")
+                        UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
+                        self.user.accountType = userData?["accountType"] as? String ?? ""
+                        print("User Name \(self.user.firstName)")
+                        self.name = self.user.firstName
+                    }
                 } else {
                     print(error?.localizedDescription ?? "No Data Found")
                 }
@@ -59,11 +64,12 @@ class UserViewModel: ObservableObject {
             let docRef = db.collection("app_settings").document("schools").collection("KE").document(schoolID)
             docRef.getDocument(source: .server) { document, error in
                 if let schoolDocument = document {
-                    let schoolDetails = schoolDocument.data()
-                    let schoolName = schoolDetails?["schoolName"] as? String ?? ""
-                    //self.user.schools[].schoolName = schoolName
-                    self.schoolD.schoolName = schoolName
-                    print("School Name is: \(String(describing: schoolName))")
+                    DispatchQueue.main.async {
+                        let schoolDetails = schoolDocument.data()
+                        let schoolName  = schoolDetails?["schoolName"] as? String ?? ""
+                        self.fetchedSchool =  schoolName
+                        print("School Name is: \(schoolName)")
+                    }
                 }
             }
         }

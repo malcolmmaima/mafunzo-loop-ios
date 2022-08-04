@@ -91,7 +91,7 @@ struct AccountSetupView: View {
                          .offset(y: -55)
                 }
                     .fullScreenCover(isPresented: $otpViewModel.toHomeScreen) {
-                            HomeView()
+                        HomeView(user: User())
                     }
             }
           .alert(otpViewModel.errorMsg, isPresented: $otpViewModel.showAlert) {}

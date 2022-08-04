@@ -22,13 +22,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct Mafunzo_LoopApp: App {
-    @StateObject var userViewModel = UserViewModel()
-    @StateObject var annoucementViewModel = AnnoucementViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            SplashScreen()
-                .environmentObject(userViewModel)
+           SplashScreen()
         }
     }
 }

@@ -18,22 +18,33 @@ struct Monday: View {
     @State var daySelected: Int
     @StateObject var subjectViewModel = SubjectViewModel()
     var body: some View {
-        List {
-            let _ = print("Day \(subjectViewModel.subject)")
-            
-            ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
-                SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
-                    .listRowSeparator(.hidden)
-            }.listRowBackground(Color.ViewBackground)
-        }.listStyle(.plain)
-            .refreshable {
-                subjectViewModel.getSubject(selectedGrade: gradeSelected, timeTableDay: daySelected)
-            }
-            .onChange(of: gradeSelected) { grade in
-                print("Grade------- \(grade)")
-                subjectViewModel.getSubject(selectedGrade: grade, timeTableDay: daySelected)
-//                subjectViewModel.getSubjecta(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: subjectViewModel.selectedDay)
-            }
+        ZStack {
+            List {
+                let _ = print("Day \(subjectViewModel.subject)")
+                
+                ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
+                    SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
+                        .listRowSeparator(.hidden)
+                }.listRowBackground(Color.ViewBackground)
+            }.listStyle(.plain)
+                .refreshable {
+                    subjectViewModel.getSubject(selectedGrade: gradeSelected, timeTableDay: daySelected)
+                }
+                .onChange(of: gradeSelected) { grade in
+                    print("Grade------- \(grade)")
+                    subjectViewModel.getSubject(selectedGrade: grade, timeTableDay: daySelected)
+    //                subjectViewModel.getSubjecta(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: subjectViewModel.selectedDay)
+                }
+            Text("No Subjects")
+               .opacity(subjectViewModel.noSubject ? 1 : 0)
+        }
+        .overlay {
+            ProgressView()
+                .opacity(subjectViewModel.isLoading ? 1 : 0)
+                .font(.system(size: 2))
+                .padding()
+                .progressViewStyle(CircularProgressViewStyle(tint: Color.yellow))
+         }
         .onAppear {
             subjectViewModel.getSubject(selectedGrade: gradeSelected, timeTableDay: daySelected)
         }
@@ -42,45 +53,61 @@ struct Monday: View {
 struct Tuesday: View {
     @StateObject var subjectViewModel = SubjectViewModel()
     var body: some View {
-        List {
-            ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
-                SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
-                    .listRowSeparator(.hidden)
-            }.listRowBackground(Color.ViewBackground)
-        }.listStyle(.plain)
+        ZStack {
+            List {
+                ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
+                    SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
+                        .listRowSeparator(.hidden)
+                }.listRowBackground(Color.ViewBackground)
+            }.listStyle(.plain)
+            Text("No Subjects")
+               .opacity(subjectViewModel.noSubject ? 1 : 0)
+        }
     }
 }
 struct Wednesday: View {
     @StateObject var subjectViewModel = SubjectViewModel()
     var body: some View {
-        List {
-            ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
-                SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
-                    .listRowSeparator(.hidden)
-            }.listRowBackground(Color.ViewBackground)
-        }.listStyle(.plain)
+        ZStack {
+            List {
+                ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
+                    SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
+                        .listRowSeparator(.hidden)
+                }.listRowBackground(Color.ViewBackground)
+            }.listStyle(.plain)
+            Text("No Subjects")
+               .opacity(subjectViewModel.noSubject ? 1 : 0)
+        }
     }
 }
 struct Thursday: View {
     @StateObject var subjectViewModel = SubjectViewModel()
     var body: some View {
-        List {
-            ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
-                SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
-                    .listRowSeparator(.hidden)
-            }.listRowBackground(Color.ViewBackground)
-        }.listStyle(.plain)
+        ZStack {
+            List {
+                ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
+                    SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
+                        .listRowSeparator(.hidden)
+                }.listRowBackground(Color.ViewBackground)
+            }.listStyle(.plain)
+            Text("No Subjects")
+               .opacity(subjectViewModel.noSubject ? 1 : 0)
+        }
     }
 }
 struct Friday: View {
     @StateObject var subjectViewModel = SubjectViewModel()
     var body: some View {
-        List {
-            ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
-                SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
-                    .listRowSeparator(.hidden)
-            }.listRowBackground(Color.ViewBackground)
-        }.listStyle(.plain)
+        ZStack {
+            List {
+                ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
+                    SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
+                        .listRowSeparator(.hidden)
+                }.listRowBackground(Color.ViewBackground)
+            }.listStyle(.plain)
+            Text("No Subjects")
+               .opacity(subjectViewModel.noSubject ? 1 : 0)
+        }
     }
 }
 

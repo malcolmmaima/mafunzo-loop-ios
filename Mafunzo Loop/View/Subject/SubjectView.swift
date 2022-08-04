@@ -31,10 +31,10 @@ struct SubjectView: View {
                     Tabs( tabs: .constant(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]), selection: $subjectViewModel.selectedDay, underlineColor: .blue) { day, isSelected in
                         Text(day)
                     }.padding()
-                        .onChange(of: subjectViewModel.selectedDay) { newValue in
-                            print("New Value \(newValue)")
-                            subjectViewModel.getSubject(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: newValue)
-                    }
+//                        .onChange(of: subjectViewModel.selectedDay) { newValue in
+//                            print("New Value \(newValue)")
+//                            subjectViewModel.getSubject(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: newValue)
+//                    }
 //                    let _ = print("Selected Day is: \(selectedCategory)")
 //                    let _ = print("Converted \(selectedGrades(grade: grades[selectedGrade]))")
                     

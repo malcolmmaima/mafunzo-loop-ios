@@ -18,6 +18,7 @@ class SubjectViewModel: ObservableObject {
     @Published var verificationCode: String = ""
     //Status
     @Published var isLoading: Bool = false
+    @Published var noSubject: Bool = false
     //Model
     @Published var subject = [Subject]()
     //Firebase
@@ -27,30 +28,41 @@ class SubjectViewModel: ObservableObject {
       //  getSubject()
     }
     
-    
     // MARK: GET Subject
     func getSubject(selectedGrade: String, timeTableDay: Int) {
+        print("Selected Grade at Func: \(selectedGrade) && Time Table Day: \(timeTableDay)")
+        noSubject = false
+        isLoading = true
         subject.removeAll()
-        print("Selected Grade at Func: \(selectedGrade)")
-        print("Time Table Day: \(timeTableDay)")
-        let subjectRef = db.collection("subjects").document(" LQvFVzvUTDLezBxaU90z").collection(selectedGrade).whereField("dayOfWeek", isEqualTo: timeTableDay)
-        subjectRef.getDocuments(source: .default) { subjectQuerySnapshot, error in
-            guard error == nil else {
-                print(error!.localizedDescription)
-                return
-            }
-            if let subjectDoc = subjectQuerySnapshot {
-                for documents in subjectDoc.documents {
-                    let data = documents.data()
-                    let assignedTeacher = data["assignedTeacher"] as? String ?? ""
-                    let subjectName = data["subjectName"] as? String ?? ""
-                    let startTime = data["startTime"] as? Int ?? 0
-                    let endTime = data["endTime"] as? Int ?? 0
-                    let dayOfWeek = data["dayOfWeek"] as? Int ?? 0
-                    DispatchQueue.main.async {
-                        let subjectInfo = Subject(assignedTeacher: assignedTeacher, dayOfWeek: dayOfWeek, endTime: endTime, startTime: startTime, subjectName: subjectName)
-                        self.subject.append(subjectInfo)
-                        print("Subject Data \(documents.data())")
+        let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
+        let schoolID = String(describing: schoolStored)
+        //check school status
+        if schoolID != "" {
+            let subjectRef = db.collection("subjects").document(" LQvFVzvUTDLezBxaU90z").collection(selectedGrade).whereField("dayOfWeek", isEqualTo: timeTableDay)
+            subjectRef.getDocuments(source: .default) { subjectQuerySnapshot, error in
+                guard error == nil else {
+                    print(error!.localizedDescription)
+                    return
+                }
+                if let subjectDoc = subjectQuerySnapshot {
+                    if subjectDoc.documents == [] {
+                        self.isLoading = false
+                        self.noSubject = true
+                    }
+                    for documents in subjectDoc.documents {
+                        self.noSubject = false
+                        let data = documents.data()
+                        let assignedTeacher = data["assignedTeacher"] as? String ?? ""
+                        let subjectName = data["subjectName"] as? String ?? ""
+                        let startTime = data["startTime"] as? Int ?? 0
+                        let endTime = data["endTime"] as? Int ?? 0
+                        let dayOfWeek = data["dayOfWeek"] as? Int ?? 0
+                        DispatchQueue.main.async {
+                            let subjectInfo = Subject(assignedTeacher: assignedTeacher, dayOfWeek: dayOfWeek, endTime: endTime, startTime: startTime, subjectName: subjectName)
+                            self.subject.append(subjectInfo)
+                            self.isLoading = false
+                            print("Subject Data \(documents.data())")
+                        }
                     }
                 }
             }

@@ -14,7 +14,7 @@ struct ContentView: View {
 //        let _ = print("User Number Value \(userNumber)")
         if log_status {
             // MARK: To Home View
-            HomeView()
+            HomeView(user: User())
         } else {
             LoginView()
         }

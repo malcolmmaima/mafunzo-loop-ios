@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Settings: View {
-    @EnvironmentObject var userViewModel: UserViewModel
+    @ObservedObject var userViewModel = UserViewModel()
     var body: some View {
         GeometryReader { geo in
             VStack {
@@ -25,22 +25,13 @@ struct Settings: View {
                             TextField("Email Address", text: $userViewModel.user.email)
                                 .textFieldStyling()
                                 .padding(.top, 40)
-//                            Picker(selection: $otpViewModel.accountSelected, label: Text("Account Type")) {
-//                                ForEach(0 ..< otpViewModel.accountType.count) {
-//                                    Text(self.otpViewModel.accountType[$0])
-//                                }
-//                            }
-//                            .textFieldStyling()
-
                         }
-                        //.padding()
                             .listRowBackground(Color.clear)
                             .listRowSeparator(.hidden)
                         Section {
                             Button {
-//                                Task {
-//                                   await createAccount()
-//                                }
+                                // MARK: UPDATE
+                                print("")
                             } label: {
                                 Text("Update")
                                     .foregroundColor(.white)
