@@ -14,7 +14,6 @@ struct SubjectView: View {
             VStack {
                 NavigationTopView()
                     .frame(height: geo.size.height * 0.1)
-                
                 VStack {
                     HStack {
                         Text("Select Grade")
@@ -24,30 +23,45 @@ struct SubjectView: View {
                                 Text(self.subjectViewModel.grades[$0])
                             }
                         }.onChange(of: subjectViewModel.selectedGrade) { newGrade in
-                            subjectViewModel.getSubject(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: subjectViewModel.selectedDay)
+                            let selected = self.subjectViewModel.grades[newGrade]
+                            let convertedGrade = (selectedGrades(grade: selected))
+                            print("New Grade \(convertedGrade)")
+                            subjectViewModel.getSubject(selectedGrade: convertedGrade, timeTableDay: subjectViewModel.selectedDay)
                         }
                     }.padding()
                     
                     Tabs( tabs: .constant(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]), selection: $subjectViewModel.selectedDay, underlineColor: .blue) { day, isSelected in
                         Text(day)
                     }.padding()
-//                        .onChange(of: subjectViewModel.selectedDay) { newValue in
-//                            print("New Value \(newValue)")
-//                            subjectViewModel.getSubject(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: newValue)
-//                    }
-//                    let _ = print("Selected Day is: \(selectedCategory)")
-//                    let _ = print("Converted \(selectedGrades(grade: grades[selectedGrade]))")
-                    
-                   // Spacer()
-                    switch(subjectViewModel.selectedDay) {
-                    case 0: Monday(gradeSelected: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), daySelected: subjectViewModel.selectedDay)
-                    case 1: Tuesday()
-                    case 2: Wednesday()
-                    case 3: Thursday()
-                    case 4: Friday()
-                    default:
-                        Monday(gradeSelected: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), daySelected: subjectViewModel.selectedDay)
+                        .onChange(of: subjectViewModel.selectedDay) { newValue in
+                            print("New Value \(newValue)")
+                            subjectViewModel.getSubject(selectedGrade: selectedGrades(grade: subjectViewModel.grades[subjectViewModel.selectedGrade]), timeTableDay: newValue)
                     }
+                    switch(subjectViewModel.selectedDay) {
+                    case 0: Day()
+                    case 1: Day()
+                    case 2: Day()
+                    case 3: Day()
+                    case 4: Day()
+                    default:
+                        Day()
+                    }
+                    ZStack {
+                        List {
+                            ForEach(subjectViewModel.subject, id: \.dayOfWeek) { subject in
+                                SubjectListViewCell(subjectName: subject.subjectName, startTime: subject.startTime, endTime: subject.endTime)
+                                    .listRowSeparator(.hidden)
+                            }.listRowBackground(Color.ViewBackground)
+                        }.listStyle(.plain)
+                        Text("No Subjects")
+                           .opacity(subjectViewModel.noSubject ? 1 : 0)
+                    }        .overlay {
+                        ProgressView()
+                            .opacity(subjectViewModel.isLoading ? 1 : 0)
+                            .font(.system(size: 3))
+                            .padding()
+                            .progressViewStyle(CircularProgressViewStyle(tint: Color.blue))
+                     }
                 }
                 .padding()
                 .frame(minWidth: 0, maxWidth: .infinity)
@@ -67,6 +81,16 @@ struct SubjectView: View {
         return trimmed.lowercased()
     }
 }
+
+struct Day: View {
+    @StateObject var subjectViewModel = SubjectViewModel()
+    var body: some View {
+        ZStack {
+        }
+    }
+}
+
+
 
 struct SubjectView_Previews: PreviewProvider {
     static var previews: some View {

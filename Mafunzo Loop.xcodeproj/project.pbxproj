@@ -40,7 +40,6 @@
 		204CFF3B28955DC800AF92A7 /* TeachersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */; };
 		204CFF3D289563B300AF92A7 /* TeacherListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3C289563B300AF92A7 /* TeacherListViewCell.swift */; };
 		204CFF3F2895682F00AF92A7 /* TeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3E2895682F00AF92A7 /* TeacherView.swift */; };
-		2054AF8E289A9A9400D56363 /* WeekViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2054AF8D289A9A9400D56363 /* WeekViews.swift */; };
 		2054AF90289ACF1300D56363 /* SubjectListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2054AF8F289ACF1300D56363 /* SubjectListViewCell.swift */; };
 		205CAADE2886AE570050FEED /* AnnouncementListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */; };
 		205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADF28873FA10050FEED /* AnnouncementView.swift */; };
@@ -92,7 +91,6 @@
 		204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersViewModel.swift; sourceTree = "<group>"; };
 		204CFF3C289563B300AF92A7 /* TeacherListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherListViewCell.swift; sourceTree = "<group>"; };
 		204CFF3E2895682F00AF92A7 /* TeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherView.swift; sourceTree = "<group>"; };
-		2054AF8D289A9A9400D56363 /* WeekViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekViews.swift; sourceTree = "<group>"; };
 		2054AF8F289ACF1300D56363 /* SubjectListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectListViewCell.swift; sourceTree = "<group>"; };
 		205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListViewCell.swift; sourceTree = "<group>"; };
 		205CAADF28873FA10050FEED /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				202C8261289A5B500009854E /* SubjectView.swift */,
-				2054AF8D289A9A9400D56363 /* WeekViews.swift */,
 				2054AF8F289ACF1300D56363 /* SubjectListViewCell.swift */,
 			);
 			path = Subject;
@@ -389,7 +386,6 @@
 				20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */,
 				20B9488628948E7600198903 /* RequestViewInfo.swift in Sources */,
 				20021F28286E4983007D5329 /* Extensions.swift in Sources */,
-				2054AF8E289A9A9400D56363 /* WeekViews.swift in Sources */,
 				202C825D289A546B0009854E /* Subject.swift in Sources */,
 				208D5AC828981DBE0082FBD3 /* Settings.swift in Sources */,
 				208D5ACA289855360082FBD3 /* NavigationTopView.swift in Sources */,

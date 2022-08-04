@@ -24,9 +24,6 @@ class SubjectViewModel: ObservableObject {
     //Firebase
     let db = Firestore.firestore()
     
-    init() {
-      //  getSubject()
-    }
     
     // MARK: GET Subject
     func getSubject(selectedGrade: String, timeTableDay: Int) {
