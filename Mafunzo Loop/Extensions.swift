@@ -120,7 +120,7 @@ struct Tabs<Label: View>: View {
             .font(.system(size: 13, weight: .bold, design: .default))
             .padding(10)
             .frame(width: 100)
-            .foregroundColor(isSelected ? .white : .black)
+            .foregroundColor(isSelected ? .white : .gray)
             .background(isSelected ? .blue : .clear)
             .cornerRadius(20)
     }
