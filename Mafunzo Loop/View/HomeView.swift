@@ -15,88 +15,105 @@ struct HomeView: View {
     @State var logout: Bool = false
     @State private var showLogoutAlert = false
     var body: some View {
-        NavigationView {
-            GeometryReader { geo in
-                VStack {
-                   // MARK: TopView
-                    HStack {
-                        Text("Hi, \(userViewModel.name)")
-                            .foregroundColor(.white)
-                            .font(.title2)
-                            .bold()
-                        Spacer()
-                        Menu {
-                            Button("Settings") {
-                                self.settings = true
-                            }
-                            Button("Logout") {
-                                showLogoutAlert = true
-                            }
-                        } label: {
-                            Image(systemName: "person.circle.fill")
-                                .resizable()
-                                .frame(width: 45, height: 45)
-                                .foregroundColor(Color.buttonHomeColor)
-                        }
-                    }.padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                        .padding()
-                        .background(Color.yellow)
-                        .frame(height: geo.size.height * 0.25)
+        ZStack {
+            NavigationView {
+                GeometryReader { geo in
                     VStack {
-                        ScrollView {
-                            HomeCell()
+                       // MARK: TopView
+                        HStack {
+                            Text("Hi, \(userViewModel.name)")
+                                .foregroundColor(.white)
+                                .font(.title2)
+                                .bold()
+                            Spacer()
+                            Menu {
+                                Button("Settings") {
+                                    self.settings = true
+                                }
+                                Button("Logout") {
+                                    showLogoutAlert = true
+                                }
+                            } label: {
+                                Image(systemName: "person.circle.fill")
+                                    .resizable()
+                                    .frame(width: 45, height: 45)
+                                    .foregroundColor(Color.buttonHomeColor)
+                            }
+                        }.padding()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                            .padding()
+                            .background(Color.yellow)
+                            .frame(height: geo.size.height * 0.25)
+                        // MARK: SChool Modules
+                        VStack {
+                            ScrollView {
+                                ZStack {
+                                    HomeCell()
+                                     //   .opacity(userViewModel.userState ? 1 : 0)
+    //                                VStack {
+    //                                    InActiveAccountView()
+    //                                    Text("Contact your school to activate your workspace")
+    //                                        .foregroundColor(.red)
+    //                                    Spacer()
+    //                                }
+    //                                .opacity(userViewModel.userState ? 0 : 1)
+                                }
+                            }
+                            .frame(height: geo.size.height * 0.7)
+                           .offset(y: -50)
+                            Button {
+                                // MARK: SCHOOL BUTTON
+                                print("")
+                            } label: {
+                                Text(userViewModel.fetchedSchool)
+                                    .font(.body)
+                                    .foregroundColor(Color.buttonHomeColor)
+                                    .frame(width: 350, height: 35)
+                            }
+                            .background(
+                                RoundedCornersShape(corners: .allCorners, radius: 20)
+                                    .fill(Color.homeCategory)
+                            )
+                            .shadow(radius: 1)
                         }
-                        .frame(height: geo.size.height * 0.7)
-                       .offset(y: -50)
-                        Button {
-                            // MARK: SCHOOL BUTTON
-                            print("")
-                        } label: {
-                            Text(userViewModel.fetchedSchool)
-                                .font(.body)
-                                .foregroundColor(Color.buttonHomeColor)
-                                .frame(width: 350, height: 35)
-                        }
-                        .background(
-                            RoundedCornersShape(corners: .allCorners, radius: 20)
-                                .fill(Color.homeCategory)
-                        )
-                        .shadow(radius: 1)
+                        .padding()
+                     // MARK: Curving view
+                         .background(
+                             RoundedCornersShape(corners: .allCorners, radius: 45)
+                                .fill(Color.ViewBackground)
+                         )
+                         .offset(y: -50)
                     }
-                    .padding()
-                 // MARK: Curving view
-                     .background(
-                         RoundedCornersShape(corners: .allCorners, radius: 45)
-                            .fill(Color.ViewBackground)
-                     )
-                     .offset(y: -50)
+                    .background(Color.ViewBackground)
+                    .navigationBarHidden(true)
                 }
-                .background(Color.ViewBackground)
                 .navigationBarHidden(true)
-            }
-            .navigationBarHidden(true)
-            .background(
-                NavigationLink(destination: Settings(), isActive: $settings) {
-                    EmptyView()
-            })
-            .fullScreenCover(isPresented: $logout) {
-                    LoginView()
-            }
-        }
-        // MARK: Logout Alert
-                .alert(isPresented: $showLogoutAlert) {
-                    Alert(
-                        title: Text("Logout!!"),
-                        message: Text("Are you sure you want to logout?"),
-                        primaryButton: .default(
-                            Text("Cancel")
-                        ),
-                        secondaryButton: .destructive(Text("Logout"), action: {
-                        Logout()
-                        logout.toggle()
-                    }))
+                .background(
+                    NavigationLink(destination: Settings(), isActive: $settings) {
+                        EmptyView()
+                })
+                .fullScreenCover(isPresented: $logout) {
+                        LoginView()
                 }
+            }
+            .opacity(userViewModel.userState ? 1 : 0)
+            // MARK: Logout Alert
+            .alert(isPresented: $showLogoutAlert) {
+                Alert(
+                    title: Text("Logout!!"),
+                    message: Text("Are you sure you want to logout?"),
+                    primaryButton: .default(
+                        Text("Cancel")
+                    ),
+                    secondaryButton: .destructive(Text("Logout"), action: {
+                    Logout()
+                    logout.toggle()
+                }))
+            }
+            
+            DisabledAccountView()
+                .opacity(userViewModel.userState ? 0 : 1)
+        }
     }
     func Logout() {
             do {
@@ -252,6 +269,55 @@ struct HomeCell: View {
                     .padding(.bottom, 8)
                     .background(Color.clear)
             }
+    }
+}
+
+struct WarkSpaceView: View {
+    var body: some View {
+        HStack {
+            // MARK: Announcements
+            Button {
+            } label: {
+                VStack {
+                    Image("ic_announcement")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                    Text("Announcements")
+                        .font(.body)
+                }
+            }
+            .foregroundColor(Color.buttonHomeColor)
+            .padding()
+            .frame(width: 160, height: 160)
+            .background(
+            RoundedCornersShape(corners: .allCorners, radius: 20)
+                .fill(Color.homeCategory)
+            )
+            .shadow(radius: 1)
+            Spacer()
+            // MARK: Calendar
+            Button {
+            } label: {
+                VStack {
+                    Image("ic_calendar")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                    Text("Calendar")
+                        .font(.body)
+                }
+            }
+            .foregroundColor(Color.buttonHomeColor)
+            .padding()
+            .frame(width: 160, height: 160)
+            .background(
+            RoundedCornersShape(corners: .allCorners, radius: 20)
+                .fill(Color.homeCategory)
+            )
+            .shadow(radius: 1)
+        }
+            .padding(.horizontal, 10)
+            .padding(.bottom, 8)
+            .background(Color.clear)
     }
 }
 

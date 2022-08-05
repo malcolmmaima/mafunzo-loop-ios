@@ -58,6 +58,7 @@
 		20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E5289272B700D8FB32 /* EventView.swift */; };
 		20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA01F2288B22E0009AC923 /* CalendarEvents.swift */; };
 		20CA01F5288B237A009AC923 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA01F4288B237A009AC923 /* CalendarViewModel.swift */; };
+		20D3814C289DAF3C00D08651 /* DisabledAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */; };
 		20D64B99288AC70500F7F104 /* CalendarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D64B98288AC70500F7F104 /* CalendarListView.swift */; };
 		20D64B9B288ACA5D00F7F104 /* EventListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D64B9A288ACA5D00F7F104 /* EventListViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,7 @@
 		20C7C7E5289272B700D8FB32 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		20CA01F2288B22E0009AC923 /* CalendarEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvents.swift; sourceTree = "<group>"; };
 		20CA01F4288B237A009AC923 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledAccountView.swift; sourceTree = "<group>"; };
 		20D64B98288AC70500F7F104 /* CalendarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarListView.swift; sourceTree = "<group>"; };
 		20D64B9A288ACA5D00F7F104 /* EventListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,6 +215,7 @@
 				20BC55C82878B3140018AACA /* HomeView.swift */,
 				208D5AC728981DBE0082FBD3 /* Settings.swift */,
 				208D5AC9289855360082FBD3 /* NavigationTopView.swift */,
+				20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				20021EFF286E27BB007D5329 /* Mafunzo_LoopApp.swift in Sources */,
 				20B2CB9F28855C7E008C1BE8 /* AnnoucementListView.swift in Sources */,
 				2054AF90289ACF1300D56363 /* TimetableListViewCell.swift in Sources */,
+				20D3814C289DAF3C00D08651 /* DisabledAccountView.swift in Sources */,
 				205CAADE2886AE570050FEED /* AnnouncementListViewCell.swift in Sources */,
 				20B2CB9B28855976008C1BE8 /* Annoucement.swift in Sources */,
 				20021F26286E4948007D5329 /* LoginView.swift in Sources */,
