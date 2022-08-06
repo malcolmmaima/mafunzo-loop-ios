@@ -13,6 +13,8 @@ class UserViewModel: ObservableObject {
     var schoolID: String = ""
     @Published var name = ""
     @Published var fetchedSchool = ""
+    @Published var userState: Bool = true
+    @Published var map = MappedData(schoolID: ["" : false])
     // VIEWS
     // MARK: Error
     @Published var showAlert: Bool = false
@@ -42,11 +44,21 @@ class UserViewModel: ObservableObject {
                         self.user.firstName = userData?["firstName"] as? String ?? ""
                         self.user.lastName = userData?["lastName"] as? String ?? ""
                         self.user.email = userData?["email"] as? String ?? ""
+                        let state = userData?["enabled"] as? Bool ?? false
+                        let schoolMapped = userData?["schoolMap"] as? [String: Bool] ?? [:]
                         let schoolData = userData?["schools"] as? [String] ?? []
                         let schoolID = schoolData.joined(separator: " ")
                         UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
                         self.user.accountType = userData?["accountType"] as? String ?? ""
-                        print("User Name \(self.user.firstName)")
+                        print("User Details1 \(String(describing: userData))")
+                        print("School Map:: \(schoolMapped)")
+                        let m = MappedData(schoolID: schoolMapped)
+                        self.map = m
+
+                        self.userState = state
+                        print("State:------- \(state)")
+                       print("Map Data:: \(m)")
+                        
                         self.name = self.user.firstName
                     }
                 } else {
