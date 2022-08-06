@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 class UserViewModel: ObservableObject {
     @Published var user: User = .init()
-    var schoolD = SchoolData(id: "", schoolLocation: "", schoolName: "")
+    var schoolD = SchoolData(id: "", schoolLocation: "", schoolName: "", schoolEmail: "")
     var schoolID: String = ""
     @Published var name = ""
     @Published var fetchedSchool = ""
@@ -54,10 +54,11 @@ class UserViewModel: ObservableObject {
                         print("School Map:: \(schoolMapped)")
                         let m = MappedData(schoolID: schoolMapped)
                         self.map = m
-
+                        let userSchoolIDs = Array(m.schoolID.keys.map { $0 }) // convert dictionary to array
+                        UserDefaults.standard.set(userSchoolIDs, forKey: "schoolID's")
                         self.userState = state
                         print("State:------- \(state)")
-                       print("Map Data:: \(m)")
+                        print("Map Data:: \(userSchoolIDs)")
                         
                         self.name = self.user.firstName
                     }

@@ -58,9 +58,17 @@ struct SchoolData: Codable, Identifiable {
     var id: String
     var schoolLocation: String
     var schoolName: String
+    var schoolEmail: String
 }
 
 
 struct MappedData: Codable {
     var schoolID: [String: Bool]
+}
+
+struct SelectedSchool: Codable {
+    var id: String
+    var schoolLocation: String
+    var schoolName: String
+    var schoolEmail: String
 }
