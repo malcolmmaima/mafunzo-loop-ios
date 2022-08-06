@@ -61,9 +61,9 @@ struct HomeView: View {
                             }
                             .frame(height: geo.size.height * 0.7)
                            .offset(y: -50)
-                            Button {
+                            NavigationLink {
                                 // MARK: SCHOOL BUTTON
-                                print("")
+                                SchoolListView()
                             } label: {
                                 Text(userViewModel.fetchedSchool)
                                     .font(.body)
