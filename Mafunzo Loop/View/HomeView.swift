@@ -10,10 +10,14 @@ import Firebase
 
 struct HomeView: View {
     @ObservedObject var userViewModel = UserViewModel()
+    @StateObject var schoolViewModel = SchoolViewModel()
     @ObservedObject var user: User
     @State var settings: Bool = false
     @State var logout: Bool = false
+    @State private var schoolList: Bool = false
     @State private var showLogoutAlert = false
+    @State private var showWorkSpace = false
+    @State private var blurRadius: Double = 1.0
     var body: some View {
         ZStack {
             NavigationView {
@@ -44,11 +48,15 @@ struct HomeView: View {
                             .padding()
                             .background(Color.yellow)
                             .frame(height: geo.size.height * 0.25)
+                            .blur(radius: showWorkSpace ? 10 : 0)
+                            .disabled(showWorkSpace ? true : false)
                         // MARK: SChool Modules
                         VStack {
                             ScrollView {
                                 ZStack {
                                     HomeCell()
+                                        .blur(radius: showWorkSpace ? 10 : 0)
+                                        .disabled(showWorkSpace ? true : false)
                                      //   .opacity(userViewModel.userState ? 1 : 0)
     //                                VStack {
     //                                    InActiveAccountView()
@@ -57,13 +65,19 @@ struct HomeView: View {
     //                                    Spacer()
     //                                }
     //                                .opacity(userViewModel.userState ? 0 : 1)
+                                    WorkSpaceView()
+                                        .opacity(showWorkSpace ? 1 : 0)
                                 }
                             }
                             .frame(height: geo.size.height * 0.7)
                            .offset(y: -50)
-                            NavigationLink {
+                           .onTapGesture {
+                               showWorkSpace = false //diable Workspace View
+                           }
+                            Button {
                                 // MARK: SCHOOL BUTTON
-                                SchoolListView()
+                              // SchoolListView()
+                                showWorkSpace = true
                             } label: {
                                 Text(userViewModel.fetchedSchool)
                                     .font(.body)
@@ -272,7 +286,7 @@ struct HomeCell: View {
     }
 }
 
-struct WarkSpaceView: View {
+struct WorkSpaceErrorView: View {
     var body: some View {
         HStack {
             // MARK: Announcements
@@ -320,6 +334,43 @@ struct WarkSpaceView: View {
             .background(Color.clear)
     }
 }
+
+struct WorkSpaceView: View {
+    @StateObject var schoolViewModel = SchoolViewModel()
+    var body: some View {
+        VStack {
+            VStack {
+                Text("Switch WorkSpace")
+                    .bold()
+                    .font(.title)
+                    .padding()
+                ForEach(schoolViewModel.selectedSchool, id: \.id) { school in
+                    Text(school.schoolName)
+                }
+                Spacer()
+                NavigationLink {
+                    // MARK: SCHOOL BUTTON
+                    SchoolListView()
+                } label: {
+                    Text("Add School")
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .frame(width: 250, height: 35)
+                }
+                .background(Color.blue)
+                .padding(.bottom, 10)
+            }
+        }
+        .frame(width: 300, height: 250, alignment: .center)
+        .background(
+            RoundedCornersShape(corners: .allCorners, radius: 10)
+                .fill(Color.homeCategory)
+        )
+        .shadow(radius: 2.0)
+    }
+}
+
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
