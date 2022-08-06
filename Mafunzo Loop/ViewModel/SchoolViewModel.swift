@@ -18,11 +18,13 @@ class SchoolViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     //Model
     @Published var school = [SchoolData]()
+    @Published var selectedSchool = [SelectedSchool]()
     //Firebase
     let db = Firestore.firestore()
     //Initialze functions
     init() {
         getALLSchools()
+        getUserSchools()
     }
         // MARK: Search School
     var schoolSearch: [SchoolData] {
@@ -30,6 +32,41 @@ class SchoolViewModel: ObservableObject {
             return school
         } else {
             return school.filter {$0.schoolName.localizedCaseInsensitiveContains(searchSchool)}
+        }
+    }
+    // MARK: GET Schools from user
+    func getUserSchools() {
+        let userSchools = UserDefaults.standard.stringArray(forKey: "schoolID's")  ?? [String]()
+        print("Dataa1 \(userSchools)")
+        selectedSchool.removeAll()
+        let ref = db.collection("app_settings").document("schools").collection("KE").whereField("id", in: userSchools)
+           // .whereField("id", in: userSchools)
+            //.whereField("id", arrayContainsAny: userSchools)
+        print("1")
+        ref.getDocuments { snapshot, error in
+            print("2")
+            guard error == nil else {
+                print("Error!!! \(error!.localizedDescription)")
+                self.handleError(error: error!.localizedDescription)
+                return
+            }
+            print("3")
+            if let snapshot = snapshot {
+                print("4")
+                for document in snapshot.documents {
+                    print("5")
+                    if document == document {
+                        print("6")
+                        let data = document.data()
+                        let docId = data["id"] as? String ?? ""
+                        let schoolName = data["schoolName"] as? String ?? ""
+                        let schoolLocation = data["schoolLocation"] as? String ?? ""
+                        let schoolEmail = data["schoolEmail"] as? String ?? ""
+                        let userSchools = SelectedSchool(id: docId, schoolLocation: schoolLocation, schoolName: schoolName, schoolEmail: schoolEmail)
+                        self.selectedSchool.append(userSchools)
+                    }
+                }
+            }
         }
     }
     
@@ -48,10 +85,11 @@ class SchoolViewModel: ObservableObject {
                 for document in snapshot.documents {
                     if document == document {
                         let data = document.data()
-                        let docId = document.documentID
+                        let docId = data["id"] as? String ?? ""
                         let schoolName = data["schoolName"] as? String ?? ""
                         let schoolLocation = data["schoolLocation"] as? String ?? ""
-                        let schoolDataList = SchoolData(id: docId, schoolLocation: schoolLocation, schoolName: schoolName)
+                        let schoolEmail = data["schoolEmail"] as? String ?? ""
+                        let schoolDataList = SchoolData(id: docId, schoolLocation: schoolLocation, schoolName: schoolName, schoolEmail: schoolEmail)
                         self.school.append(schoolDataList)
                     }
                 }
