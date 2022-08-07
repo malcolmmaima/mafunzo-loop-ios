@@ -17,7 +17,6 @@ class User: Codable, ObservableObject, Identifiable {
         case lastName
         case schools
         case profilePic
-        case schoolMap
     }
     @Published var firstName = ""
     @Published var lastName = ""
@@ -27,7 +26,6 @@ class User: Codable, ObservableObject, Identifiable {
     @Published var schools: [SchoolData] = []
     @Published var dateCreated: Int = 0
     @Published var profilePic = ""
-    @Published var schoolMap: Any = ""
     init() {}
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -39,7 +37,6 @@ class User: Codable, ObservableObject, Identifiable {
         schools = try container.decode([SchoolData].self, forKey: .schools)
         dateCreated = try container.decode(Int.self, forKey: .dateCreated)
         profilePic = try container.decode(String.self, forKey: .profilePic)
-        schoolMap = try container.decode(String.self, forKey: .schoolMap)
     }
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
