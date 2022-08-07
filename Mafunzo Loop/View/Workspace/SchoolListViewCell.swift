@@ -21,7 +21,7 @@ struct SchoolListViewCell: View {
            .padding()
             Spacer()
         }
-        .frame(width: 300)
+        .frame(width: 350)
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 10)
                 .fill(Color.homeCategory)
