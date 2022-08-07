@@ -54,10 +54,15 @@ class UserViewModel: ObservableObject {
                         print("School Map:: \(schoolMapped)")
                         let m = MappedData(schoolID: schoolMapped)
                         self.map = m
-                        let userSchoolIDs = Array(m.schoolID.keys.map { $0 }) // convert dictionary to array
+                        let schoolIds = Array(m.schoolID)
+                        let userSchoolIDs = Array(m.schoolID.keys.map { $0 }) // convert dictionary String to array
                         UserDefaults.standard.set(userSchoolIDs, forKey: "schoolID's")
+                        UserDefaults.standard.set(schoolMapped, forKey: "schoolArray")
+                        
+                        
+                        print("School Ids : \(schoolIds)")
                         self.userState = state
-                        print("State:------- \(state)")
+                        print("School Mapped:------- \(schoolMapped)")
                         print("Map Data:: \(userSchoolIDs)")
                         
                         self.name = self.user.firstName

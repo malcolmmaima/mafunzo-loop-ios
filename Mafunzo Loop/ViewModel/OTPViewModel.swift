@@ -142,6 +142,8 @@ class OTPViewModel: ObservableObject {
                 "firstName": user.firstName,
                 "lastName": user.lastName,
                 "profilePic": user.profilePic,
+                "schoolMap": ["LQvFVzvUTDLezBxaU90z" : false ],
+                "enabled": false,
                 "schools": school
             ])
             DispatchQueue.main.async {
