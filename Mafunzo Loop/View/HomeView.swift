@@ -55,7 +55,7 @@ struct HomeView: View {
                             ScrollView {
                                 ZStack {
                                     HomeCell()
-                                        .blur(radius: showWorkSpace ? 10 : 0)
+                                        .blur(radius: showWorkSpace ? 5 : 0)
                                         .disabled(showWorkSpace ? true : false)
                                      //   .opacity(userViewModel.userState ? 1 : 0)
     //                                VStack {
@@ -363,10 +363,13 @@ struct WorkSpaceView: View {
         }
         .frame(width: 300, height: 250, alignment: .center)
         .background(
-            RoundedCornersShape(corners: .allCorners, radius: 10)
+            RoundedCornersShape(corners: .allCorners, radius: 15)
                 .fill(Color.homeCategory)
         )
         .shadow(radius: 2.0)
+        .onAppear {
+            schoolViewModel.getUserSchools()
+        }
     }
 }
 
