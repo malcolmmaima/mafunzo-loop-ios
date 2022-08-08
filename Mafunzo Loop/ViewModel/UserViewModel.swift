@@ -22,6 +22,7 @@ class UserViewModel: ObservableObject {
     @Published var verificationCode: String = ""
     //Status
     @Published var isLoading: Bool = false
+    @Published var schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
     //Firebase
     let db = Firestore.firestore()
 //    //Initialze functions
@@ -46,9 +47,9 @@ class UserViewModel: ObservableObject {
                         self.user.email = userData?["email"] as? String ?? ""
                         let state = userData?["enabled"] as? Bool ?? false
                         let schoolMapped = userData?["schoolMap"] as? [String: Bool] ?? [:]
-                        let schoolData = userData?["schools"] as? [String] ?? []
-                        let schoolID = schoolData.joined(separator: " ")
-                        UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
+//                        let schoolData = userData?["schools"] as? [String] ?? []
+//                        let schoolID = schoolData.joined(separator: " ")
+//                        UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
                         self.user.accountType = userData?["accountType"] as? String ?? ""
                         print("User Details1 \(String(describing: userData))")
                         print("School Map:: \(schoolMapped)")
@@ -75,7 +76,7 @@ class UserViewModel: ObservableObject {
     }
     // MARK: GET SCHOOL BY ID
     func getSchoolIDFromDetails() {
-        let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
+       
         let schoolID = String(describing: schoolStored)
         print("Get School ID ]\(schoolID)")
         if schoolID != "" {

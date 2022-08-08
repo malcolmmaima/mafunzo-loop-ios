@@ -76,7 +76,6 @@ struct HomeView: View {
                            }
                             Button {
                                 // MARK: SCHOOL BUTTON
-                              // SchoolListView()
                                 showWorkSpace = true
                             } label: {
                                 Text(userViewModel.fetchedSchool)
@@ -124,7 +123,6 @@ struct HomeView: View {
                     logout.toggle()
                 }))
             }
-            
             DisabledAccountView()
                 .opacity(userViewModel.userState ? 0 : 1)
         }
@@ -286,6 +284,7 @@ struct HomeCell: View {
     }
 }
 
+// MARK: WORK SPACE ERROR
 struct WorkSpaceErrorView: View {
     var body: some View {
         HStack {
@@ -335,6 +334,7 @@ struct WorkSpaceErrorView: View {
     }
 }
 
+// MARK: WORK SPACE
 struct WorkSpaceView: View {
     @StateObject var schoolViewModel = SchoolViewModel()
     var body: some View {
@@ -346,6 +346,23 @@ struct WorkSpaceView: View {
                     .padding()
                 ForEach(schoolViewModel.selectedSchool, id: \.id) { school in
                     Text(school.schoolName)
+                        .frame(alignment: .leading)
+                        .padding(.bottom, 1)
+                        .onTapGesture {
+                            /*
+                             let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
+                             let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
+                             let userNumber = String(describing: userSavedNumber)
+                             let schoolID = String(describing: schoolStored)
+                             
+                             UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
+                             */
+                            
+                            let schoolID = school.id
+                            UserDefaults.standard.set(schoolID, forKey: "schoolID")
+                            print("School Id = \(schoolID)")
+                            print("School Name \(school.schoolName) Pressed::::::::::")
+                        }
                 }
                 Spacer()
                 NavigationLink {
@@ -361,15 +378,12 @@ struct WorkSpaceView: View {
                 .padding(.bottom, 10)
             }
         }
-        .frame(width: 300, height: 250, alignment: .center)
+        .frame(width: 300, height: 280, alignment: .center)
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 15)
                 .fill(Color.homeCategory)
         )
         .shadow(radius: 2.0)
-        .onAppear {
-            schoolViewModel.getUserSchools()
-        }
     }
 }
 
