@@ -129,7 +129,7 @@ class OTPViewModel: ObservableObject {
         }
     }
     // MARK: SETUP ACCOUNT
-    func setupAccount(number: String, user: User, school: [String]) async {
+    func setupAccount(number: String, user: User, school: String) async {
         do {
             print("Phone number At setup Account \(number)")
             isLoading = true
@@ -142,9 +142,9 @@ class OTPViewModel: ObservableObject {
                 "firstName": user.firstName,
                 "lastName": user.lastName,
                 "profilePic": user.profilePic,
-                "schoolMap": ["LQvFVzvUTDLezBxaU90z" : false ],
+                "schoolMap": [school : false ],
                 "enabled": false,
-                "schools": school
+//                "schools": school
             ])
             DispatchQueue.main.async {
                 self.isLoading = false
