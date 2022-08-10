@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 class UserViewModel: ObservableObject {
     @Published var user: User = .init()
-    var schoolD = SchoolData(id: "", schoolLocation: "", schoolName: "", schoolEmail: "")
+   // var schoolD = SchoolData(id: "", schoolLocation: "", schoolName: "", schoolEmail: "")
     var schoolID: String = ""
     @Published var name = ""
     @Published var fetchedSchool = ""
@@ -47,24 +47,42 @@ class UserViewModel: ObservableObject {
                         self.user.email = userData?["email"] as? String ?? ""
                         let state = userData?["enabled"] as? Bool ?? false
                         let schoolMapped = userData?["schoolMap"] as? [String: Bool] ?? [:]
+                        
 //                        let schoolData = userData?["schools"] as? [String] ?? []
 //                        let schoolID = schoolData.joined(separator: " ")
 //                        UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
+                        
                         self.user.accountType = userData?["accountType"] as? String ?? ""
                         print("User Details1 \(String(describing: userData))")
                         print("School Map:: \(schoolMapped)")
                         let m = MappedData(schoolID: schoolMapped)
                         self.map = m
                         let schoolIds = Array(m.schoolID)
+                        
                         let userSchoolIDs = Array(m.schoolID.keys.map { $0 }) // convert dictionary String to array
+                        let schoolID = userSchoolIDs.joined(separator: " ")
                         UserDefaults.standard.set(userSchoolIDs, forKey: "schoolID's")
                         UserDefaults.standard.set(schoolMapped, forKey: "schoolArray")
                         
+                        
+//                        UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
+                        
+                        let userSchools = UserDefaults.standard.stringArray(forKey: "schoolID's")  ?? [String]()
+                        
+                        // check if school ID is stored in user Default
+                        if self.schoolStored == "" {
+                            // check if the user id is in Array dictionary.
+                            if schoolMapped.keys.contains(self.schoolStored) == false {
+                                UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
+                            }
+                        }
                         
                         print("School Ids : \(schoolIds)")
                         self.userState = state
                         print("School Mapped:------- \(schoolMapped)")
                         print("Map Data:: \(userSchoolIDs)")
+                        print("School ID fFROM DB:: \(userSchools)")
+                        print("Check String Value \(schoolMapped.keys.contains(self.schoolStored))")
                         
                         self.name = self.user.firstName
                     }
@@ -76,7 +94,8 @@ class UserViewModel: ObservableObject {
     }
     // MARK: GET SCHOOL BY ID
     func getSchoolIDFromDetails() {
-       
+        print("Here Schhhh")
+        let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
         let schoolID = String(describing: schoolStored)
         print("Get School ID ]\(schoolID)")
         if schoolID != "" {
