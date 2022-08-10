@@ -34,7 +34,7 @@ class User: Codable, ObservableObject, Identifiable {
         accountType = try container.decode(String.self, forKey: .accountType)
         email = try container.decode(String.self, forKey: .email)
         enabled = try container.decode(Bool.self, forKey: .enabled)
-        schools = try container.decode([SchoolData].self, forKey: .schools)
+//        schools = try container.decode([SchoolData].self, forKey: .schools)
         dateCreated = try container.decode(Int.self, forKey: .dateCreated)
         profilePic = try container.decode(String.self, forKey: .profilePic)
     }
@@ -45,7 +45,7 @@ class User: Codable, ObservableObject, Identifiable {
         try container.encode(email, forKey: .email)
         try container.encode(enabled, forKey: .enabled)
         try container.encode(accountType, forKey: .accountType)
-        try container.encode(schools, forKey: .schools)
+//        try container.encode(schools, forKey: .schools)
         try container.encode(dateCreated, forKey: .dateCreated)
         try container.encode(profilePic, forKey: .profilePic)
     }
