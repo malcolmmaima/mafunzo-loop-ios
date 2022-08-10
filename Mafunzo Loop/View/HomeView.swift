@@ -349,6 +349,7 @@ struct WorkSpaceView: View {
                         .frame(alignment: .leading)
                         .padding(.bottom, 1)
                         .onTapGesture {
+                            
                             /*
                              let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
                              let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
@@ -384,6 +385,9 @@ struct WorkSpaceView: View {
                 .fill(Color.homeCategory)
         )
         .shadow(radius: 2.0)
+        .onAppear {
+            schoolViewModel.getUserSchools()
+        }
     }
 }
 
