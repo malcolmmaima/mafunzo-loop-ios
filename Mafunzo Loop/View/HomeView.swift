@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct HomeView: View {
-    @ObservedObject var userViewModel = UserViewModel()
+    @StateObject var userViewModel = UserViewModel()
     @StateObject var schoolViewModel = SchoolViewModel()
     @ObservedObject var user: User
     @State var settings: Bool = false
@@ -57,16 +57,84 @@ struct HomeView: View {
                                     HomeCell()
                                         .blur(radius: showWorkSpace ? 5 : 0)
                                         .disabled(showWorkSpace ? true : false)
-                                     //   .opacity(userViewModel.userState ? 1 : 0)
-    //                                VStack {
-    //                                    InActiveAccountView()
-    //                                    Text("Contact your school to activate your workspace")
-    //                                        .foregroundColor(.red)
-    //                                    Spacer()
-    //                                }
-    //                                .opacity(userViewModel.userState ? 0 : 1)
-                                    WorkSpaceView()
-                                        .opacity(showWorkSpace ? 1 : 0)
+                                        .opacity(userViewModel.schoolState ? 1 : 0)
+                                    VStack {
+                                        WorkSpaceErrorView()
+                                        Text("Contact your school to activate your workspace")
+                                            .foregroundColor(.red)
+                                        Spacer()
+                                    }
+                                    .opacity(userViewModel.schoolState ? 0 : 1)
+                                    
+                                    
+                                    
+                                    
+                
+                                    //WorkSpaceView()
+                                    VStack {
+                                        VStack {
+                                            Text("Switch WorkSpace")
+                                                .bold()
+                                                .font(.title)
+                                                .padding()
+                                            List {
+                                                ForEach(schoolViewModel.selectedSchool, id: \.id) { school in
+                                                    Text(school.schoolName)
+                                                        .frame(alignment: .leading)
+                                                        .padding(.bottom, 1)
+                                                        .listRowSeparator(.hidden)
+                                                        .onTapGesture {
+                                                            
+                                                            /*
+                                                             let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
+                                                             let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
+                                                             let userNumber = String(describing: userSavedNumber)
+                                                             let schoolID = String(describing: schoolStored)
+                                                             
+                                                             UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
+                                                             */
+                                                            
+                                                            let schoolID = school.id
+                                                            //userViewModel.schoolStored = schoolID
+                                                            UserDefaults.standard.set(schoolID, forKey: "schoolID")
+                                                            userViewModel.getSchoolIDFromDetails(schoolIDStore: schoolID)
+                                                            userViewModel.getUserDetails(schoolIDStore: schoolID)
+                                                            print("School Id = \(userViewModel.schoolStored)")
+                                                            print("School Name \(school.schoolName) Pressed::::::::::")
+                                                            
+                                                        }
+                                                }.listRowBackground(Color.clear)
+                                            }
+                                            .listStyle(.plain)
+//                                            .onDisappear {
+//                                                userViewModel.getSchoolIDFromDetails(schoolIDStore: userViewModel.schoolStored)
+//                                                userViewModel.getUserDetails(schoolIDStore: userViewModel.schoolStored)
+//                                            }
+                                            Spacer()
+                                            NavigationLink {
+                                                // MARK: SCHOOL BUTTON
+                                                SchoolListView()
+                                            } label: {
+                                                Text("Add School")
+                                                    .font(.body)
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 250, height: 35)
+                                            }
+                                            .background(Color.blue)
+                                            .padding(.bottom, 10)
+                                        }
+                                    }
+                                    .frame(width: 300, height: 280, alignment: .center)
+                                    .background(
+                                        RoundedCornersShape(corners: .allCorners, radius: 15)
+                                            .fill(Color.homeCategory)
+                                    )
+                                    .shadow(radius: 2.0)
+                                    .onAppear {
+                                        schoolViewModel.getUserSchools()
+                                    }
+                                    
+                                    .opacity(showWorkSpace ? 1 : 0)
                                 }
                             }
                             .frame(height: geo.size.height * 0.7)
@@ -82,6 +150,12 @@ struct HomeView: View {
                                     .font(.body)
                                     .foregroundColor(Color.buttonHomeColor)
                                     .frame(width: 350, height: 35)
+//                                    .onChange(of: userViewModel.schoolStored, perform: { change in
+//                                        print("Schoool in View \(change)")
+//                                    })
+//                                    .onReceive(userViewModel.$schoolStored) { change in
+//                                        print("Schoool in View \(change)")
+//                                    }
                             }
                             .background(
                                 RoundedCornersShape(corners: .allCorners, radius: 20)
@@ -122,6 +196,10 @@ struct HomeView: View {
                     Logout()
                     logout.toggle()
                 }))
+            }
+            .onAppear {
+                userViewModel.getUserDetails(schoolIDStore: userViewModel.schoolStored)
+                userViewModel.getSchoolIDFromDetails(schoolIDStore: userViewModel.schoolStored)
             }
             DisabledAccountView()
                 .opacity(userViewModel.userState ? 0 : 1)
@@ -337,6 +415,7 @@ struct WorkSpaceErrorView: View {
 // MARK: WORK SPACE
 struct WorkSpaceView: View {
     @StateObject var schoolViewModel = SchoolViewModel()
+    @StateObject var userViewModel = UserViewModel()
     var body: some View {
         VStack {
             VStack {
@@ -344,27 +423,38 @@ struct WorkSpaceView: View {
                     .bold()
                     .font(.title)
                     .padding()
-                ForEach(schoolViewModel.selectedSchool, id: \.id) { school in
-                    Text(school.schoolName)
-                        .frame(alignment: .leading)
-                        .padding(.bottom, 1)
-                        .onTapGesture {
-                            
-                            /*
-                             let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
-                             let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
-                             let userNumber = String(describing: userSavedNumber)
-                             let schoolID = String(describing: schoolStored)
-                             
-                             UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
-                             */
-                            
-                            let schoolID = school.id
-                            UserDefaults.standard.set(schoolID, forKey: "schoolID")
-                            print("School Id = \(schoolID)")
-                            print("School Name \(school.schoolName) Pressed::::::::::")
-                        }
+                List {
+                    ForEach(schoolViewModel.selectedSchool, id: \.id) { school in
+                        Text(school.schoolName)
+                            .frame(alignment: .leading)
+                            .padding(.bottom, 1)
+                            .listRowSeparator(.hidden)
+                            .onTapGesture {
+                                
+                                /*
+                                 let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
+                                 let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
+                                 let userNumber = String(describing: userSavedNumber)
+                                 let schoolID = String(describing: schoolStored)
+                                 
+                                 UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
+                                 */
+                                
+                                let schoolID = school.id
+                                //userViewModel.schoolStored = schoolID
+                                UserDefaults.standard.set(schoolID, forKey: "schoolID")
+                                userViewModel.getSchoolIDFromDetails(schoolIDStore: schoolID)
+                                print("School Id = \(userViewModel.schoolStored)")
+                                print("School Name \(school.schoolName) Pressed::::::::::")
+                                
+                            }
+                    }.listRowBackground(Color.clear)
                 }
+                .listStyle(.plain)
+                .onDisappear {
+                    userViewModel.getSchoolIDFromDetails(schoolIDStore: userViewModel.schoolStored)
+                }
+                
                 Spacer()
                 NavigationLink {
                     // MARK: SCHOOL BUTTON
@@ -387,6 +477,12 @@ struct WorkSpaceView: View {
         .shadow(radius: 2.0)
         .onAppear {
             schoolViewModel.getUserSchools()
+        }
+        .onDisappear {
+            print("disappear")
+            
+            userViewModel.getSchoolIDFromDetails(schoolIDStore: userViewModel.schoolStored)
+            userViewModel.getUserDetails(schoolIDStore: userViewModel.schoolStored)
         }
     }
 }

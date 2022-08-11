@@ -7,13 +7,20 @@
 
 import Foundation
 import Firebase
+
+@MainActor
 class UserViewModel: ObservableObject {
     @Published var user: User = .init()
    // var schoolD = SchoolData(id: "", schoolLocation: "", schoolName: "", schoolEmail: "")
     var schoolID: String = ""
     @Published var name = ""
-    @Published var fetchedSchool = ""
+    @Published var fetchedSchool = "" {
+        willSet {
+            objectWillChange.send()
+        }
+    }
     @Published var userState: Bool = true
+    @Published var schoolState: Bool = true
     @Published var map = MappedData(schoolID: ["" : false])
     // VIEWS
     // MARK: Error
@@ -26,12 +33,12 @@ class UserViewModel: ObservableObject {
     //Firebase
     let db = Firestore.firestore()
 //    //Initialze functions
-    init() {
-        getUserDetails()
-        getSchoolIDFromDetails()
-    }
+//    init() {
+//        getUserDetails()
+//        getSchoolIDFromDetails(schoolIDDB: schoolStored)
+//    }
     // MARK: Fetch User Details from DB
-    func getUserDetails() {
+    func getUserDetails(schoolIDStore: String) {
         print("At user Details 11")
         let userNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
         let number = String(describing: userNumber )
@@ -61,6 +68,7 @@ class UserViewModel: ObservableObject {
                         
                         let userSchoolIDs = Array(m.schoolID.keys.map { $0 }) // convert dictionary String to array
                         let schoolID = userSchoolIDs.joined(separator: " ")
+                        
                         UserDefaults.standard.set(userSchoolIDs, forKey: "schoolID's")
                         UserDefaults.standard.set(schoolMapped, forKey: "schoolArray")
                         
@@ -70,11 +78,16 @@ class UserViewModel: ObservableObject {
                         let userSchools = UserDefaults.standard.stringArray(forKey: "schoolID's")  ?? [String]()
                         
                         // check if school ID is stored in user Default
-                        if self.schoolStored == "" {
+                        if schoolIDStore == "" {
                             // check if the user id is in Array dictionary.
-                            if schoolMapped.keys.contains(self.schoolStored) == false {
+                            if schoolMapped.keys.contains(schoolIDStore) == false {
                                 UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
                             }
+                            
+                        } else {
+                            let stateschool = m.schoolID[schoolIDStore]
+                            self.schoolState = stateschool ?? false
+                            print("Value of school \(stateschool ?? false)")
                         }
                         
                         print("School Ids : \(schoolIds)")
@@ -82,7 +95,7 @@ class UserViewModel: ObservableObject {
                         print("School Mapped:------- \(schoolMapped)")
                         print("Map Data:: \(userSchoolIDs)")
                         print("School ID fFROM DB:: \(userSchools)")
-                        print("Check String Value \(schoolMapped.keys.contains(self.schoolStored))")
+                        print("Check String Value \(schoolMapped.keys.contains(schoolIDStore))")
                         
                         self.name = self.user.firstName
                     }
@@ -93,11 +106,9 @@ class UserViewModel: ObservableObject {
         }
     }
     // MARK: GET SCHOOL BY ID
-    func getSchoolIDFromDetails() {
-        print("Here Schhhh")
-        let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
-        let schoolID = String(describing: schoolStored)
-        print("Get School ID ]\(schoolID)")
+    func getSchoolIDFromDetails(schoolIDStore: String) {
+        let schoolID = String(describing: schoolIDStore)
+        print("Get School ID \(schoolID)")
         if schoolID != "" {
             let docRef = db.collection("app_settings").document("schools").collection("KE").document(schoolID)
             docRef.getDocument(source: .server) { document, error in
@@ -112,4 +123,22 @@ class UserViewModel: ObservableObject {
             }
         }
     }
+    
+//    func getSchoolIDDB(schoolIDStore: String) {
+//        let schoolID = String(describing: schoolIDStore)
+//        print("Get School ID @@ \(schoolID)")
+//        if schoolID != "" {
+//            let docRef = db.collection("app_settings").document("schools").collection("KE").document(schoolID)
+//            docRef.getDocument(source: .server) { document, error in
+//                if let schoolDocument = document {
+//                    DispatchQueue.main.async {
+//                        let schoolDetails = schoolDocument.data()
+//                        let schoolName  = schoolDetails?["schoolName"] as? String ?? ""
+//                        self.fetchedSchool =  schoolName
+//                        print("School Name is: \(schoolName)")
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
