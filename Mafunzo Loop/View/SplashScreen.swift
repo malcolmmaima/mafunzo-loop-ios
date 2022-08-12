@@ -11,9 +11,14 @@ struct SplashScreen: View {
     @State var isActive: Bool = false
     @State private var size = 0.8
     @State private var opacity = 0.5
+    @StateObject var systemSettingsViewModel = SystemSettingsViewModel()
     var body: some View {
         if isActive {
-           ContentView()
+            if systemSettingsViewModel.systemStatus == true {
+                SystemOfflineView()
+            } else {
+                ContentView()
+            }
         } else {
             VStack {
                 VStack {
