@@ -7,30 +7,30 @@
 
 import Foundation
 import Firebase
+
 class UserViewModel: ObservableObject {
-    @Published var user: User = .init()
-    var schoolD = SchoolData(id: "", schoolLocation: "", schoolName: "")
+  
     var schoolID: String = ""
     @Published var name = ""
     @Published var fetchedSchool = ""
-    @Published var userState: Bool = true
-    @Published var map = MappedData(schoolID: ["" : false])
+    //Model
+    @Published var user: User = .init()
+    @Published var schools = Schools(schoolID: ["" : false])
+    //Status
+    @Published var userStatus: Bool = true
+    @Published var schoolStatus: Bool = true
+    @Published var schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
+    @Published var isLoading: Bool = false
     // VIEWS
     // MARK: Error
     @Published var showAlert: Bool = false
     @Published var errorMsg = ""
     @Published var verificationCode: String = ""
-    //Status
-    @Published var isLoading: Bool = false
     //Firebase
     let db = Firestore.firestore()
-//    //Initialze functions
-    init() {
-        getUserDetails()
-        getSchoolIDFromDetails()
-    }
+
     // MARK: Fetch User Details from DB
-    func getUserDetails() {
+    func getUserDetails(schoolIDStore: String) {
         print("At user Details 11")
         let userNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
         let number = String(describing: userNumber )
@@ -44,22 +44,42 @@ class UserViewModel: ObservableObject {
                         self.user.firstName = userData?["firstName"] as? String ?? ""
                         self.user.lastName = userData?["lastName"] as? String ?? ""
                         self.user.email = userData?["email"] as? String ?? ""
-                        let state = userData?["enabled"] as? Bool ?? false
-                        let schoolMapped = userData?["schoolMap"] as? [String: Bool] ?? [:]
-                        let schoolData = userData?["schools"] as? [String] ?? []
-                        let schoolID = schoolData.joined(separator: " ")
-                        UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
                         self.user.accountType = userData?["accountType"] as? String ?? ""
-                        print("User Details1 \(String(describing: userData))")
-                        print("School Map:: \(schoolMapped)")
-                        let m = MappedData(schoolID: schoolMapped)
-                        self.map = m
-
-                        self.userState = state
-                        print("State:------- \(state)")
-                       print("Map Data:: \(m)")
+                        let state = userData?["enabled"] as? Bool ?? false
+                        let schoolsMappedDB = userData?["schools"] as? [String: Bool] ?? [:]
                         
+                        let schoolDictionary = Schools(schoolID: schoolsMappedDB)
+                        self.schools = schoolDictionary
+                        let schoolIds = Array(schoolDictionary.schoolID)
+
+                        let userSchoolIDs = Array(schoolDictionary.schoolID.keys.map { $0 }) // convert dictionary String to array
+                        let schoolID = userSchoolIDs.joined(separator: " ")
+                        
+                        UserDefaults.standard.set(userSchoolIDs, forKey: "schoolID's") //save school IDs [String]
+                        UserDefaults.standard.set(schoolsMappedDB, forKey: "schoolArray") // School Dictionary [String: Bool]
+                        
+                        let userSchools = UserDefaults.standard.stringArray(forKey: "schoolID's")  ?? [String]()
+                        
+                        // check if school ID is stored in user Default
+                        if schoolIDStore == "" {
+                            // check if the user id is in Array dictionary.
+                            if schoolsMappedDB.keys.contains(schoolIDStore) == false {
+                                UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
+                            }
+                            
+                        } else {
+                            let stateschool = schoolDictionary.schoolID[schoolIDStore]
+                            self.schoolStatus = stateschool ?? false
+                            print("Value of school \(stateschool ?? false)")
+                        }
                         self.name = self.user.firstName
+                        self.userStatus = state
+                        
+                        print("School Ids : \(schoolIds)")
+                        print("School Mapped:------- \(schoolsMappedDB)")
+                        print("Map Data:: \(userSchoolIDs)")
+                        print("School ID fFROM DB:: \(userSchools)")
+                        print("Check String Value \(schoolsMappedDB.keys.contains(schoolIDStore))")
                     }
                 } else {
                     print(error?.localizedDescription ?? "No Data Found")
@@ -68,10 +88,9 @@ class UserViewModel: ObservableObject {
         }
     }
     // MARK: GET SCHOOL BY ID
-    func getSchoolIDFromDetails() {
-        let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
-        let schoolID = String(describing: schoolStored)
-        print("Get School ID ]\(schoolID)")
+    func getSchoolIDFromDetails(schoolIDStore: String) {
+        let schoolID = String(describing: schoolIDStore)
+        print("Get School ID \(schoolID)")
         if schoolID != "" {
             let docRef = db.collection("app_settings").document("schools").collection("KE").document(schoolID)
             docRef.getDocument(source: .server) { document, error in

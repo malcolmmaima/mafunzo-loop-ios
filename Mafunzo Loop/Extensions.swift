@@ -79,6 +79,8 @@ extension UserDefaults {
         case schoolID
         case userNumber
         case log_status
+//        case userSchoolIDs
+//        case schoolsMappedDB
     }
     func reset() {
         Keys.allCases.forEach { removeObject(forKey: $0.rawValue) }
@@ -142,5 +144,11 @@ struct BorderedCaption: ViewModifier {
 extension View {
     func borderedCaption() -> some View {
         modifier(BorderedCaption())
+    }
+}
+
+extension Dictionary where Value: Equatable {
+    func someKey(forValue val: Value) -> Key? {
+        return first(where: { $1 == val })?.key
     }
 }

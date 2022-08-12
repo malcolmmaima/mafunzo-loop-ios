@@ -11,7 +11,7 @@ import Firebase
 
 class OTPViewModel: ObservableObject {
     @Published var user: User = .init()
-    @Published var schoolData = SchoolData(id: "", schoolLocation: "", schoolName: "")
+    @Published var schoolData = SchoolData(id: "", schoolLocation: "", schoolName: "", schoolEmail: "")
     //OTP
     @Published var otpText: String = ""
     @Published var otpFields: [String] = Array(repeating: "", count: 6)
@@ -104,10 +104,11 @@ class OTPViewModel: ObservableObject {
                 for document in snapshot.documents {
                     if document == document {
                         let data = document.data()
-                        let docId = document.documentID
+                        let docId = data["id"] as? String ?? ""
                         let schoolName = data["schoolName"] as? String ?? ""
                         let schoolLocation = data["schoolLocation"] as? String ?? ""
-                        let schoolDataList = SchoolData(id: docId, schoolLocation: schoolLocation, schoolName: schoolName)
+                        let schoolEmail = data["schoolEmail"] as? String ?? ""
+                        let schoolDataList = SchoolData(id: docId, schoolLocation: schoolLocation, schoolName: schoolName, schoolEmail: schoolEmail)
                         self.user.schools.append(schoolDataList)
                     }
                 }
@@ -128,7 +129,7 @@ class OTPViewModel: ObservableObject {
         }
     }
     // MARK: SETUP ACCOUNT
-    func setupAccount(number: String, user: User, school: [String]) async {
+    func setupAccount(number: String, user: User, school: String) async {
         do {
             print("Phone number At setup Account \(number)")
             isLoading = true
@@ -138,10 +139,12 @@ class OTPViewModel: ObservableObject {
                 "accountType": user.accountType,
                 "dateCreated": user.dateCreated,
                 "email": user.email,
+                "phone": number,
                 "firstName": user.firstName,
                 "lastName": user.lastName,
                 "profilePic": user.profilePic,
-                "schools": school
+                "schools": [school : false ],
+                "enabled": false,
             ])
             DispatchQueue.main.async {
                 self.isLoading = false
@@ -149,7 +152,7 @@ class OTPViewModel: ObservableObject {
                 self.log_status = true
                 UserDefaults.standard.set(number, forKey: "userNumber") //save number
                 //UserDefaults.standard.set(true, forKey: UserDefaults.Keys.allowDownloadsOverCellular.rawValue)
-                UserDefaults.standard.set(true, forKey: "selectedSchool")
+//                UserDefaults.standard.set(true, forKey: "selectedSchool")
             }
         } catch {
             handleError(error: error.localizedDescription)

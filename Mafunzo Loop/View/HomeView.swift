@@ -9,11 +9,15 @@ import SwiftUI
 import Firebase
 
 struct HomeView: View {
-    @ObservedObject var userViewModel = UserViewModel()
+    @StateObject var userViewModel = UserViewModel()
+    @StateObject var schoolViewModel = SchoolViewModel()
     @ObservedObject var user: User
     @State var settings: Bool = false
     @State var logout: Bool = false
+    @State private var schoolList: Bool = false
     @State private var showLogoutAlert = false
+    @State private var showWorkSpace = false
+    @State private var blurRadius: Double = 1.0
     var body: some View {
         ZStack {
             NavigationView {
@@ -44,26 +48,86 @@ struct HomeView: View {
                             .padding()
                             .background(Color.yellow)
                             .frame(height: geo.size.height * 0.25)
+                            .blur(radius: showWorkSpace ? 10 : 0)
+                            .disabled(showWorkSpace ? true : false)
                         // MARK: SChool Modules
                         VStack {
                             ScrollView {
                                 ZStack {
                                     HomeCell()
-                                     //   .opacity(userViewModel.userState ? 1 : 0)
-    //                                VStack {
-    //                                    InActiveAccountView()
-    //                                    Text("Contact your school to activate your workspace")
-    //                                        .foregroundColor(.red)
-    //                                    Spacer()
-    //                                }
-    //                                .opacity(userViewModel.userState ? 0 : 1)
+                                        .blur(radius: showWorkSpace ? 5 : 0)
+                                        .disabled(showWorkSpace ? true : false)
+                                        .opacity(userViewModel.schoolStatus ? 1 : 0)
+                                    VStack {
+                                        // MARK: -WORKSPACE ERROR!!! VIEW
+                                        WorkSpaceErrorView()
+                                        Text("Contact your school to activate your workspace")
+                                            .foregroundColor(.red)
+                                        Spacer()
+                                    }
+                                    .opacity(userViewModel.schoolStatus ? 0 : 1)                                                      
+                                    // MARK: -WORKSPACE VIEW SELECT
+                                    //WorkSpaceView()
+                                    VStack {
+                                        VStack {
+                                            Text("Switch WorkSpace")
+                                                .bold()
+                                                .font(.title)
+                                                .padding()
+                                            List {
+                                                ForEach(schoolViewModel.selectedSchool, id: \.id) { school in
+                                                    Text(school.schoolName)
+                                                        .frame(alignment: .leading)
+                                                        .padding(.bottom, 1)
+                                                        .listRowSeparator(.hidden)
+                                                        .onTapGesture {
+                                                            let schoolID = school.id
+                                                            //userViewModel.schoolStored = schoolID
+                                                            UserDefaults.standard.set(schoolID, forKey: "schoolID")
+                                                            userViewModel.getSchoolIDFromDetails(schoolIDStore: schoolID)
+                                                            userViewModel.getUserDetails(schoolIDStore: schoolID)
+                                                            print("School Id = \(userViewModel.schoolStored)")
+                                                            print("School Name \(school.schoolName) Pressed::::::::::")
+                                                            
+                                                        }
+                                                }.listRowBackground(Color.clear)
+                                            }
+                                            .listStyle(.plain)
+                                            Spacer()
+                                            NavigationLink {
+                                                // MARK: SCHOOL BUTTON
+                                                SchoolListView()
+                                            } label: {
+                                                Text("Add School")
+                                                    .font(.body)
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 250, height: 35)
+                                            }
+                                            .background(Color.blue)
+                                            .padding(.bottom, 10)
+                                        }
+                                    }
+                                    .frame(width: 300, height: 280, alignment: .center)
+                                    .background(
+                                        RoundedCornersShape(corners: .allCorners, radius: 15)
+                                            .fill(Color.homeCategory)
+                                    )
+                                    .shadow(radius: 2.0)
+                                    .onAppear {
+                                        schoolViewModel.getUserSchools()
+                                    }
+                                    .opacity(showWorkSpace ? 1 : 0)
+                                    // MARK: -
                                 }
                             }
                             .frame(height: geo.size.height * 0.7)
                            .offset(y: -50)
+                           .onTapGesture {
+                               showWorkSpace = false //diable Workspace View
+                           }
                             Button {
                                 // MARK: SCHOOL BUTTON
-                                print("")
+                                showWorkSpace = true
                             } label: {
                                 Text(userViewModel.fetchedSchool)
                                     .font(.body)
@@ -96,7 +160,7 @@ struct HomeView: View {
                         LoginView()
                 }
             }
-            .opacity(userViewModel.userState ? 1 : 0)
+            .opacity(userViewModel.userStatus ? 1 : 0)
             // MARK: Logout Alert
             .alert(isPresented: $showLogoutAlert) {
                 Alert(
@@ -110,9 +174,12 @@ struct HomeView: View {
                     logout.toggle()
                 }))
             }
-            
+            .onAppear {
+                userViewModel.getUserDetails(schoolIDStore: userViewModel.schoolStored)
+                userViewModel.getSchoolIDFromDetails(schoolIDStore: userViewModel.schoolStored)
+            }
             DisabledAccountView()
-                .opacity(userViewModel.userState ? 0 : 1)
+                .opacity(userViewModel.userStatus ? 0 : 1)
         }
     }
     func Logout() {
@@ -272,7 +339,8 @@ struct HomeCell: View {
     }
 }
 
-struct WarkSpaceView: View {
+// MARK: WORK SPACE ERROR
+struct WorkSpaceErrorView: View {
     var body: some View {
         HStack {
             // MARK: Announcements
@@ -320,6 +388,74 @@ struct WarkSpaceView: View {
             .background(Color.clear)
     }
 }
+
+// MARK: WORK SPACE
+struct WorkSpaceView: View {
+    @StateObject var schoolViewModel = SchoolViewModel()
+    @StateObject var userViewModel = UserViewModel()
+    var body: some View {
+        VStack {
+            VStack {
+                Text("Switch WorkSpace")
+                    .bold()
+                    .font(.title)
+                    .padding()
+                List {
+                    ForEach(schoolViewModel.selectedSchool, id: \.id) { school in
+                        Text(school.schoolName)
+                            .frame(alignment: .leading)
+                            .padding(.bottom, 1)
+                            .listRowSeparator(.hidden)
+                            .onTapGesture {
+                                                        
+                                let schoolID = school.id
+                                //userViewModel.schoolStored = schoolID
+                                UserDefaults.standard.set(schoolID, forKey: "schoolID")
+                                userViewModel.getSchoolIDFromDetails(schoolIDStore: schoolID)
+                                print("School Id = \(userViewModel.schoolStored)")
+                                print("School Name \(school.schoolName) Pressed::::::::::")
+                                
+                            }
+                    }.listRowBackground(Color.clear)
+                }
+                .listStyle(.plain)
+                .onDisappear {
+                    userViewModel.getSchoolIDFromDetails(schoolIDStore: userViewModel.schoolStored)
+                }
+                
+                Spacer()
+                NavigationLink {
+                    // MARK: SCHOOL BUTTON
+                    SchoolListView()
+                } label: {
+                    Text("Add School")
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .frame(width: 250, height: 35)
+                }
+                .background(Color.blue)
+                .padding(.bottom, 10)
+            }
+        }
+        .frame(width: 300, height: 280, alignment: .center)
+        .background(
+            RoundedCornersShape(corners: .allCorners, radius: 15)
+                .fill(Color.homeCategory)
+        )
+        .shadow(radius: 2.0)
+        .onAppear {
+            schoolViewModel.getUserSchools()
+        }
+        .onDisappear {
+            print("disappear")
+            
+            userViewModel.getSchoolIDFromDetails(schoolIDStore: userViewModel.schoolStored)
+            userViewModel.getUserDetails(schoolIDStore: userViewModel.schoolStored)
+        }
+    }
+}
+
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

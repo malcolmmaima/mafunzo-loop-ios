@@ -113,7 +113,7 @@ struct AccountSetupView: View {
         let currentTimeMillisecond = currentTime.millisecondsSince1970
         // school selected
         let schoolSelected = otpViewModel.user.schools[otpViewModel.schoolSelected].id
-        let school = [schoolSelected]
+        let school = schoolSelected
         itemSelected()
         let dateCreated = Int(currentTimeMillisecond)
         user.dateCreated = dateCreated
