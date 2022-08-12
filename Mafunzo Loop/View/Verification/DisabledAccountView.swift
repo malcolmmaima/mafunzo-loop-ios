@@ -44,7 +44,6 @@ struct DisabledAccountView: View {
                 logout.toggle()
             } catch {
                 print("already logged out")
-                
             }
     }
 }

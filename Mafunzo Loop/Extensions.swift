@@ -79,6 +79,8 @@ extension UserDefaults {
         case schoolID
         case userNumber
         case log_status
+//        case userSchoolIDs
+//        case schoolsMappedDB
     }
     func reset() {
         Keys.allCases.forEach { removeObject(forKey: $0.rawValue) }
