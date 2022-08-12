@@ -64,6 +64,9 @@
 		20D3814C289DAF3C00D08651 /* DisabledAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */; };
 		20D64B99288AC70500F7F104 /* CalendarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D64B98288AC70500F7F104 /* CalendarListView.swift */; };
 		20D64B9B288ACA5D00F7F104 /* EventListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D64B9A288ACA5D00F7F104 /* EventListViewCell.swift */; };
+		20EE0C9628A6570A00F92E53 /* SystemSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0C9528A6570A00F92E53 /* SystemSettings.swift */; };
+		20EE0C9828A6574500F92E53 /* SystemSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */; };
+		20EE0C9A28A6594800F92E53 /* SystemOfflineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +121,9 @@
 		20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisabledAccountView.swift; sourceTree = "<group>"; };
 		20D64B98288AC70500F7F104 /* CalendarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarListView.swift; sourceTree = "<group>"; };
 		20D64B9A288ACA5D00F7F104 /* EventListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewCell.swift; sourceTree = "<group>"; };
+		20EE0C9528A6570A00F92E53 /* SystemSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettings.swift; sourceTree = "<group>"; };
+		20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsViewModel.swift; sourceTree = "<group>"; };
+		20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemOfflineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +195,7 @@
 				2016ADE82892A8F80025BA98 /* Request.swift */,
 				204CFF3828955CEA00AF92A7 /* Teacher.swift */,
 				202C825C289A546A0009854E /* Timetable.swift */,
+				20EE0C9528A6570A00F92E53 /* SystemSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,6 +212,7 @@
 				204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */,
 				202C825E289A5A7F0009854E /* TimetableViewModel.swift */,
 				20B2E329289E7D4700B75D21 /* SchoolViewModel.swift */,
+				20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -223,6 +231,7 @@
 				20BC55C82878B3140018AACA /* HomeView.swift */,
 				208D5AC728981DBE0082FBD3 /* Settings.swift */,
 				208D5AC9289855360082FBD3 /* NavigationTopView.swift */,
+				20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,7 +402,10 @@
 				20C7C7E328900E6C00D8FB32 /* UpcommingEventsView.swift in Sources */,
 				2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */,
 				203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */,
+				20EE0C9828A6574500F92E53 /* SystemSettingsViewModel.swift in Sources */,
 				204CFF3D289563B300AF92A7 /* TeacherListViewCell.swift in Sources */,
+				20EE0C9A28A6594800F92E53 /* SystemOfflineView.swift in Sources */,
+				20EE0C9628A6570A00F92E53 /* SystemSettings.swift in Sources */,
 				20CA01F5288B237A009AC923 /* CalendarViewModel.swift in Sources */,
 				204CFF3F2895682F00AF92A7 /* TeacherView.swift in Sources */,
 				202C825F289A5A7F0009854E /* TimetableViewModel.swift in Sources */,
