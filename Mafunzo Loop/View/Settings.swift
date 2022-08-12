@@ -30,8 +30,10 @@ struct Settings: View {
                             .listRowSeparator(.hidden)
                         Section {
                             Button {
-                                // MARK: UPDATE
-                                print("")
+                                // MARK: UPDATE User Data
+                                Task {
+                                    await userViewModel.updateUser(user: userViewModel.user)
+                                }
                             } label: {
                                 Text("Update")
                                     .foregroundColor(.white)
@@ -65,6 +67,9 @@ struct Settings: View {
                 )
                 .offset(y: -55)
             }
+        }
+        .onAppear {
+            userViewModel.getUserDetails(schoolIDStore: userViewModel.schoolID)
         }
         .navigationBarTitle(Text("Settings"), displayMode: .inline)
     }
