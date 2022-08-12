@@ -31,7 +31,6 @@ class UserViewModel: ObservableObject {
 
     // MARK: Fetch User Details from DB
     func getUserDetails(schoolIDStore: String) {
-        print("At user Details 11")
         let userNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
         let number = String(describing: userNumber )
         print("Number \(number)")
@@ -50,7 +49,7 @@ class UserViewModel: ObservableObject {
                         
                         let schoolDictionary = Schools(schoolID: schoolsMappedDB)
                         self.schools = schoolDictionary
-                        let schoolIds = Array(schoolDictionary.schoolID)
+                        let schoolIds = Array(schoolDictionary.schoolID) //Convert schoolDictionary to array
 
                         let userSchoolIDs = Array(schoolDictionary.schoolID.keys.map { $0 }) // convert dictionary String to array
                         let schoolID = userSchoolIDs.joined(separator: " ")
@@ -65,6 +64,7 @@ class UserViewModel: ObservableObject {
                             // check if the user id is in Array dictionary.
                             if schoolsMappedDB.keys.contains(schoolIDStore) == false {
                                 UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
+                                
                             }
                             
                         } else {
@@ -87,6 +87,7 @@ class UserViewModel: ObservableObject {
             }
         }
     }
+    
     // MARK: GET SCHOOL BY ID
     func getSchoolIDFromDetails(schoolIDStore: String) {
         let schoolID = String(describing: schoolIDStore)
@@ -103,6 +104,26 @@ class UserViewModel: ObservableObject {
                     }
                 }
             }
+        }
+    }
+    
+    // MARK: UPDATE USER
+    func updateUser(user: User) async {
+        do {
+            isLoading = true
+            let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
+            let userNumber = String(describing: userSavedNumber)
+            let userRef = db.collection("users").document(userNumber)
+            try await userRef.updateData([
+                "firstName": user.firstName,
+                "lastName": user.lastName,
+                "email": user.email
+            ])
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
+        } catch {
+            print("Update User Error!! \(error.localizedDescription)")
         }
     }
 }
