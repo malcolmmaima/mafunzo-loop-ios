@@ -57,19 +57,16 @@ struct HomeView: View {
                                     HomeCell()
                                         .blur(radius: showWorkSpace ? 5 : 0)
                                         .disabled(showWorkSpace ? true : false)
-                                        .opacity(userViewModel.schoolState ? 1 : 0)
+                                        .opacity(userViewModel.schoolStatus ? 1 : 0)
                                     VStack {
+                                        // MARK: -WORKSPACE ERROR!!! VIEW
                                         WorkSpaceErrorView()
                                         Text("Contact your school to activate your workspace")
                                             .foregroundColor(.red)
                                         Spacer()
                                     }
-                                    .opacity(userViewModel.schoolState ? 0 : 1)
-                                    
-                                    
-                                    
-                                    
-                
+                                    .opacity(userViewModel.schoolStatus ? 0 : 1)                                                      
+                                    // MARK: -WORKSPACE VIEW SELECT
                                     //WorkSpaceView()
                                     VStack {
                                         VStack {
@@ -84,16 +81,6 @@ struct HomeView: View {
                                                         .padding(.bottom, 1)
                                                         .listRowSeparator(.hidden)
                                                         .onTapGesture {
-                                                            
-                                                            /*
-                                                             let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
-                                                             let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
-                                                             let userNumber = String(describing: userSavedNumber)
-                                                             let schoolID = String(describing: schoolStored)
-                                                             
-                                                             UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
-                                                             */
-                                                            
                                                             let schoolID = school.id
                                                             //userViewModel.schoolStored = schoolID
                                                             UserDefaults.standard.set(schoolID, forKey: "schoolID")
@@ -106,10 +93,6 @@ struct HomeView: View {
                                                 }.listRowBackground(Color.clear)
                                             }
                                             .listStyle(.plain)
-//                                            .onDisappear {
-//                                                userViewModel.getSchoolIDFromDetails(schoolIDStore: userViewModel.schoolStored)
-//                                                userViewModel.getUserDetails(schoolIDStore: userViewModel.schoolStored)
-//                                            }
                                             Spacer()
                                             NavigationLink {
                                                 // MARK: SCHOOL BUTTON
@@ -133,8 +116,8 @@ struct HomeView: View {
                                     .onAppear {
                                         schoolViewModel.getUserSchools()
                                     }
-                                    
                                     .opacity(showWorkSpace ? 1 : 0)
+                                    // MARK: -
                                 }
                             }
                             .frame(height: geo.size.height * 0.7)
@@ -150,12 +133,6 @@ struct HomeView: View {
                                     .font(.body)
                                     .foregroundColor(Color.buttonHomeColor)
                                     .frame(width: 350, height: 35)
-//                                    .onChange(of: userViewModel.schoolStored, perform: { change in
-//                                        print("Schoool in View \(change)")
-//                                    })
-//                                    .onReceive(userViewModel.$schoolStored) { change in
-//                                        print("Schoool in View \(change)")
-//                                    }
                             }
                             .background(
                                 RoundedCornersShape(corners: .allCorners, radius: 20)
@@ -183,7 +160,7 @@ struct HomeView: View {
                         LoginView()
                 }
             }
-            .opacity(userViewModel.userState ? 1 : 0)
+            .opacity(userViewModel.userStatus ? 1 : 0)
             // MARK: Logout Alert
             .alert(isPresented: $showLogoutAlert) {
                 Alert(
@@ -202,7 +179,7 @@ struct HomeView: View {
                 userViewModel.getSchoolIDFromDetails(schoolIDStore: userViewModel.schoolStored)
             }
             DisabledAccountView()
-                .opacity(userViewModel.userState ? 0 : 1)
+                .opacity(userViewModel.userStatus ? 0 : 1)
         }
     }
     func Logout() {
@@ -430,16 +407,7 @@ struct WorkSpaceView: View {
                             .padding(.bottom, 1)
                             .listRowSeparator(.hidden)
                             .onTapGesture {
-                                
-                                /*
-                                 let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
-                                 let userSavedNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
-                                 let userNumber = String(describing: userSavedNumber)
-                                 let schoolID = String(describing: schoolStored)
-                                 
-                                 UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
-                                 */
-                                
+                                                        
                                 let schoolID = school.id
                                 //userViewModel.schoolStored = schoolID
                                 UserDefaults.standard.set(schoolID, forKey: "schoolID")

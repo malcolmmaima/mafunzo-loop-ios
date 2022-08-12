@@ -12,6 +12,7 @@ class User: Codable, ObservableObject, Identifiable {
         case accountType
         case dateCreated
         case email
+        case phone
         case enabled
         case firstName
         case lastName
@@ -21,6 +22,7 @@ class User: Codable, ObservableObject, Identifiable {
     @Published var firstName = ""
     @Published var lastName = ""
     @Published var email = ""
+    @Published var phone = ""
     @Published var enabled: Bool = false
     @Published var accountType = ""
     @Published var schools: [SchoolData] = []
@@ -33,6 +35,7 @@ class User: Codable, ObservableObject, Identifiable {
         lastName = try container.decode(String.self, forKey: .lastName)
         accountType = try container.decode(String.self, forKey: .accountType)
         email = try container.decode(String.self, forKey: .email)
+        phone = try container.decode(String.self, forKey: .phone)
         enabled = try container.decode(Bool.self, forKey: .enabled)
 //        schools = try container.decode([SchoolData].self, forKey: .schools)
         dateCreated = try container.decode(Int.self, forKey: .dateCreated)
@@ -43,6 +46,7 @@ class User: Codable, ObservableObject, Identifiable {
         try container.encode(firstName, forKey: .firstName)
         try container.encode(lastName, forKey: .lastName)
         try container.encode(email, forKey: .email)
+        try container.encode(phone, forKey: .phone)
         try container.encode(enabled, forKey: .enabled)
         try container.encode(accountType, forKey: .accountType)
 //        try container.encode(schools, forKey: .schools)
@@ -58,8 +62,7 @@ struct SchoolData: Codable, Identifiable {
     var schoolEmail: String
 }
 
-
-struct MappedData: Codable {
+struct Schools: Codable {
     var schoolID: [String: Bool]
 }
 

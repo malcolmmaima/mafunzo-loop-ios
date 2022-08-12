@@ -139,12 +139,12 @@ class OTPViewModel: ObservableObject {
                 "accountType": user.accountType,
                 "dateCreated": user.dateCreated,
                 "email": user.email,
+                "phone": number,
                 "firstName": user.firstName,
                 "lastName": user.lastName,
                 "profilePic": user.profilePic,
-                "schoolMap": [school : false ],
+                "schools": [school : false ],
                 "enabled": false,
-//                "schools": school
             ])
             DispatchQueue.main.async {
                 self.isLoading = false
@@ -152,7 +152,7 @@ class OTPViewModel: ObservableObject {
                 self.log_status = true
                 UserDefaults.standard.set(number, forKey: "userNumber") //save number
                 //UserDefaults.standard.set(true, forKey: UserDefaults.Keys.allowDownloadsOverCellular.rawValue)
-                UserDefaults.standard.set(true, forKey: "selectedSchool")
+//                UserDefaults.standard.set(true, forKey: "selectedSchool")
             }
         } catch {
             handleError(error: error.localizedDescription)

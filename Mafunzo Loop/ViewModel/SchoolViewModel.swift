@@ -18,8 +18,7 @@ class SchoolViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     //Model
     @Published var school = [SchoolData]()
-    //let m = MappedData(schoolID: schoolMapped)
-    @Published var mapped = [MappedData]()
+    @Published var mapped = [Schools]()
     @Published var selectedSchool = [SelectedSchool]()
     //Firebase
     let db = Firestore.firestore()
@@ -39,32 +38,19 @@ class SchoolViewModel: ObservableObject {
     // MARK: GET Schools from user
     func getUserSchools() {
         let userSchools = UserDefaults.standard.stringArray(forKey: "schoolID's")  ?? [String]()
-//        let schoolArray = UserDefaults.standard.object(forKey: "schoolArray")  as? [String:Bool]
-//
-//        print("Arrays == \(String(describing: schoolArray))")
-          print("Arrays1 == \(userSchools)")
-        
-        print("Dataa1 \(userSchools)")
+        print("Arrays == \(userSchools)")
         if userSchools != [] {
             selectedSchool.removeAll()
             let ref = db.collection("app_settings").document("schools").collection("KE").whereField("id", in: userSchools)
-               // .whereField("id", in: userSchools)
-                //.whereField("id", arrayContainsAny: userSchools)
-            print("1")
             ref.getDocuments { snapshot, error in
-                print("2")
                 guard error == nil else {
                     print("Error!!! \(error!.localizedDescription)")
                     self.handleError(error: error!.localizedDescription)
                     return
                 }
-                print("3")
                 if let snapshot = snapshot {
-                    print("4")
                     for document in snapshot.documents {
-                        print("5")
                         if document == document {
-                            print("6")
                             let data = document.data()
                             let docId = data["id"] as? String ?? ""
                             let schoolName = data["schoolName"] as? String ?? ""
@@ -109,9 +95,7 @@ class SchoolViewModel: ObservableObject {
     
     func addSchool(selected: String) async {
         do {
-            
             let schoolArray = (UserDefaults.standard.object(forKey: "schoolArray")  as? [String:Bool])!
-            
             var addSchool:[String:Bool] = schoolArray
             addSchool[selected] = false
             print("Add School \(addSchool)")
@@ -120,9 +104,8 @@ class SchoolViewModel: ObservableObject {
             isLoading = true
             let schoolRef = db.collection("users").document(userNumber)
             try await schoolRef.updateData([
-                "schoolMap" : addSchool
+                "schools" : addSchool
             ])
-            
         } catch {
             handleError(error: error.localizedDescription)
         }
