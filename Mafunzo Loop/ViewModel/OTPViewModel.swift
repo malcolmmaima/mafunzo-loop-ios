@@ -26,6 +26,7 @@ class OTPViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published var errorMsg = ""
     @Published var verificationCode: String = ""
+    @Published var showAlertToast: Bool = false
     //Status
     @Published var isLoading: Bool = false
     @Published var verificationTag: String?
@@ -148,12 +149,11 @@ class OTPViewModel: ObservableObject {
             ])
             DispatchQueue.main.async {
                 self.isLoading = false
+                self.showAlertToast = true
                 self.toHomeScreen = true
                 self.log_status = true
                 UserDefaults.standard.set(number, forKey: "userNumber") //save number
                 UserDefaults.standard.set(school, forKey: "schoolID") //save school ID
-                //UserDefaults.standard.set(true, forKey: UserDefaults.Keys.allowDownloadsOverCellular.rawValue)
-//                UserDefaults.standard.set(true, forKey: "selectedSchool")
             }
         } catch {
             handleError(error: error.localizedDescription)
