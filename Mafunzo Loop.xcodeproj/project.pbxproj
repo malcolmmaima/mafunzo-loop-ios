@@ -67,6 +67,7 @@
 		20EE0C9628A6570A00F92E53 /* SystemSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0C9528A6570A00F92E53 /* SystemSettings.swift */; };
 		20EE0C9828A6574500F92E53 /* SystemSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */; };
 		20EE0C9A28A6594800F92E53 /* SystemOfflineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */; };
+		20EE0CD228AB847A00F92E53 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 20EE0CD128AB847A00F92E53 /* AlertToast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +137,7 @@
 				20021F14286E3494007D5329 /* FirebaseCrashlytics in Frameworks */,
 				20021F16286E3494007D5329 /* FirebaseFirestore in Frameworks */,
 				20021F1C286E3494007D5329 /* FirebaseStorage in Frameworks */,
+				20EE0CD228AB847A00F92E53 /* AlertToast in Frameworks */,
 				20021F10286E3494007D5329 /* FirebaseAnalytics in Frameworks */,
 				20021F12286E3494007D5329 /* FirebaseAuth in Frameworks */,
 			);
@@ -332,6 +334,7 @@
 				20021F17286E3494007D5329 /* FirebaseFirestoreSwift */,
 				20021F19286E3494007D5329 /* FirebaseMessaging */,
 				20021F1B286E3494007D5329 /* FirebaseStorage */,
+				20EE0CD128AB847A00F92E53 /* AlertToast */,
 			);
 			productName = "Mafunzo Loop";
 			productReference = 20021EFB286E27BB007D5329 /* Mafunzo Loop.app */;
@@ -363,6 +366,7 @@
 			mainGroup = 20021EF2286E27BB007D5329;
 			packageReferences = (
 				20021F0E286E3494007D5329 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				20EE0CD028AB847900F92E53 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 20021EFC286E27BB007D5329 /* Products */;
 			projectDirPath = "";
@@ -655,6 +659,14 @@
 				kind = branch;
 			};
 		};
+		20EE0CD028AB847900F92E53 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -692,6 +704,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 20021F0E286E3494007D5329 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		20EE0CD128AB847A00F92E53 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 20EE0CD028AB847900F92E53 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

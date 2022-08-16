@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct AccountSetupView: View {
     init(number: String, user: User) {
@@ -90,9 +91,12 @@ struct AccountSetupView: View {
                          )
                          .offset(y: -55)
                 }
-                    .fullScreenCover(isPresented: $otpViewModel.toHomeScreen) {
-                        HomeView(user: User())
-                    }
+                .toast(isPresenting: $otpViewModel.showAlertToast, duration: 5.0) {
+                    return AlertToast(type: .systemImage("checkmark", Color.blue), title: "\(otpViewModel.user.firstName),  Welcome to Mafunzo")
+                }
+                .fullScreenCover(isPresented: $otpViewModel.toHomeScreen) {
+                    HomeView(user: User())
+                }
             }
           .alert(otpViewModel.errorMsg, isPresented: $otpViewModel.showAlert) {}
        }
