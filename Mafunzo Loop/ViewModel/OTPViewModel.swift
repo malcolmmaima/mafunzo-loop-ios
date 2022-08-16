@@ -144,13 +144,14 @@ class OTPViewModel: ObservableObject {
                 "lastName": user.lastName,
                 "profilePic": user.profilePic,
                 "schools": [school : false ],
-                "enabled": false,
+                "enabled": true,
             ])
             DispatchQueue.main.async {
                 self.isLoading = false
                 self.toHomeScreen = true
                 self.log_status = true
                 UserDefaults.standard.set(number, forKey: "userNumber") //save number
+                UserDefaults.standard.set(school, forKey: "schoolID") //save school ID
                 //UserDefaults.standard.set(true, forKey: UserDefaults.Keys.allowDownloadsOverCellular.rawValue)
 //                UserDefaults.standard.set(true, forKey: "selectedSchool")
             }
