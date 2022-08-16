@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct Settings: View {
     @ObservedObject var userViewModel = UserViewModel()
@@ -70,6 +71,9 @@ struct Settings: View {
         }
         .onAppear {
             userViewModel.getUserDetails(schoolIDStore: userViewModel.schoolID)
+        }
+        .toast(isPresenting: $userViewModel.showAlertToast, duration: 2.0) {
+            return AlertToast(type: .systemImage("checkmark", Color.blue), title: "Details have been Updated")
         }
         .navigationBarTitle(Text("Settings"), displayMode: .inline)
     }
