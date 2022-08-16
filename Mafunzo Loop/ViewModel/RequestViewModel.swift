@@ -14,6 +14,7 @@ class RequestViewModel: ObservableObject {
     //Status
     @Published var isLoading: Bool = false
     @Published var noRequest: Bool = false
+    @Published var showAlertToast: Bool = false
     //Model
     @Published var requestSelected = 0
     @Published var request: Request = .init()
@@ -60,6 +61,7 @@ class RequestViewModel: ObservableObject {
                 ])
                 DispatchQueue.main.async {
                     self.isLoading = false
+                    self.showAlertToast = true
                 }
             }
         } catch {
