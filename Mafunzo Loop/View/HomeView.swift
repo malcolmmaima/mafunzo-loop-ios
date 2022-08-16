@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import AlertToast
 
 struct HomeView: View {
     @StateObject var userViewModel = UserViewModel()
@@ -195,6 +196,7 @@ struct HomeView: View {
 }
 // MARK: Item Home Modules
 struct HomeCell: View {
+    @State var bus = false
     var body: some View {
             VStack {
                 HStack {
@@ -313,7 +315,7 @@ struct HomeCell: View {
                     Spacer()
                     // MARK: Contacts
                     Button {
-                        print("")
+                        bus = true
                     } label: {
                         VStack {
                             Image("ic_school_bus")
@@ -335,6 +337,9 @@ struct HomeCell: View {
                     .padding(.horizontal, 10)
                     .padding(.bottom, 8)
                     .background(Color.clear)
+            }
+            .toast(isPresenting: $bus, duration: 1.0) {
+                return AlertToast(type: .systemImage("bus", Color.gray), title: "Coming Soon")
             }
     }
 }
