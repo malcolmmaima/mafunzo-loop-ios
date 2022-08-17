@@ -26,7 +26,7 @@ class RequestViewModel: ObservableObject {
         getAccountTypes()
     }
     
-    //MARK: Get Account Types
+    //MARK: Get Request Types
     func getAccountTypes() {
             let ref = db.collection("app_settings").document(" request_types")
         ref.getDocument(source: .default) { document, error in
