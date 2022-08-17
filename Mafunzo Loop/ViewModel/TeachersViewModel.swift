@@ -15,6 +15,7 @@ class TeachersViewModel: ObservableObject {
     @Published var verificationCode: String = ""
     //Status
     @Published var isLoading: Bool = false
+    @Published var noTeachers: Bool = false
     //Model
     @Published var teacher = [Teacher]()
     //Firebase
@@ -23,6 +24,7 @@ class TeachersViewModel: ObservableObject {
     // MARK: GET ALL Teachers
     func getAllTeachers() {
         isLoading = true
+        noTeachers = false
         teacher.removeAll()
         let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
         let schoolID = String(describing: schoolStored)
@@ -34,7 +36,12 @@ class TeachersViewModel: ObservableObject {
                     return
                 }
                 if let teachers = teacherQuerySnapshot {
+                    if teachers.documents == [] {
+                        self.isLoading = false
+                        self.noTeachers = true
+                    }
                     for document in teachers.documents {
+                        self.noTeachers = false
                         let data = document.data()
                         let dateCreated = data["dateCreated"] as? Int ?? 0
                         let emailAddress = data["emailAddress"] as? String ?? ""
