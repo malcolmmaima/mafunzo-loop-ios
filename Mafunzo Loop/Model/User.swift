@@ -72,3 +72,7 @@ struct SelectedSchool: Codable {
     var schoolName: String
     var schoolEmail: String
 }
+
+struct Account_Types: Codable {
+    var users: [String]
+}
