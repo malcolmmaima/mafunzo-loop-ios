@@ -40,8 +40,8 @@ struct AccountSetupView: View {
                                     TextField("Email Address", text: $otpViewModel.user.email)
                                         .textFieldStyling()
                                     Picker(selection: $otpViewModel.accountSelected, label: Text("Account Type")) {
-                                        ForEach(0 ..< otpViewModel.accountType.count) {
-                                            Text(self.otpViewModel.accountType[$0])
+                                        ForEach(0 ..< otpViewModel.account_Types.users.count, id: \.self) {
+                                            Text("\(self.otpViewModel.account_Types.users[$0])")
                                         }
                                     }
                                     .textFieldStyling()
@@ -104,7 +104,7 @@ struct AccountSetupView: View {
     // selected items
     func itemSelected() {
         //Passing item category
-        let accountTypeSelected = otpViewModel.accountType[otpViewModel.accountSelected]
+        let accountTypeSelected = otpViewModel.account_Types.users[otpViewModel.accountSelected]
         user.firstName = otpViewModel.user.firstName
         user.lastName = otpViewModel.user.lastName
         user.email = otpViewModel.user.email
