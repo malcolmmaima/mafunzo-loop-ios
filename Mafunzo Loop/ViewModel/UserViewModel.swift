@@ -37,7 +37,7 @@ class UserViewModel: ObservableObject {
         print("Number \(number)")
         if number != "" {
             let docRef = db.collection("users").document(number)
-            docRef.getDocument(source: .server) { document, error in
+            docRef.getDocument(source: .default) { document, error in
                 if let document = document {
                     DispatchQueue.main.async {
                         let userData = document.data()

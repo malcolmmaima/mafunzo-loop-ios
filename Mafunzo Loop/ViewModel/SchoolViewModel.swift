@@ -44,7 +44,7 @@ class SchoolViewModel: ObservableObject {
         if userSchools != [] {
             selectedSchool.removeAll()
             let ref = db.collection("app_settings").document("schools").collection("KE").whereField("id", in: userSchools)
-            ref.getDocuments { snapshot, error in
+            ref.getDocuments(source: .server) { snapshot, error in
                 guard error == nil else {
                     print("Error!!! \(error!.localizedDescription)")
                     self.handleError(error: error!.localizedDescription)
