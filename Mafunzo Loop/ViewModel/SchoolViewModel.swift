@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import AlertToast
 
 class SchoolViewModel: ObservableObject {
     @Published var searchSchool = ""
@@ -16,6 +17,7 @@ class SchoolViewModel: ObservableObject {
     @Published var verificationCode: String = ""
     //Status
     @Published var isLoading: Bool = false
+    @Published var showAlertToast: Bool = false
     //Model
     @Published var school = [SchoolData]()
     @Published var mapped = [Schools]()
@@ -106,6 +108,9 @@ class SchoolViewModel: ObservableObject {
             try await schoolRef.updateData([
                 "schools" : addSchool
             ])
+            DispatchQueue.main.async {
+                self.showAlertToast = true
+            }
         } catch {
             handleError(error: error.localizedDescription)
         }
