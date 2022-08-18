@@ -68,6 +68,8 @@
 		20EE0C9828A6574500F92E53 /* SystemSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */; };
 		20EE0C9A28A6594800F92E53 /* SystemOfflineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */; };
 		20EE0CD228AB847A00F92E53 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 20EE0CD128AB847A00F92E53 /* AlertToast */; };
+		20EE0CD428AED5BE00F92E53 /* NetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */; };
+		20EE0CD828AED7C500F92E53 /* NetworkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0CD728AED7C500F92E53 /* NetworkViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +127,8 @@
 		20EE0C9528A6570A00F92E53 /* SystemSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettings.swift; sourceTree = "<group>"; };
 		20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSettingsViewModel.swift; sourceTree = "<group>"; };
 		20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemOfflineView.swift; sourceTree = "<group>"; };
+		20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewModel.swift; sourceTree = "<group>"; };
+		20EE0CD728AED7C500F92E53 /* NetworkViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +219,7 @@
 				202C825E289A5A7F0009854E /* TimetableViewModel.swift */,
 				20B2E329289E7D4700B75D21 /* SchoolViewModel.swift */,
 				20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */,
+				20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 				208D5AC728981DBE0082FBD3 /* Settings.swift */,
 				208D5AC9289855360082FBD3 /* NavigationTopView.swift */,
 				20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */,
+				20EE0CD728AED7C500F92E53 /* NetworkViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				202457A92879A64000FE180E /* UserViewModel.swift in Sources */,
 				20D64B9B288ACA5D00F7F104 /* EventListViewCell.swift in Sources */,
 				20B2E328289E7A2A00B75D21 /* SchoolListViewCell.swift in Sources */,
+				20EE0CD828AED7C500F92E53 /* NetworkViewCell.swift in Sources */,
 				20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */,
 				20B9488628948E7600198903 /* RequestViewInfo.swift in Sources */,
 				20021F28286E4983007D5329 /* Extensions.swift in Sources */,
@@ -429,6 +436,7 @@
 				20372A5F28735A9800F3C0AF /* OTPView.swift in Sources */,
 				20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */,
 				20D64B99288AC70500F7F104 /* CalendarListView.swift in Sources */,
+				20EE0CD428AED5BE00F92E53 /* NetworkViewModel.swift in Sources */,
 				2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */,
 				204CFF3928955CEA00AF92A7 /* Teacher.swift in Sources */,
 				20B9488428948CC200198903 /* RequestListView.swift in Sources */,
