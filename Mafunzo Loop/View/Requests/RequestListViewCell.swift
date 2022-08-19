@@ -29,7 +29,7 @@ struct RequestListViewCell: View {
               Spacer()
           }
             .padding()
-            .frame(width: 300)
+            .frame(width: .none)
         }
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 10)

@@ -34,7 +34,7 @@ struct EventListViewCell: View {
                 Spacer()
             }
             .padding()
-            .frame(width: 250)
+            .frame(width: .none)
         }
         .background(
             RoundedCornersShape(corners: .allCorners, radius: 10)
