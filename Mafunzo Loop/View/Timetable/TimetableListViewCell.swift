@@ -22,7 +22,7 @@ struct TimetableListViewCell: View {
                 Divider()
                     .frame(height: 1)
                     .overlay(.gray)
-            } .frame(width: 300)
+            } .frame(width: .none)
            .padding()
         }
         .background(
