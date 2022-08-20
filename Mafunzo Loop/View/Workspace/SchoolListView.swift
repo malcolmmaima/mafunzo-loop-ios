@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct SchoolListView: View {
     @StateObject var schoolViewModel = SchoolViewModel()
@@ -56,6 +57,9 @@ struct SchoolListView: View {
                     }
                     }),
                   secondaryButton: .destructive(Text("No")))
+        }
+        .toast(isPresenting: $schoolViewModel.showAlertToast, duration: 2.0) {
+            return AlertToast(type: .systemImage("checkmark", Color.blue), title: "School added to your Workspace ")
         }
         .navigationBarTitle(Text("Schools"), displayMode: .inline)
     }

@@ -11,43 +11,47 @@ struct TeachersListView: View {
     @StateObject var teacherViewModel = TeachersViewModel()
     var body: some View {
         GeometryReader { geo in
-            VStack {
-                NavigationTopView()
-                    .frame(height: geo.size.height * 0.09)
+            ZStack {
                 VStack {
-                    List {
-                        ForEach(teacherViewModel.teacher , id: \.id) { teacher in
-                            NavigationLink(destination: TeacherView(teacher: teacher)) {
-                                TeacherListViewCell(profilePicture: teacher.profilePic, firstName: teacher.firstName, lastName: teacher.lastName, subjects: teacher.subjects, grades: teacher.grades, bio: teacher.bio)
+                    NavigationTopView()
+                        .frame(height: geo.size.height * 0.09)
+                    VStack {
+                        List {
+                            ForEach(teacherViewModel.teacher , id: \.id) { teacher in
+                                NavigationLink(destination: TeacherView(teacher: teacher)) {
+                                    TeacherListViewCell(profilePicture: teacher.profilePic, firstName: teacher.firstName, lastName: teacher.lastName, subjects: teacher.subjects, grades: teacher.grades, bio: teacher.bio)
+                                }
+                                .listRowSeparator(.hidden)
                             }
-                            .listRowSeparator(.hidden)
+                            .listRowBackground(Color.ViewBackground)
                         }
-                        .listRowBackground(Color.ViewBackground)
+                        .listStyle(.plain)
+                        .padding(.top, 25)
+                        .refreshable {
+                            teacherViewModel.getAllTeachers()
+                        }
                     }
-                    .listStyle(.plain)
-                    .padding(.top, 25)
-                    .refreshable {
-                        teacherViewModel.getAllTeachers()
-                    }
-                }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(
-                    RoundedCornersShape(corners: .allCorners, radius: 40)
-                        .fill(Color.ViewBackground)
-                )
-                .offset(y: -55)
-            }
-            .onAppear {
-                teacherViewModel.getAllTeachers()
-            }
-            .overlay {
-                ProgressView()
-                    .opacity(teacherViewModel.isLoading ? 1 : 0)
-                    .font(.system(size: 2))
                     .padding()
-                    .progressViewStyle(CircularProgressViewStyle(tint: Color.yellow))
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedCornersShape(corners: .allCorners, radius: 40)
+                            .fill(Color.ViewBackground)
+                    )
+                    .offset(y: -55)
                 }
+                .onAppear {
+                    teacherViewModel.getAllTeachers()
+                }
+                .overlay {
+                    ProgressView()
+                        .opacity(teacherViewModel.isLoading ? 1 : 0)
+                        .font(.system(size: 2))
+                        .padding()
+                        .progressViewStyle(CircularProgressViewStyle(tint: Color.yellow))
+                    }
+                Text("No Teachers Added")
+                    .opacity(teacherViewModel.noTeachers ? 1 : 0)
+            }
         }
         .navigationBarTitle(Text("Teachers"), displayMode: .inline)
     }

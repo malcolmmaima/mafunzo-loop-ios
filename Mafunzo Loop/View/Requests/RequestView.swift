@@ -5,6 +5,7 @@
 //  Created by Mroot on 28/07/2022.
 //
 import SwiftUI
+import AlertToast
 
 struct RequestView: View {
     @StateObject var requestViewModel = RequestViewModel()
@@ -99,6 +100,9 @@ struct RequestView: View {
             }
         }.onAppear {
             requestViewModel.getRequests()
+        }
+        .toast(isPresenting: $requestViewModel.showAlertToast, duration: 2.0) {
+            return AlertToast(type: .systemImage("checkmark", Color.blue), title: "Request Submitted")
         }
         .navigationBarTitle(Text("Requests"), displayMode: .inline)
     }

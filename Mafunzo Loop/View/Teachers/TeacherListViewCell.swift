@@ -36,7 +36,7 @@ struct TeacherListViewCell: View {
                     .foregroundColor(.orange)
                     .font(.body)
             }
-            .frame(width: 200)
+            .frame(width: .none)
         }
         .padding()
         .background(

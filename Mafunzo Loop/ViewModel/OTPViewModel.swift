@@ -16,7 +16,7 @@ class OTPViewModel: ObservableObject {
     @Published var otpText: String = ""
     @Published var otpFields: [String] = Array(repeating: "", count: 6)
     @Published var countryCode = ""
-    @Published var accountType = ["PARENT", "TEACHER", "STUDENT", "BUS_DRIVER"]
+    @Published var account_Types = Account_Types(users: [])
     @Published var accountSelected = 0
     @Published var schoolSelected = 0
     // VIEWS
@@ -26,6 +26,7 @@ class OTPViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published var errorMsg = ""
     @Published var verificationCode: String = ""
+    @Published var showAlertToast: Bool = false
     //Status
     @Published var isLoading: Bool = false
     @Published var verificationTag: String?
@@ -34,6 +35,7 @@ class OTPViewModel: ObservableObject {
     let db = Firestore.firestore()
     //Initialze functions
     init() {
+        getAccountType()
         getSchools()
     }
     // MARK: Send OTP
@@ -117,15 +119,16 @@ class OTPViewModel: ObservableObject {
     }
     // MARK: Get Account Type (Not able to fetch!!!!!)
     func getAccountType() {
-        db.collection("app_settings").whereField("account_types", isEqualTo: true)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        print("Account Data is: \(document.documentID) => \(document.data())")
-                    }
-                }
+        let ref = db.collection("app_settings").document("account_types")
+        ref.getDocument(source: .default) { document, error in
+            if let document = document {
+                let accountData = document.data()
+                let accountsArray = accountData?["users"] as? [String] ?? []
+                print("Account Types \(accountsArray)")
+                self.account_Types.users = accountsArray
+            } else {
+                print(error?.localizedDescription ?? "No Data Found")
+            }
         }
     }
     // MARK: SETUP ACCOUNT
@@ -148,12 +151,11 @@ class OTPViewModel: ObservableObject {
             ])
             DispatchQueue.main.async {
                 self.isLoading = false
+                self.showAlertToast = true
                 self.toHomeScreen = true
                 self.log_status = true
                 UserDefaults.standard.set(number, forKey: "userNumber") //save number
                 UserDefaults.standard.set(school, forKey: "schoolID") //save school ID
-                //UserDefaults.standard.set(true, forKey: UserDefaults.Keys.allowDownloadsOverCellular.rawValue)
-//                UserDefaults.standard.set(true, forKey: "selectedSchool")
             }
         } catch {
             handleError(error: error.localizedDescription)

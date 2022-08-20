@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import AlertToast
 
 class SchoolViewModel: ObservableObject {
     @Published var searchSchool = ""
@@ -16,6 +17,7 @@ class SchoolViewModel: ObservableObject {
     @Published var verificationCode: String = ""
     //Status
     @Published var isLoading: Bool = false
+    @Published var showAlertToast: Bool = false
     //Model
     @Published var school = [SchoolData]()
     @Published var mapped = [Schools]()
@@ -42,7 +44,7 @@ class SchoolViewModel: ObservableObject {
         if userSchools != [] {
             selectedSchool.removeAll()
             let ref = db.collection("app_settings").document("schools").collection("KE").whereField("id", in: userSchools)
-            ref.getDocuments { snapshot, error in
+            ref.getDocuments(source: .server) { snapshot, error in
                 guard error == nil else {
                     print("Error!!! \(error!.localizedDescription)")
                     self.handleError(error: error!.localizedDescription)
@@ -106,6 +108,9 @@ class SchoolViewModel: ObservableObject {
             try await schoolRef.updateData([
                 "schools" : addSchool
             ])
+            DispatchQueue.main.async {
+                self.showAlertToast = true
+            }
         } catch {
             handleError(error: error.localizedDescription)
         }

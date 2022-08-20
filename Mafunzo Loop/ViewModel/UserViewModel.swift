@@ -21,6 +21,7 @@ class UserViewModel: ObservableObject {
     @Published var schoolStatus: Bool = true
     @Published var schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
     @Published var isLoading: Bool = false
+    @Published var showAlertToast: Bool = false
     // VIEWS
     // MARK: Error
     @Published var showAlert: Bool = false
@@ -36,7 +37,7 @@ class UserViewModel: ObservableObject {
         print("Number \(number)")
         if number != "" {
             let docRef = db.collection("users").document(number)
-            docRef.getDocument(source: .server) { document, error in
+            docRef.getDocument(source: .default) { document, error in
                 if let document = document {
                     DispatchQueue.main.async {
                         let userData = document.data()
@@ -121,6 +122,7 @@ class UserViewModel: ObservableObject {
             ])
             DispatchQueue.main.async {
                 self.isLoading = false
+                self.showAlertToast = true
             }
         } catch {
             print("Update User Error!! \(error.localizedDescription)")
