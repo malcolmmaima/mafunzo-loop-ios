@@ -84,8 +84,7 @@ struct HomeView: View {
                                                         .listRowSeparator(.hidden)
                                                         .onTapGesture {
                                                             let schoolID = school.id
-                                                            //userViewModel.schoolStored = schoolID
-                                                            UserDefaults.standard.set(schoolID, forKey: "schoolID")
+                                                            UserDefaults.standard.set(schoolID, forKey: "schoolID") //save selected School ID
                                                             userViewModel.getSchoolIDFromDetails(schoolIDStore: schoolID)
                                                             userViewModel.getUserDetails(schoolIDStore: schoolID)
                                                             print("School Id Picked: \(userViewModel.schoolStored)")
