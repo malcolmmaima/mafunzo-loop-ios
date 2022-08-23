@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct EventListViewCell: View {
+    private let dateConverter = DateConverter()
     @State var date: Int
     @State var title: String
     @State var startingTime: Int
@@ -14,7 +15,7 @@ struct EventListViewCell: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(getDate())
+                Text("\(dateConverter.getDate(date: startingTime))")
                     .foregroundColor(.blue)
             }
             .frame(width: 52.0, height: 45)
@@ -28,7 +29,7 @@ struct EventListViewCell: View {
                     Text(title)
                         .font(.title3)
                         .lineLimit(1)
-                    Text("\(eventTime(time:startingTime)) - \(eventTime(time: ending))")
+                    Text("\(dateConverter.TimeSpan(time: startingTime)) - \(dateConverter.TimeSpan(time: ending))")
                         .foregroundColor(.blue)
                 }
                 Spacer()
@@ -41,21 +42,6 @@ struct EventListViewCell: View {
                 .fill(Color.homeCategory)
         )
         .shadow(radius: 2.0)
-    }
-    // MARK: DATE CONVERSION
-    //to Day & Month (25th July)
-    func getDate() -> String {
-        let day = Date(timeIntervalSince1970: (Double(startingTime) / 1000.0))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMM"
-        return dateFormatter.string(from: day)
-    }
-    //to Hour & Min (10:00 AM/PM)
-    func eventTime(time: Int) -> String {
-        let stating = Date(timeIntervalSince1970: (Double(time) / 1000.0))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a"
-        return dateFormatter.string(from: stating)
     }
 }
 

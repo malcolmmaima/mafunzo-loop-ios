@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TimetableListViewCell: View {
+    private let dateConverter = DateConverter()
     @State var subjectName: String
     @State var startTime: Int
     @State var endTime: Int
@@ -16,9 +17,8 @@ struct TimetableListViewCell: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text(subjectName)
                     .bold()
-                Text("\(requestDateCreated(time: startTime)) - \(requestDateCreated(time: endTime))")
+                Text("\(dateConverter.TimeSpan(time: startTime)) - \(dateConverter.TimeSpan(time: endTime))")
                     .foregroundColor(.blue)
-                    //.textFieldStyling()
                 Divider()
                     .frame(height: 1)
                     .overlay(.gray)
@@ -30,13 +30,6 @@ struct TimetableListViewCell: View {
                 .fill(Color.homeCategory)
         )
         .shadow(radius: 2.0)
-    }
-    // MARK: Time to Hour & Min (10:00 AM/PM)
-    func requestDateCreated(time: Int) -> String {
-        let stating = Date(timeIntervalSince1970: (Double(time) / 1000.0))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a"
-        return dateFormatter.string(from: stating)
     }
 }
 
