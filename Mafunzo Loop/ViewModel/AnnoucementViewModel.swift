@@ -16,6 +16,8 @@ class AnnoucementViewModel: ObservableObject {
     //Status
     @Published var isLoading: Bool = false
     @Published var noAnnouncement: Bool = false
+    @Published var userAccountType = UserDefaults.standard.string(forKey: "userAccount") ?? ""
+    @Published var schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
     //Firebase
     let db = Firestore.firestore()
     init() {
@@ -24,14 +26,12 @@ class AnnoucementViewModel: ObservableObject {
     // MARK: GET Annoucements
     func fetchAnnoucements() {
         announcements.removeAll()
-        print("Here!!")
-        let schoolStored = UserDefaults.standard.string(forKey: "schoolID") ?? ""
         let schoolID = String(describing: schoolStored)
         print("Get School ID \(schoolID)")
        if schoolID != "" {
             isLoading = true
            noAnnouncement = false
-            let ref = db.collection("announcements").document(schoolID).collection("PARENT")
+            let ref = db.collection("announcements").document(schoolID).collection(userAccountType)
            ref.getDocuments { announcementSnapshot, error in
                guard error == nil else {
                    print(error!.localizedDescription)
