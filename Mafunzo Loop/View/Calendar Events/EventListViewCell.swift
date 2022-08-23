@@ -15,7 +15,7 @@ struct EventListViewCell: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("\(dateConverter.getDate(date: startingTime))")
+                Text(dateConverter.getDate(date: startingTime))
                     .foregroundColor(.blue)
             }
             .frame(width: 52.0, height: 45)

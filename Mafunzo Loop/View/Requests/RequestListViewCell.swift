@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct RequestListViewCell: View {
+    private let dateConverter = DateConverter()
     @State var requestTitle: String
     @State var requestStatus: RequestStatus
     @State var createdDate: Int
