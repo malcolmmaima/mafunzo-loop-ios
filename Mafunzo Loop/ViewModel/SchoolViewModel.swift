@@ -11,6 +11,7 @@ import AlertToast
 
 class SchoolViewModel: ObservableObject {
     @Published var searchSchool = ""
+    @Published var userSchools = UserDefaults.standard.stringArray(forKey: "schoolID's")  ?? [String]()
     // MARK: Error
     @Published var showAlert: Bool = false
     @Published var errorMsg = ""
@@ -39,7 +40,6 @@ class SchoolViewModel: ObservableObject {
     }
     // MARK: GET Schools from user
     func getUserSchools() {
-        let userSchools = UserDefaults.standard.stringArray(forKey: "schoolID's")  ?? [String]()
         print("Arrays == \(userSchools)")
         if userSchools != [] {
             selectedSchool.removeAll()
@@ -71,7 +71,7 @@ class SchoolViewModel: ObservableObject {
     func getALLSchools() {
         //remove all schools
         school.removeAll()
-        let ref = db.collection("app_settings").document("schools").collection("KE")
+        let ref = db.collection("app_settings").document("schools").collection("KE").whereField("id", notIn: userSchools)
         ref.getDocuments { snapshot, error in
             guard error == nil else {
                 print("Error!!! \(error!.localizedDescription)")
@@ -111,6 +111,7 @@ class SchoolViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.showAlertToast = true
             }
+            UserDefaults.standard.set(addSchool, forKey: "schoolArray") // School Dictionary [String: Bool]
         } catch {
             handleError(error: error.localizedDescription)
         }
