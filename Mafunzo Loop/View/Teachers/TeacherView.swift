@@ -41,14 +41,21 @@ struct TeacherView: View {
                     )
                     .shadow(radius: 2.0)
                     ScrollView {
-                        VStack(alignment: .leading, spacing: 10) {
+                        VStack(alignment: .leading, spacing: 20) {
                             Text("Phone: \(teacher.phoneNumber)")
                                 .foregroundColor(Color.buttonHomeColor)
+                                .onTapGesture {
+                                    callNumber()
+                                }
                             Text("Email: \(teacher.emailAddress)")
                                 .foregroundColor(.blue)
+                                .onTapGesture {
+                                    sendEmail()
+                                }
                             Text("Status: \(teacher.status)")
                                 .foregroundColor(.green)
                         }
+                        .padding(.top, 10)
                     }
                 }
                 .padding()
@@ -62,6 +69,17 @@ struct TeacherView: View {
             }
         }
         .navigationBarTitle(Text("Teacher"), displayMode: .inline)
+    }
+    // MARK: Call Number Tapped
+    private func callNumber() {
+        let phone = "tel://"
+        let phoneNumberformatted = phone + teacher.phoneNumber
+        guard let url = URL(string: phoneNumberformatted) else { return }
+        UIApplication.shared.open(url)
+    }
+    private func sendEmail() {
+        let url = NSURL(string: "mailto:\(teacher.emailAddress)")
+        UIApplication.shared.open(url! as URL)
     }
 }
 
