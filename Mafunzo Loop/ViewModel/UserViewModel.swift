@@ -32,9 +32,8 @@ class UserViewModel: ObservableObject {
 
     // MARK: Fetch User Details from DB
     func getUserDetails(schoolIDStore: String) {
-        let userNumber = UserDefaults.standard.string(forKey: "userNumber") ?? ""
-        let number = String(describing: userNumber )
-        print("Number \(number)")
+        let number = String(describing: UserDetails.userNumber)
+        print("Number \(UserDetails.userNumber)")
         if number != "" {
             let docRef = db.collection("users").document(number)
             docRef.getDocument(source: .default) { document, error in
@@ -55,6 +54,7 @@ class UserViewModel: ObservableObject {
                         let userSchoolIDs = Array(schoolDictionary.schoolID.keys.map { $0 }) // convert dictionary String to array
                         let schoolID = userSchoolIDs.joined(separator: " ")
                         
+                        UserDefaults.standard.set(self.user.accountType, forKey: "userAccount") //save userAccount Type
                         UserDefaults.standard.set(userSchoolIDs, forKey: "schoolID's") //save school IDs [String]
                         UserDefaults.standard.set(schoolsMappedDB, forKey: "schoolArray") // School Dictionary [String: Bool]
                         
@@ -65,7 +65,6 @@ class UserViewModel: ObservableObject {
                             // check if the user id is in Array dictionary.
                             if schoolsMappedDB.keys.contains(schoolIDStore) == false {
                                 UserDefaults.standard.set(schoolID, forKey: "schoolID") //save school ID
-                                
                             }
                             
                         } else {
@@ -81,6 +80,7 @@ class UserViewModel: ObservableObject {
                         print("Map Data:: \(userSchoolIDs)")
                         print("School ID fFROM DB:: \(userSchools)")
                         print("Check String Value \(schoolsMappedDB.keys.contains(schoolIDStore))")
+                        print("Account Type: \(UserDetails.userType)")
                     }
                 } else {
                     print(error?.localizedDescription ?? "No Data Found")
@@ -99,7 +99,7 @@ class UserViewModel: ObservableObject {
                 if let schoolDocument = document {
                     DispatchQueue.main.async {
                         let schoolDetails = schoolDocument.data()
-                        let schoolName  = schoolDetails?["schoolName"] as? String ?? ""
+                        let schoolName  = schoolDetails?["schoolName"] as? String ?? "Select School"
                         self.fetchedSchool =  schoolName
                         print("School Name is: \(schoolName)")
                     }
