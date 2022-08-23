@@ -25,6 +25,7 @@ struct SchoolListView: View {
                             SchoolListViewCell(schoolName: school.schoolName, schoolLocation: school.schoolLocation)
                                 .listRowSeparator(.hidden)
                                 .onTapGesture {
+                                    schoolViewModel.getUserSchools()
                                     addSchoolAlert = true
                                     selectedSchool = school.schoolName
                                     schoolid = school.id
@@ -55,6 +56,7 @@ struct SchoolListView: View {
                     Task {
                         await schoolViewModel.addSchool(selected: schoolid)
                     }
+                    schoolViewModel.getUserSchools()
                     dismiss()
                     }),
                   secondaryButton: .destructive(Text("No")))
