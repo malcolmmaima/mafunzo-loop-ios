@@ -70,6 +70,7 @@
 		20EE0CD228AB847A00F92E53 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 20EE0CD128AB847A00F92E53 /* AlertToast */; };
 		20EE0CD428AED5BE00F92E53 /* NetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */; };
 		20EE0CD828AED7C500F92E53 /* NetworkViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0CD728AED7C500F92E53 /* NetworkViewCell.swift */; };
+		20EE0CDB28B4E6E000F92E53 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EE0CDA28B4E6E000F92E53 /* DateConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemOfflineView.swift; sourceTree = "<group>"; };
 		20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewModel.swift; sourceTree = "<group>"; };
 		20EE0CD728AED7C500F92E53 /* NetworkViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewCell.swift; sourceTree = "<group>"; };
+		20EE0CDA28B4E6E000F92E53 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 		20021EFD286E27BB007D5329 /* Mafunzo Loop */ = {
 			isa = PBXGroup;
 			children = (
+				20EE0CD928B4E5BD00F92E53 /* Helper */,
 				208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */,
 				20021F24286E4935007D5329 /* View */,
 				20021F23286E4687007D5329 /* ViewModel */,
@@ -316,6 +319,14 @@
 			path = "Calendar Events";
 			sourceTree = "<group>";
 		};
+		20EE0CD928B4E5BD00F92E53 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				20EE0CDA28B4E6E000F92E53 /* DateConverter.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -442,6 +453,7 @@
 				20B9488428948CC200198903 /* RequestListView.swift in Sources */,
 				20372A612873629900F3C0AF /* TopView.swift in Sources */,
 				204CFF3728955B5600AF92A7 /* TeachersListView.swift in Sources */,
+				20EE0CDB28B4E6E000F92E53 /* DateConverter.swift in Sources */,
 				20021EFF286E27BB007D5329 /* Mafunzo_LoopApp.swift in Sources */,
 				20B2CB9F28855C7E008C1BE8 /* AnnoucementListView.swift in Sources */,
 				2054AF90289ACF1300D56363 /* TimetableListViewCell.swift in Sources */,

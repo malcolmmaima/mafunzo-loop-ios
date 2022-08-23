@@ -11,6 +11,7 @@ struct AnnouncementListViewCell: View {
     @State var Title: String
     @State var date: Int
     @State var announcementBody: String
+    private let dateConverter = DateConverter()
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
@@ -27,7 +28,7 @@ struct AnnouncementListViewCell: View {
             HStack {
                 Image(systemName: "clock")
                     .foregroundColor(.blue)
-                Text(dateFormattered())
+                Text(dateConverter.Date_Time(date: date))
                     .foregroundColor(.blue)
             }
             Text(announcementBody)
@@ -42,12 +43,6 @@ struct AnnouncementListViewCell: View {
                 .fill(Color.homeCategory)
         )
         .shadow(radius: 2)
-    }
-    func dateFormattered() -> String {
-        let timeStamp = Date(timeIntervalSince1970: TimeInterval(date))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMM, h:mm a"
-        return dateFormatter.string(from: timeStamp)
     }
 }
 
