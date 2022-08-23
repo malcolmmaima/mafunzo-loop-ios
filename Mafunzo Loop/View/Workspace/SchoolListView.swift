@@ -9,6 +9,7 @@ import SwiftUI
 import AlertToast
 
 struct SchoolListView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var schoolViewModel = SchoolViewModel()
     @State private var addSchoolAlert: Bool = false
     @State var selectedSchool = ""
@@ -47,7 +48,6 @@ struct SchoolListView: View {
         }
         
          // MARK: Add School
-        
         .alert(isPresented: $addSchoolAlert) {
             Alert(title: Text("Add School"),
                   message: Text("Are you sure you want to add \(selectedSchool) ?"),
@@ -55,6 +55,7 @@ struct SchoolListView: View {
                     Task {
                         await schoolViewModel.addSchool(selected: schoolid)
                     }
+                    dismiss()
                     }),
                   secondaryButton: .destructive(Text("No")))
         }

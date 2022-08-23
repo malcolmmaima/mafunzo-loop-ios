@@ -52,7 +52,7 @@ struct HomeView: View {
                             .frame(height: geo.size.height * 0.25)
                             .blur(radius: showWorkSpace ? 10 : 0)
                             .disabled(showWorkSpace ? true : false)
-                        // MARK: SChool Modules
+                        // MARK: School Modules
                         VStack {
                             ScrollView {
                                 ZStack {
@@ -88,9 +88,8 @@ struct HomeView: View {
                                                             UserDefaults.standard.set(schoolID, forKey: "schoolID")
                                                             userViewModel.getSchoolIDFromDetails(schoolIDStore: schoolID)
                                                             userViewModel.getUserDetails(schoolIDStore: schoolID)
-                                                            print("School Id = \(userViewModel.schoolStored)")
-                                                            print("School Name \(school.schoolName) Pressed::::::::::")
-                                                            
+                                                            print("School Id Picked: \(userViewModel.schoolStored)")
+                                                            print("School Name Selected: \(school.schoolName)")
                                                         }
                                                 }.listRowBackground(Color.clear)
                                             }
@@ -142,7 +141,7 @@ struct HomeView: View {
                                     .fill(Color.homeCategory)
                             )
                             .shadow(radius: 1)
-//                            // MARK: Network Listener
+                            // MARK: Network Listener
 //                             if networkManager.isNotConnected {
 //                                 NetworkViewCell(netStatus: networkManager.conncetionDescription, image: networkManager.imageName)
 //                             }
@@ -190,14 +189,14 @@ struct HomeView: View {
         }
     }
     func Logout() {
-            do {
-                UserDefaults.standard.reset()
-                @AppStorage("log_status") var log_status = true
-                try Auth.auth().signOut()
-            } catch {
-                print("already logged out")
-                
-            }
+        do {
+            UserDefaults.standard.reset()
+            @AppStorage("log_status") var log_status = true
+            try Auth.auth().signOut()
+        } catch {
+            print("already logged out")
+            
+        }
     }
 }
 // MARK: Item Home Modules
@@ -418,7 +417,6 @@ struct WorkSpaceView: View {
                             .padding(.bottom, 1)
                             .listRowSeparator(.hidden)
                             .onTapGesture {
-                                                        
                                 let schoolID = school.id
                                 //userViewModel.schoolStored = schoolID
                                 UserDefaults.standard.set(schoolID, forKey: "schoolID")
@@ -433,7 +431,6 @@ struct WorkSpaceView: View {
                 .onDisappear {
                     userViewModel.getSchoolIDFromDetails(schoolIDStore: userViewModel.schoolStored)
                 }
-                
                 Spacer()
                 NavigationLink {
                     // MARK: SCHOOL BUTTON
