@@ -15,4 +15,12 @@ class DateConverter {
         dateFormatter.dateFormat = "d MMM, h:mm a"
         return dateFormatter.string(from: timeStamp)
     }
+    
+    // MARK: Time to Hour & Min (10:00 AM/PM)
+    func TimeSpan(time: Int) -> String {
+        let stating = Date(timeIntervalSince1970: (Double(time) / 1000.0))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        return dateFormatter.string(from: stating)
+    }
 }
