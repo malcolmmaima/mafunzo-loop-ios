@@ -8,6 +8,14 @@
 import Foundation
 
 class DateConverter {
+    // MARK: DATE -> 22 Aug
+    func getDate(date: Int) -> String {
+        let day = Date(timeIntervalSince1970: (Double(date) / 1000.0))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM"
+        return dateFormatter.string(from: day)
+    }
+    
     // MARK: Date and Time -> 22 Aug, 2:00 pm
     func Date_Time(date: Int) -> String {
         let timeStamp = Date(timeIntervalSince1970: TimeInterval(date))
