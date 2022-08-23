@@ -154,7 +154,8 @@ class OTPViewModel: ObservableObject {
                 self.showAlertToast = true
                 self.toHomeScreen = true
                 self.log_status = true
-                UserDefaults.standard.set(number, forKey: "userNumber") //save number
+                UserDefaults.standard.set(number, forKey: "userNumber") //save number userAccount
+                UserDefaults.standard.set(user.accountType, forKey: "userAccount") //save userAccount Type
                 UserDefaults.standard.set(school, forKey: "schoolID") //save school ID
             }
         } catch {
