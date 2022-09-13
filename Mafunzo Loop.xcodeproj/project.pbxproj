@@ -197,7 +197,6 @@
 			children = (
 				20021F1F286E439A007D5329 /* User.swift */,
 				203C6C26286F10DC003F1570 /* CountryCode.swift */,
-				204CFF3828955CEA00AF92A7 /* Teacher.swift */,
 				202C825C289A546A0009854E /* Timetable.swift */,
 				20EE0C9528A6570A00F92E53 /* SystemSettings.swift */,
 			);
@@ -209,7 +208,6 @@
 			children = (
 				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
 				202457A82879A64000FE180E /* UserViewModel.swift */,
-				204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */,
 				202C825E289A5A7F0009854E /* TimetableViewModel.swift */,
 				20B2E329289E7D4700B75D21 /* SchoolViewModel.swift */,
 				20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */,
@@ -405,9 +403,6 @@
 		204CFF3528955B1F00AF92A7 /* Teachers */ = {
 			isa = PBXGroup;
 			children = (
-				204CFF3628955B5600AF92A7 /* TeachersListView.swift */,
-				204CFF3C289563B300AF92A7 /* TeacherListViewCell.swift */,
-				204CFF3E2895682F00AF92A7 /* TeacherView.swift */,
 			);
 			path = Teachers;
 			sourceTree = "<group>";
@@ -554,6 +549,9 @@
 		20BD7CF028D070E600807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				204CFF3628955B5600AF92A7 /* TeachersListView.swift */,
+				204CFF3C289563B300AF92A7 /* TeacherListViewCell.swift */,
+				204CFF3E2895682F00AF92A7 /* TeacherView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -561,6 +559,7 @@
 		20BD7CF128D070EB00807359 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -568,6 +567,7 @@
 		20BD7CF228D070F300807359 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				204CFF3828955CEA00AF92A7 /* Teacher.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
