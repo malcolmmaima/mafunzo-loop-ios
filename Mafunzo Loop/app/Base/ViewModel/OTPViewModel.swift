@@ -34,11 +34,12 @@ class OTPViewModel: ObservableObject {
     //Firebase
     let db = Firestore.firestore()
     //Initialze functions
-    init() {
-        getAccountType()
-        getSchools()
-    }
+//    init() {
+//        getAccountType()
+//        getSchools()
+//    }
     // MARK: Send OTP
+    @MainActor
     func sendOTP(phone: String) async {
         do {
             isLoading = true
@@ -54,6 +55,7 @@ class OTPViewModel: ObservableObject {
         }
     }
     // MARK: VERIFY OTP
+    @MainActor
     func verifyOTP(phone: String) async {
         do {
             isLoading = true
