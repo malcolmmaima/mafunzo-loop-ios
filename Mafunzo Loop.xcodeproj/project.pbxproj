@@ -437,7 +437,6 @@
 			isa = PBXGroup;
 			children = (
 				20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */,
-				2042E84228742ACD00DBA7AE /* AccountSetupView.swift */,
 			);
 			path = Verification;
 			sourceTree = "<group>";
@@ -484,6 +483,7 @@
 		20BD7CE228D06F8100807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2042E84228742ACD00DBA7AE /* AccountSetupView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
