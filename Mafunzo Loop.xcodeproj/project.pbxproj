@@ -34,7 +34,7 @@
 		203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C26286F10DC003F1570 /* CountryCode.swift */; };
 		203C6C29286F110E003F1570 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */; };
 		2042D33828D0582900AD50B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2042D33728D0582900AD50B3 /* GoogleService-Info.plist */; };
-		2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E8402873894F00DBA7AE /* SplashScreen.swift */; };
+		2042E8412873895000DBA7AE /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E8402873894F00DBA7AE /* LaunchScreen.swift */; };
 		2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E84228742ACD00DBA7AE /* AccountSetupView.swift */; };
 		204CFF3728955B5600AF92A7 /* TeachersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3628955B5600AF92A7 /* TeachersListView.swift */; };
 		204CFF3928955CEA00AF92A7 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3828955CEA00AF92A7 /* Teacher.swift */; };
@@ -94,7 +94,7 @@
 		203C6C26286F10DC003F1570 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
 		2042D33728D0582900AD50B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2042E8402873894F00DBA7AE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		2042E8402873894F00DBA7AE /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		2042E84228742ACD00DBA7AE /* AccountSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupView.swift; sourceTree = "<group>"; };
 		204CFF3628955B5600AF92A7 /* TeachersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersListView.swift; sourceTree = "<group>"; };
 		204CFF3828955CEA00AF92A7 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
@@ -235,7 +235,6 @@
 				204CFF3528955B1F00AF92A7 /* Teachers */,
 				2016ADE72892A8D80025BA98 /* Requests */,
 				20C7C7E42892726F00D8FB32 /* Calendar Events */,
-				2042E8402873894F00DBA7AE /* SplashScreen.swift */,
 				20BC55C82878B3140018AACA /* HomeView.swift */,
 				208D5AC728981DBE0082FBD3 /* Settings.swift */,
 				208D5AC9289855360082FBD3 /* NavigationTopView.swift */,
@@ -268,6 +267,7 @@
 		203A350E28D06D690087AE2F /* app */ = {
 			isa = PBXGroup;
 			children = (
+				20BD7CFC28D072E600807359 /* LaunchScreen */,
 				203A351328D06DA40087AE2F /* Account-Setup */,
 				203A350F28D06D790087AE2F /* Login */,
 				203A351428D06DB30087AE2F /* Modules */,
@@ -657,6 +657,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		20BD7CFC28D072E600807359 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CFD28D072F100807359 /* View */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		20BD7CFD28D072F100807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2042E8402873894F00DBA7AE /* LaunchScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		20C7C7E42892726F00D8FB32 /* Calendar Events */ = {
 			isa = PBXGroup;
 			children = (
@@ -789,7 +805,7 @@
 				20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */,
 				20D64B99288AC70500F7F104 /* CalendarListView.swift in Sources */,
 				20EE0CD428AED5BE00F92E53 /* NetworkViewModel.swift in Sources */,
-				2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */,
+				2042E8412873895000DBA7AE /* LaunchScreen.swift in Sources */,
 				204CFF3928955CEA00AF92A7 /* Teacher.swift in Sources */,
 				20B9488428948CC200198903 /* RequestListView.swift in Sources */,
 				20372A612873629900F3C0AF /* TopView.swift in Sources */,

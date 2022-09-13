@@ -1,5 +1,5 @@
 //
-//  SplashScreen.swift
+//  LaunchScreen.swift
 //  Mafunzo Loop
 //
 //  Created by Mroot on 04/07/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SplashScreen: View {
+struct LaunchScreen: View {
     @State var isActive: Bool = false
     @State private var size = 0.8
     @State private var opacity = 0.5
@@ -58,6 +58,6 @@ struct SplashScreen: View {
 
 struct SplashScreen_Previews: PreviewProvider {
     static var previews: some View {
-        SplashScreen()
+        LaunchScreen()
     }
 }
