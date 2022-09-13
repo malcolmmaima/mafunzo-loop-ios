@@ -197,7 +197,6 @@
 			children = (
 				20021F1F286E439A007D5329 /* User.swift */,
 				203C6C26286F10DC003F1570 /* CountryCode.swift */,
-				20B2CB9A28855976008C1BE8 /* Annoucement.swift */,
 				20CA01F2288B22E0009AC923 /* CalendarEvents.swift */,
 				2016ADE82892A8F80025BA98 /* Request.swift */,
 				204CFF3828955CEA00AF92A7 /* Teacher.swift */,
@@ -212,7 +211,6 @@
 			children = (
 				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
 				202457A82879A64000FE180E /* UserViewModel.swift */,
-				20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */,
 				20CA01F4288B237A009AC923 /* CalendarViewModel.swift */,
 				2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */,
 				204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */,
@@ -426,9 +424,6 @@
 		208D5AC52897F15A0082FBD3 /* Announcement */ = {
 			isa = PBXGroup;
 			children = (
-				20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */,
-				205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */,
-				205CAADF28873FA10050FEED /* AnnouncementView.swift */,
 			);
 			path = Announcement;
 			sourceTree = "<group>";
@@ -631,6 +626,7 @@
 		20BD7CF928D0711700807359 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -638,6 +634,9 @@
 		20BD7CFA28D0711E00807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */,
+				205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */,
+				205CAADF28873FA10050FEED /* AnnouncementView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -645,6 +644,7 @@
 		20BD7CFB28D0712300807359 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				20B2CB9A28855976008C1BE8 /* Annoucement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -668,6 +668,7 @@
 		20BD7CFE28D0776E00807359 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				20BD7D0528D0E9B800807359 /* Model */,
 				20BD7D0028D07BF700807359 /* ViewModel */,
 				20BD7CFF28D0777400807359 /* Views */,
 			);
@@ -687,6 +688,13 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7D0528D0E9B800807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		20C7C7E42892726F00D8FB32 /* Calendar Events */ = {
