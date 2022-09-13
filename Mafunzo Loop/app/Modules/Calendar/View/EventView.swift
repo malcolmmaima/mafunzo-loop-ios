@@ -63,6 +63,7 @@ struct EventView: View {
     }
 }
 
+
 //struct EventView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        EventView(title: "Event Title", eventStartTime: 1658236474580, eventEndTime: 1658236502129, eventDate: 1658236474580, eventBody: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.")
