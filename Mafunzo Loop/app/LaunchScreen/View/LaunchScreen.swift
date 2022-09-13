@@ -11,14 +11,10 @@ struct LaunchScreen: View {
     @State var isActive: Bool = false
     @State private var size = 0.8
     @State private var opacity = 0.5
-    @StateObject var systemSettingsViewModel = SystemSettingsViewModel()
+
     var body: some View {
         if isActive {
-            if systemSettingsViewModel.systemStatus == true {
-                SystemOfflineView()
-            } else {
-                ContentView()
-            }
+            ContentView()
         } else {
             VStack {
                 VStack {
@@ -56,7 +52,7 @@ struct LaunchScreen: View {
     }
 }
 
-struct SplashScreen_Previews: PreviewProvider {
+struct LaunchScreen_Previews: PreviewProvider {
     static var previews: some View {
         LaunchScreen()
     }
