@@ -170,6 +170,7 @@
 		20021EFD286E27BB007D5329 /* Mafunzo Loop */ = {
 			isa = PBXGroup;
 			children = (
+				203A350E28D06D690087AE2F /* app */,
 				2042D33728D0582900AD50B3 /* GoogleService-Info.plist */,
 				20021F24286E4935007D5329 /* View */,
 				20021F23286E4687007D5329 /* ViewModel */,
@@ -264,6 +265,154 @@
 			path = Timetable;
 			sourceTree = "<group>";
 		};
+		203A350E28D06D690087AE2F /* app */ = {
+			isa = PBXGroup;
+			children = (
+				203A351328D06DA40087AE2F /* Account-Setup */,
+				203A350F28D06D790087AE2F /* Login */,
+				203A351428D06DB30087AE2F /* Modules */,
+				203A351128D06D8E0087AE2F /* OTP */,
+				203A351D28D06E4E0087AE2F /* Schools */,
+				203A351C28D06E400087AE2F /* Settings */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		203A350F28D06D790087AE2F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CDD28D06F1B00807359 /* Model */,
+				203A351228D06D940087AE2F /* ViewModel */,
+				203A351028D06D7F0087AE2F /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		203A351028D06D7F0087AE2F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		203A351128D06D8E0087AE2F /* OTP */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CE028D06F5300807359 /* View */,
+				20BD7CDF28D06F4C00807359 /* ViewModel */,
+				20BD7CDE28D06F4100807359 /* Model */,
+			);
+			path = OTP;
+			sourceTree = "<group>";
+		};
+		203A351228D06D940087AE2F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		203A351328D06DA40087AE2F /* Account-Setup */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CE328D06F8900807359 /* ViewModel */,
+				20BD7CE228D06F8100807359 /* View */,
+				20BD7CE128D06F5C00807359 /* Model */,
+			);
+			path = "Account-Setup";
+			sourceTree = "<group>";
+		};
+		203A351428D06DB30087AE2F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				203A351528D06DC50087AE2F /* Announcements */,
+				203A351728D06DEA0087AE2F /* Calendar */,
+				203A351628D06DCE0087AE2F /* Requests */,
+				203A351A28D06E050087AE2F /* SchoolBus */,
+				203A351828D06DF30087AE2F /* Teachers */,
+				203A351928D06DFB0087AE2F /* Timetable */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		203A351528D06DC50087AE2F /* Announcements */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CFB28D0712300807359 /* Model */,
+				20BD7CFA28D0711E00807359 /* View */,
+				20BD7CF928D0711700807359 /* ViewModel */,
+			);
+			path = Announcements;
+			sourceTree = "<group>";
+		};
+		203A351628D06DCE0087AE2F /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CF828D0711300807359 /* Model */,
+				20BD7CF528D0710300807359 /* View */,
+				20BD7CF628D0710900807359 /* ViewModel */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		203A351728D06DEA0087AE2F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CF728D0710F00807359 /* Model */,
+				20BD7CF328D070F800807359 /* View */,
+				20BD7CF428D070FC00807359 /* ViewModel */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		203A351828D06DF30087AE2F /* Teachers */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CF228D070F300807359 /* Model */,
+				20BD7CF028D070E600807359 /* View */,
+				20BD7CF128D070EB00807359 /* ViewModel */,
+			);
+			path = Teachers;
+			sourceTree = "<group>";
+		};
+		203A351928D06DFB0087AE2F /* Timetable */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CED28D070D600807359 /* Model */,
+				20BD7CEF28D070E100807359 /* View */,
+				20BD7CEE28D070DA00807359 /* ViewModel */,
+			);
+			path = Timetable;
+			sourceTree = "<group>";
+		};
+		203A351A28D06E050087AE2F /* SchoolBus */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CEA28D06FF200807359 /* View */,
+			);
+			path = SchoolBus;
+			sourceTree = "<group>";
+		};
+		203A351C28D06E400087AE2F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CE628D06FA900807359 /* ViewModel */,
+				20BD7CE528D06FA400807359 /* View */,
+				20BD7CE428D06F9E00807359 /* Model */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		203A351D28D06E4E0087AE2F /* Schools */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CE928D06FCE00807359 /* View */,
+				20BD7CE828D06FC900807359 /* ViewModel */,
+				20BD7CE728D06FB100807359 /* Model */,
+			);
+			path = Schools;
+			sourceTree = "<group>";
+		};
 		204CFF3528955B1F00AF92A7 /* Teachers */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +452,209 @@
 				20B2E327289E7A2A00B75D21 /* SchoolListViewCell.swift */,
 			);
 			path = Workspace;
+			sourceTree = "<group>";
+		};
+		20BD7CDD28D06F1B00807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CDE28D06F4100807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CDF28D06F4C00807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CE028D06F5300807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CE128D06F5C00807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CE228D06F8100807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CE328D06F8900807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CE428D06F9E00807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CE528D06FA400807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CE628D06FA900807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CE728D06FB100807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CE828D06FC900807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CE928D06FCE00807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CEA28D06FF200807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CED28D070D600807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CEE28D070DA00807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CEF28D070E100807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CF028D070E600807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CF128D070EB00807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CF228D070F300807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CF328D070F800807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CF428D070FC00807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CF528D0710300807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CF628D0710900807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CF728D0710F00807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CF828D0711300807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CF928D0711700807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CFA28D0711E00807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CFB28D0712300807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		20C7C7E42892726F00D8FB32 /* Calendar Events */ = {
