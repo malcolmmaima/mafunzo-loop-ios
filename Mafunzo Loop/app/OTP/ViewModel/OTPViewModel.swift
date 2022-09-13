@@ -33,11 +33,15 @@ class OTPViewModel: ObservableObject {
     @AppStorage("log_status") var log_status = false
     //Firebase
     let db = Firestore.firestore()
+    let userStatus = Auth.auth().currentUser
     //Initialze functions
-//    init() {
-//        getAccountType()
-//        getSchools()
-//    }
+   init() {
+        if userStatus != nil {
+            getSchools()
+            getAccountType()
+            print("Current user is \(String(describing: userStatus))")
+        }
+   }
     // MARK: Send OTP
     @MainActor
     func sendOTP(phone: String) async {
@@ -134,6 +138,7 @@ class OTPViewModel: ObservableObject {
         }
     }
     // MARK: SETUP ACCOUNT
+    @MainActor
     func setupAccount(number: String, user: User, school: String) async {
         do {
             print("Phone number At setup Account \(number)")
