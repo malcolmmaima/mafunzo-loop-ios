@@ -14,63 +14,9 @@ struct OTPView: View {
     var body: some View {
         GeometryReader { geo in
             VStack {
-                // MARK: - TOP VIEW
-                TopView()
+                topImage
                     .frame(height: geo.size.height * 0.5, alignment: .top)
-                // MARK: - BOTTOM View
-                VStack {
-                    Text("Enter OTP to Verify your Number")
-                        .font(.title2)
-                        .padding(.top, 10)
-                    // MARK: OTP TEXT FIELD
-                    OTPField()
-                        .padding(.top, 10)
-                    // MARK: VERIFY Button
-                    Button {
-                        Task {
-                          await otpViewModel.verifyOTP(phone: number)
-                        }
-                    } label: {
-                        Text("Verify")
-                            .padding()
-                            .foregroundColor(.white)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .background(Color.blue).opacity(otpViewModel.isLoading ? 0 : 1)
-                    .overlay {
-                        ProgressView()
-                            .opacity(otpViewModel.isLoading ? 1 : 0)
-                    }
-                    .cornerRadius(5)
-                    .padding(.top, 20)
-                    .disabled(checkStatus())
-                    .opacity(checkStatus() ? 0.4 : 1)
-                    Text("Did not receive OTP?")
-                        .fontWeight(.light)
-                        .foregroundColor(.gray)
-                        .padding(.top, 20)
-                    // MARK: RESEND OTP
-                    Button {
-                        //TO-DO (RESEND OTP)
-                        print("")
-                    } label: {
-                        Text("Resend OTP CODE")
-                            .fontWeight(.medium)
-                            .underline()
-                            .padding(.top, 10)
-                    }
-                }
-                .padding()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .onChange(of: otpViewModel.otpFields) { newValue in
-                    OTPCondition(value: newValue)
-                }
-                // MARK: Curving view
-                    .background(
-                        RoundedCornersShape(corners: .allCorners, radius: 39)
-                            .fill(Color.ViewBackground)
-                    )
-                    .offset(y: -50)
+                bottomView
             }
             // Tap to hide keyboard
             .onTapGesture {
@@ -156,6 +102,92 @@ struct OTPView: View {
 struct OTP_View_Previews: PreviewProvider {
     static var previews: some View {
         OTPView(number: "")
+    }
+}
+
+
+private extension OTPView {
+    
+    // MARK: - Top View
+    var topImage: some View {
+        TopView()
+    }
+    
+    // MARK: - BOTTOM VIEW
+    var bottomView: some View {
+        VStack {
+            title
+            otpTexts
+            verify
+            resendOTP
+        }
+        .padding()
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .onChange(of: otpViewModel.otpFields) { newValue in
+            OTPCondition(value: newValue)
+        }
+        // MARK: Curving view
+            .background(
+                RoundedCornersShape(corners: .allCorners, radius: 39)
+                    .fill(Color.ViewBackground)
+            )
+            .offset(y: -50)
+    }
+    
+    // MARK: Title
+    var title: some View {
+        Text("Enter OTP to Verify your Number")
+            .font(.title2)
+            .padding(.top, 10)
+    }
+    
+    // MARK: OTP Text Fields
+    var otpTexts: some View {
+        OTPField()
+            .padding(.top, 10)
+
+    }
+    
+    // MARK: Verify OTP
+    var verify: some View {
+        Button {
+            Task {
+              await otpViewModel.verifyOTP(phone: number)
+            }
+        } label: {
+            Text("Verify")
+                .padding()
+                .foregroundColor(.white)
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .background(Color.blue).opacity(otpViewModel.isLoading ? 0 : 1)
+        .overlay {
+            ProgressView()
+                .opacity(otpViewModel.isLoading ? 1 : 0)
+        }
+        .cornerRadius(5)
+        .padding(.top, 20)
+        .disabled(checkStatus())
+        .opacity(checkStatus() ? 0.4 : 1)
+    }
+    
+    // MARK: RESEND OTP
+    @ViewBuilder
+    var resendOTP: some View {
+        Text("Did not receive OTP?")
+            .fontWeight(.light)
+            .foregroundColor(.gray)
+            .padding(.top, 20)
+        
+        Button {
+            //TO-DO (RESEND OTP)
+            print("")
+        } label: {
+            Text("Resend OTP CODE")
+                .fontWeight(.medium)
+                .underline()
+                .padding(.top, 10)
+        }
     }
 }
 enum OTPField {

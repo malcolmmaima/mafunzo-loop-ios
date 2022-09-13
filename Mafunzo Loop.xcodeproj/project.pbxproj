@@ -281,7 +281,6 @@
 		203A350F28D06D790087AE2F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				20BD7CDD28D06F1B00807359 /* Model */,
 				203A351228D06D940087AE2F /* ViewModel */,
 				203A351028D06D7F0087AE2F /* View */,
 			);
@@ -438,7 +437,6 @@
 			isa = PBXGroup;
 			children = (
 				20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */,
-				20372A5E28735A9800F3C0AF /* OTPView.swift */,
 				2042E84228742ACD00DBA7AE /* AccountSetupView.swift */,
 			);
 			path = Verification;
@@ -453,13 +451,6 @@
 			path = Workspace;
 			sourceTree = "<group>";
 		};
-		20BD7CDD28D06F1B00807359 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		20BD7CDE28D06F4100807359 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +461,7 @@
 		20BD7CDF28D06F4C00807359 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				20021F21286E467F007D5329 /* OTPViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -477,6 +469,7 @@
 		20BD7CE028D06F5300807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20372A5E28735A9800F3C0AF /* OTPView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -692,7 +685,6 @@
 		20BD7D0028D07BF700807359 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				20021F21286E467F007D5329 /* OTPViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
