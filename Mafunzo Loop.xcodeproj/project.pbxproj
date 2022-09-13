@@ -210,7 +210,6 @@
 		20021F23286E4687007D5329 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				20021F21286E467F007D5329 /* OTPViewModel.swift */,
 				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
 				202457A82879A64000FE180E /* UserViewModel.swift */,
 				20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */,
@@ -676,6 +675,7 @@
 		20BD7CFE28D0776E00807359 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				20BD7D0028D07BF700807359 /* ViewModel */,
 				20BD7CFF28D0777400807359 /* Views */,
 			);
 			path = Base;
@@ -687,6 +687,14 @@
 				20372A602873629900F3C0AF /* TopView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		20BD7D0028D07BF700807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20021F21286E467F007D5329 /* OTPViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		20C7C7E42892726F00D8FB32 /* Calendar Events */ = {
