@@ -11,7 +11,8 @@ struct AnnouncementView: View {
     var body: some View {
             GeometryReader { geo in
                 VStack(spacing: 5) {
-                   topView
+                    // MARK: -Top View
+                    NavigationTopView()
                         .frame(height: geo.size.height * 0.1)
                     bottomView
                 }
@@ -32,13 +33,6 @@ struct AnnouncementView: View {
 //}
 
 private extension AnnouncementView {
-    // MARK: -Top View
-    var topView: some View {
-        VStack {
-            Text("")
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.yellow)
-    }
     
     // MARK: -Bottom View
     var bottomView: some View {

@@ -12,7 +12,7 @@ struct AnnoucementListView: View {
         GeometryReader { geo in
             ZStack {
                 VStack {
-                   topView
+                   NavigationTopView()
                         .frame(height: geo.size.height * 0.09)
                     bottomView
                 }
@@ -37,14 +37,6 @@ struct AnnoucementView_Previews: PreviewProvider {
 }
 
 private extension AnnoucementListView {
-    // MARK: -Top View
-    var topView: some View {
-        VStack {
-            Text("")
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.yellow)
-    }
-    
     // MARK: -Bottom View
     var bottomView: some View {
         VStack {
