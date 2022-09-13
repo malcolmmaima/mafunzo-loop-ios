@@ -197,7 +197,6 @@
 			children = (
 				20021F1F286E439A007D5329 /* User.swift */,
 				203C6C26286F10DC003F1570 /* CountryCode.swift */,
-				2016ADE82892A8F80025BA98 /* Request.swift */,
 				204CFF3828955CEA00AF92A7 /* Teacher.swift */,
 				202C825C289A546A0009854E /* Timetable.swift */,
 				20EE0C9528A6570A00F92E53 /* SystemSettings.swift */,
@@ -210,7 +209,6 @@
 			children = (
 				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
 				202457A82879A64000FE180E /* UserViewModel.swift */,
-				2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */,
 				204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */,
 				202C825E289A5A7F0009854E /* TimetableViewModel.swift */,
 				20B2E329289E7D4700B75D21 /* SchoolViewModel.swift */,
@@ -241,10 +239,6 @@
 		2016ADE72892A8D80025BA98 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
-				2016ADEA2892AB7E0025BA98 /* RequestView.swift */,
-				20B94881289438D600198903 /* RequestListViewCell.swift */,
-				20B9488328948CC200198903 /* RequestListView.swift */,
-				20B9488528948E7600198903 /* RequestViewInfo.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -600,6 +594,10 @@
 		20BD7CF528D0710300807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2016ADEA2892AB7E0025BA98 /* RequestView.swift */,
+				20B94881289438D600198903 /* RequestListViewCell.swift */,
+				20B9488328948CC200198903 /* RequestListView.swift */,
+				20B9488528948E7600198903 /* RequestViewInfo.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -607,6 +605,7 @@
 		20BD7CF628D0710900807359 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -622,6 +621,7 @@
 		20BD7CF828D0711300807359 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2016ADE82892A8F80025BA98 /* Request.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
