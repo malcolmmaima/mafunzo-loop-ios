@@ -33,6 +33,7 @@
 		20372A612873629900F3C0AF /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A602873629900F3C0AF /* TopView.swift */; };
 		203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C26286F10DC003F1570 /* CountryCode.swift */; };
 		203C6C29286F110E003F1570 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */; };
+		2042D33828D0582900AD50B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2042D33728D0582900AD50B3 /* GoogleService-Info.plist */; };
 		2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E8402873894F00DBA7AE /* SplashScreen.swift */; };
 		2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E84228742ACD00DBA7AE /* AccountSetupView.swift */; };
 		204CFF3728955B5600AF92A7 /* TeachersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3628955B5600AF92A7 /* TeachersListView.swift */; };
@@ -43,7 +44,6 @@
 		2054AF90289ACF1300D56363 /* TimetableListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2054AF8F289ACF1300D56363 /* TimetableListViewCell.swift */; };
 		205CAADE2886AE570050FEED /* AnnouncementListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */; };
 		205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADF28873FA10050FEED /* AnnouncementView.swift */; };
-		208D5AC22897ED6B0082FBD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */; };
 		208D5AC42897EF570082FBD3 /* countryCode.json in Resources */ = {isa = PBXBuildFile; fileRef = 208D5AC32897EF570082FBD3 /* countryCode.json */; };
 		208D5AC828981DBE0082FBD3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208D5AC728981DBE0082FBD3 /* Settings.swift */; };
 		208D5ACA289855360082FBD3 /* NavigationTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208D5AC9289855360082FBD3 /* NavigationTopView.swift */; };
@@ -93,6 +93,7 @@
 		20372A602873629900F3C0AF /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		203C6C26286F10DC003F1570 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
+		2042D33728D0582900AD50B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2042E8402873894F00DBA7AE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		2042E84228742ACD00DBA7AE /* AccountSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupView.swift; sourceTree = "<group>"; };
 		204CFF3628955B5600AF92A7 /* TeachersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersListView.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		2054AF8F289ACF1300D56363 /* TimetableListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableListViewCell.swift; sourceTree = "<group>"; };
 		205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListViewCell.swift; sourceTree = "<group>"; };
 		205CAADF28873FA10050FEED /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
-		208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		208D5AC32897EF570082FBD3 /* countryCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = countryCode.json; path = "Mafunzo Loop/countryCode.json"; sourceTree = "<group>"; };
 		208D5AC728981DBE0082FBD3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		208D5AC9289855360082FBD3 /* NavigationTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTopView.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		20021EFD286E27BB007D5329 /* Mafunzo Loop */ = {
 			isa = PBXGroup;
 			children = (
-				208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */,
+				2042D33728D0582900AD50B3 /* GoogleService-Info.plist */,
 				20021F24286E4935007D5329 /* View */,
 				20021F23286E4687007D5329 /* ViewModel */,
 				20021F1E286E4385007D5329 /* Model */,
@@ -389,8 +389,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				20021F06286E27C0007D5329 /* Preview Assets.xcassets in Resources */,
+				2042D33828D0582900AD50B3 /* GoogleService-Info.plist in Resources */,
 				20021F03286E27C0007D5329 /* Assets.xcassets in Resources */,
-				208D5AC22897ED6B0082FBD3 /* GoogleService-Info.plist in Resources */,
 				208D5AC42897EF570082FBD3 /* countryCode.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,8 +663,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = exactVersion;
+				version = 9.5.0;
 			};
 		};
 		20EE0CD028AB847900F92E53 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
