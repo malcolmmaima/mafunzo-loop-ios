@@ -57,6 +57,7 @@
 		20B9488428948CC200198903 /* RequestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9488328948CC200198903 /* RequestListView.swift */; };
 		20B9488628948E7600198903 /* RequestViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9488528948E7600198903 /* RequestViewInfo.swift */; };
 		20BC55C92878B3150018AACA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC55C82878B3140018AACA /* HomeView.swift */; };
+		20BD7D0728D22E3700807359 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BD7D0628D22E3700807359 /* School.swift */; };
 		20C7C7E328900E6C00D8FB32 /* UpcommingEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */; };
 		20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E5289272B700D8FB32 /* EventView.swift */; };
 		20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA01F2288B22E0009AC923 /* CalendarEvents.swift */; };
@@ -117,6 +118,7 @@
 		20B9488328948CC200198903 /* RequestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListView.swift; sourceTree = "<group>"; };
 		20B9488528948E7600198903 /* RequestViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewInfo.swift; sourceTree = "<group>"; };
 		20BC55C82878B3140018AACA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		20BD7D0628D22E3700807359 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingEventsView.swift; sourceTree = "<group>"; };
 		20C7C7E5289272B700D8FB32 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		20CA01F2288B22E0009AC923 /* CalendarEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvents.swift; sourceTree = "<group>"; };
@@ -207,7 +209,6 @@
 			children = (
 				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
 				202457A82879A64000FE180E /* UserViewModel.swift */,
-				20B2E329289E7D4700B75D21 /* SchoolViewModel.swift */,
 				20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */,
 				20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */,
 			);
@@ -396,8 +397,6 @@
 		20B2E324289E79C100B75D21 /* Workspace */ = {
 			isa = PBXGroup;
 			children = (
-				20B2E325289E79E600B75D21 /* SchoolListView.swift */,
-				20B2E327289E7A2A00B75D21 /* SchoolListViewCell.swift */,
 			);
 			path = Workspace;
 			sourceTree = "<group>";
@@ -471,6 +470,7 @@
 		20BD7CE728D06FB100807359 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				20BD7D0628D22E3700807359 /* School.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -478,6 +478,7 @@
 		20BD7CE828D06FC900807359 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				20B2E329289E7D4700B75D21 /* SchoolViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -485,6 +486,8 @@
 		20BD7CE928D06FCE00807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20B2E325289E79E600B75D21 /* SchoolListView.swift */,
+				20B2E327289E7A2A00B75D21 /* SchoolListViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */,
 				203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */,
 				20EE0C9828A6574500F92E53 /* SystemSettingsViewModel.swift in Sources */,
+				20BD7D0728D22E3700807359 /* School.swift in Sources */,
 				204CFF3D289563B300AF92A7 /* TeacherListViewCell.swift in Sources */,
 				20EE0C9A28A6594800F92E53 /* SystemOfflineView.swift in Sources */,
 				20EE0C9628A6570A00F92E53 /* SystemSettings.swift in Sources */,

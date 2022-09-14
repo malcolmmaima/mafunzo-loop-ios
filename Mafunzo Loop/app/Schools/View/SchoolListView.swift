@@ -19,31 +19,7 @@ struct SchoolListView: View {
             VStack {
                 NavigationTopView()
                     .frame(height: geo.size.height * 0.1)
-                VStack {
-                    List {
-                        ForEach(schoolViewModel.schoolSearch, id: \.id) { school in
-                            SchoolListViewCell(schoolName: school.schoolName, schoolLocation: school.schoolLocation)
-                                .listRowSeparator(.hidden)
-                                .onTapGesture {
-                                    addSchoolAlert = true
-                                    selectedSchool = school.schoolName
-                                    schoolid = school.id
-                                }
-                        }.listRowBackground(Color.ViewBackground)
-                    }.listStyle(.plain)
-                    .searchable(text: $schoolViewModel.searchSchool, prompt: "Search School")
-                    .refreshable {
-                        schoolViewModel.getALLSchools()
-                    }
-                    .padding(.top, 10)
-                }
-                .padding()
-                .frame(minWidth: 0, maxWidth: .infinity)
-                .background(
-                    RoundedCornersShape(corners: .allCorners, radius: 40)
-                        .fill(Color.ViewBackground)
-                )
-                .offset(y: -55)
+                bottomView
             }
         }
         
@@ -70,5 +46,42 @@ struct SchoolListView: View {
 struct SchoolListView_Previews: PreviewProvider {
     static var previews: some View {
         SchoolListView()
+    }
+}
+
+
+private extension SchoolListView {
+    // MARK: -Bottom VIew
+    var bottomView: some View {
+        VStack {
+            schools
+        }
+        .padding()
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .background(
+            RoundedCornersShape(corners: .allCorners, radius: 40)
+                .fill(Color.ViewBackground)
+        )
+        .offset(y: -55)
+    }
+    
+    // MARK: Schools
+    var schools: some View {
+        List {
+            ForEach(schoolViewModel.schoolSearch, id: \.id) { school in
+                SchoolListViewCell(schoolName: school.schoolName, schoolLocation: school.schoolLocation)
+                    .listRowSeparator(.hidden)
+                    .onTapGesture {
+                        addSchoolAlert = true
+                        selectedSchool = school.schoolName
+                        schoolid = school.id
+                    }
+            }.listRowBackground(Color.ViewBackground)
+        }.listStyle(.plain)
+        .searchable(text: $schoolViewModel.searchSchool, prompt: "Search School")
+        .refreshable {
+            schoolViewModel.getALLSchools()
+        }
+        .padding(.top, 10)
     }
 }

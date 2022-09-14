@@ -11,7 +11,7 @@ import Firebase
 
 class OTPViewModel: ObservableObject {
     @Published var user: User = .init()
-    @Published var schoolData = SchoolData(id: "", schoolLocation: "", schoolName: "", schoolEmail: "")
+    @Published var schoolData = School(id: "", schoolLocation: "", schoolName: "", schoolEmail: "")
     //OTP
     @Published var otpText: String = ""
     @Published var otpFields: [String] = Array(repeating: "", count: 6)
@@ -116,7 +116,7 @@ class OTPViewModel: ObservableObject {
                         let schoolName = data["schoolName"] as? String ?? ""
                         let schoolLocation = data["schoolLocation"] as? String ?? ""
                         let schoolEmail = data["schoolEmail"] as? String ?? ""
-                        let schoolDataList = SchoolData(id: docId, schoolLocation: schoolLocation, schoolName: schoolName, schoolEmail: schoolEmail)
+                        let schoolDataList = School(id: docId, schoolLocation: schoolLocation, schoolName: schoolName, schoolEmail: schoolEmail)
                         self.user.schools.append(schoolDataList)
                     }
                 }
