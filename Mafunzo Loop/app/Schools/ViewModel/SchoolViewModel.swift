@@ -19,7 +19,7 @@ class SchoolViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var showAlertToast: Bool = false
     //Model
-    @Published var school = [SchoolData]()
+    @Published var school = [School]()
     @Published var mapped = [Schools]()
     @Published var selectedSchool = [SelectedSchool]()
     //Firebase
@@ -30,7 +30,7 @@ class SchoolViewModel: ObservableObject {
         //getUserSchools()
     }
         // MARK: Search School
-    var schoolSearch: [SchoolData] {
+    var schoolSearch: [School] {
         if searchSchool.isEmpty {
             return school
         } else {
@@ -86,7 +86,7 @@ class SchoolViewModel: ObservableObject {
                         let schoolName = data["schoolName"] as? String ?? ""
                         let schoolLocation = data["schoolLocation"] as? String ?? ""
                         let schoolEmail = data["schoolEmail"] as? String ?? ""
-                        let schoolDataList = SchoolData(id: docId, schoolLocation: schoolLocation, schoolName: schoolName, schoolEmail: schoolEmail)
+                        let schoolDataList = School(id: docId, schoolLocation: schoolLocation, schoolName: schoolName, schoolEmail: schoolEmail)
                         self.school.append(schoolDataList)
                     }
                 }
