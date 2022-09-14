@@ -197,7 +197,6 @@
 			children = (
 				20021F1F286E439A007D5329 /* User.swift */,
 				203C6C26286F10DC003F1570 /* CountryCode.swift */,
-				202C825C289A546A0009854E /* Timetable.swift */,
 				20EE0C9528A6570A00F92E53 /* SystemSettings.swift */,
 			);
 			path = Model;
@@ -208,7 +207,6 @@
 			children = (
 				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
 				202457A82879A64000FE180E /* UserViewModel.swift */,
-				202C825E289A5A7F0009854E /* TimetableViewModel.swift */,
 				20B2E329289E7D4700B75D21 /* SchoolViewModel.swift */,
 				20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */,
 				20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */,
@@ -222,10 +220,6 @@
 				20B2E324289E79C100B75D21 /* Workspace */,
 				202C8260289A5B3A0009854E /* Timetable */,
 				208D5AC62897F70A0082FBD3 /* Verification */,
-				208D5AC52897F15A0082FBD3 /* Announcement */,
-				204CFF3528955B1F00AF92A7 /* Teachers */,
-				2016ADE72892A8D80025BA98 /* Requests */,
-				20C7C7E42892726F00D8FB32 /* Calendar Events */,
 				20BC55C82878B3140018AACA /* HomeView.swift */,
 				208D5AC728981DBE0082FBD3 /* Settings.swift */,
 				20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */,
@@ -234,18 +228,9 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2016ADE72892A8D80025BA98 /* Requests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Requests;
-			sourceTree = "<group>";
-		};
 		202C8260289A5B3A0009854E /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
-				202C8261289A5B500009854E /* TimetableView.swift */,
-				2054AF8F289ACF1300D56363 /* TimetableListViewCell.swift */,
 			);
 			path = Timetable;
 			sourceTree = "<group>";
@@ -400,20 +385,6 @@
 			path = Schools;
 			sourceTree = "<group>";
 		};
-		204CFF3528955B1F00AF92A7 /* Teachers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Teachers;
-			sourceTree = "<group>";
-		};
-		208D5AC52897F15A0082FBD3 /* Announcement */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Announcement;
-			sourceTree = "<group>";
-		};
 		208D5AC62897F70A0082FBD3 /* Verification */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +499,7 @@
 		20BD7CED28D070D600807359 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				202C825C289A546A0009854E /* Timetable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -535,6 +507,7 @@
 		20BD7CEE28D070DA00807359 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				202C825E289A5A7F0009854E /* TimetableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -542,6 +515,8 @@
 		20BD7CEF28D070E100807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				202C8261289A5B500009854E /* TimetableView.swift */,
+				2054AF8F289ACF1300D56363 /* TimetableListViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -699,13 +674,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		20C7C7E42892726F00D8FB32 /* Calendar Events */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Calendar Events";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
