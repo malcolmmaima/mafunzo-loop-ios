@@ -33,7 +33,8 @@
 		20372A612873629900F3C0AF /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20372A602873629900F3C0AF /* TopView.swift */; };
 		203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C26286F10DC003F1570 /* CountryCode.swift */; };
 		203C6C29286F110E003F1570 /* CountryCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */; };
-		2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E8402873894F00DBA7AE /* SplashScreen.swift */; };
+		2042D33828D0582900AD50B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2042D33728D0582900AD50B3 /* GoogleService-Info.plist */; };
+		2042E8412873895000DBA7AE /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E8402873894F00DBA7AE /* LaunchScreen.swift */; };
 		2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2042E84228742ACD00DBA7AE /* AccountSetupView.swift */; };
 		204CFF3728955B5600AF92A7 /* TeachersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3628955B5600AF92A7 /* TeachersListView.swift */; };
 		204CFF3928955CEA00AF92A7 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204CFF3828955CEA00AF92A7 /* Teacher.swift */; };
@@ -43,7 +44,6 @@
 		2054AF90289ACF1300D56363 /* TimetableListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2054AF8F289ACF1300D56363 /* TimetableListViewCell.swift */; };
 		205CAADE2886AE570050FEED /* AnnouncementListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */; };
 		205CAAE028873FA10050FEED /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205CAADF28873FA10050FEED /* AnnouncementView.swift */; };
-		208D5AC22897ED6B0082FBD3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */; };
 		208D5AC42897EF570082FBD3 /* countryCode.json in Resources */ = {isa = PBXBuildFile; fileRef = 208D5AC32897EF570082FBD3 /* countryCode.json */; };
 		208D5AC828981DBE0082FBD3 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208D5AC728981DBE0082FBD3 /* Settings.swift */; };
 		208D5ACA289855360082FBD3 /* NavigationTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208D5AC9289855360082FBD3 /* NavigationTopView.swift */; };
@@ -57,6 +57,7 @@
 		20B9488428948CC200198903 /* RequestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9488328948CC200198903 /* RequestListView.swift */; };
 		20B9488628948E7600198903 /* RequestViewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B9488528948E7600198903 /* RequestViewInfo.swift */; };
 		20BC55C92878B3150018AACA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC55C82878B3140018AACA /* HomeView.swift */; };
+		20BD7D0728D22E3700807359 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BD7D0628D22E3700807359 /* School.swift */; };
 		20C7C7E328900E6C00D8FB32 /* UpcommingEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */; };
 		20C7C7E6289272B700D8FB32 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C7C7E5289272B700D8FB32 /* EventView.swift */; };
 		20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA01F2288B22E0009AC923 /* CalendarEvents.swift */; };
@@ -93,7 +94,8 @@
 		20372A602873629900F3C0AF /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		203C6C26286F10DC003F1570 /* CountryCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCode.swift; sourceTree = "<group>"; };
 		203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewModel.swift; sourceTree = "<group>"; };
-		2042E8402873894F00DBA7AE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		2042D33728D0582900AD50B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2042E8402873894F00DBA7AE /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		2042E84228742ACD00DBA7AE /* AccountSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupView.swift; sourceTree = "<group>"; };
 		204CFF3628955B5600AF92A7 /* TeachersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersListView.swift; sourceTree = "<group>"; };
 		204CFF3828955CEA00AF92A7 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
@@ -103,7 +105,6 @@
 		2054AF8F289ACF1300D56363 /* TimetableListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableListViewCell.swift; sourceTree = "<group>"; };
 		205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListViewCell.swift; sourceTree = "<group>"; };
 		205CAADF28873FA10050FEED /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
-		208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		208D5AC32897EF570082FBD3 /* countryCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = countryCode.json; path = "Mafunzo Loop/countryCode.json"; sourceTree = "<group>"; };
 		208D5AC728981DBE0082FBD3 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		208D5AC9289855360082FBD3 /* NavigationTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTopView.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		20B9488328948CC200198903 /* RequestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestListView.swift; sourceTree = "<group>"; };
 		20B9488528948E7600198903 /* RequestViewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestViewInfo.swift; sourceTree = "<group>"; };
 		20BC55C82878B3140018AACA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		20BD7D0628D22E3700807359 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingEventsView.swift; sourceTree = "<group>"; };
 		20C7C7E5289272B700D8FB32 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		20CA01F2288B22E0009AC923 /* CalendarEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvents.swift; sourceTree = "<group>"; };
@@ -170,9 +172,8 @@
 		20021EFD286E27BB007D5329 /* Mafunzo Loop */ = {
 			isa = PBXGroup;
 			children = (
-				208D5AC12897ED6B0082FBD3 /* GoogleService-Info.plist */,
-				20021F24286E4935007D5329 /* View */,
-				20021F23286E4687007D5329 /* ViewModel */,
+				203A350E28D06D690087AE2F /* app */,
+				2042D33728D0582900AD50B3 /* GoogleService-Info.plist */,
 				20021F1E286E4385007D5329 /* Model */,
 				20021EFE286E27BB007D5329 /* Mafunzo_LoopApp.swift */,
 				20021F00286E27BB007D5329 /* ContentView.swift */,
@@ -196,116 +197,315 @@
 			children = (
 				20021F1F286E439A007D5329 /* User.swift */,
 				203C6C26286F10DC003F1570 /* CountryCode.swift */,
-				20B2CB9A28855976008C1BE8 /* Annoucement.swift */,
-				20CA01F2288B22E0009AC923 /* CalendarEvents.swift */,
-				2016ADE82892A8F80025BA98 /* Request.swift */,
-				204CFF3828955CEA00AF92A7 /* Teacher.swift */,
-				202C825C289A546A0009854E /* Timetable.swift */,
 				20EE0C9528A6570A00F92E53 /* SystemSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		20021F23286E4687007D5329 /* ViewModel */ = {
+		203A350E28D06D690087AE2F /* app */ = {
 			isa = PBXGroup;
 			children = (
-				20021F21286E467F007D5329 /* OTPViewModel.swift */,
-				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
-				202457A82879A64000FE180E /* UserViewModel.swift */,
-				20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */,
-				20CA01F4288B237A009AC923 /* CalendarViewModel.swift */,
-				2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */,
-				204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */,
-				202C825E289A5A7F0009854E /* TimetableViewModel.swift */,
-				20B2E329289E7D4700B75D21 /* SchoolViewModel.swift */,
-				20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */,
-				20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */,
+				203A351428D06DB30087AE2F /* Modules */,
+				20BD7D0828D2312900807359 /* Home */,
+				20BD7CFE28D0776E00807359 /* Base */,
+				20BD7CFC28D072E600807359 /* LaunchScreen */,
+				203A351328D06DA40087AE2F /* Account-Setup */,
+				203A350F28D06D790087AE2F /* Login */,
+				203A351128D06D8E0087AE2F /* OTP */,
+				203A351D28D06E4E0087AE2F /* Schools */,
+				203A351C28D06E400087AE2F /* Settings */,
 			);
-			path = ViewModel;
+			path = app;
 			sourceTree = "<group>";
 		};
-		20021F24286E4935007D5329 /* View */ = {
+		203A350F28D06D790087AE2F /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				20B2E324289E79C100B75D21 /* Workspace */,
-				202C8260289A5B3A0009854E /* Timetable */,
-				208D5AC62897F70A0082FBD3 /* Verification */,
-				208D5AC52897F15A0082FBD3 /* Announcement */,
-				204CFF3528955B1F00AF92A7 /* Teachers */,
-				2016ADE72892A8D80025BA98 /* Requests */,
-				20C7C7E42892726F00D8FB32 /* Calendar Events */,
-				2042E8402873894F00DBA7AE /* SplashScreen.swift */,
-				20BC55C82878B3140018AACA /* HomeView.swift */,
-				208D5AC728981DBE0082FBD3 /* Settings.swift */,
-				208D5AC9289855360082FBD3 /* NavigationTopView.swift */,
-				20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */,
-				20EE0CD728AED7C500F92E53 /* NetworkViewCell.swift */,
+				203A351228D06D940087AE2F /* ViewModel */,
+				203A351028D06D7F0087AE2F /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		203A351028D06D7F0087AE2F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20021F25286E4948007D5329 /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		2016ADE72892A8D80025BA98 /* Requests */ = {
+		203A351128D06D8E0087AE2F /* OTP */ = {
 			isa = PBXGroup;
 			children = (
-				2016ADEA2892AB7E0025BA98 /* RequestView.swift */,
-				20B94881289438D600198903 /* RequestListViewCell.swift */,
-				20B9488328948CC200198903 /* RequestListView.swift */,
-				20B9488528948E7600198903 /* RequestViewInfo.swift */,
+				20BD7CE028D06F5300807359 /* View */,
+				20BD7CDF28D06F4C00807359 /* ViewModel */,
+				20BD7CDE28D06F4100807359 /* Model */,
+			);
+			path = OTP;
+			sourceTree = "<group>";
+		};
+		203A351228D06D940087AE2F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		203A351328D06DA40087AE2F /* Account-Setup */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CE328D06F8900807359 /* ViewModel */,
+				20BD7CE228D06F8100807359 /* View */,
+				20BD7CE128D06F5C00807359 /* Model */,
+			);
+			path = "Account-Setup";
+			sourceTree = "<group>";
+		};
+		203A351428D06DB30087AE2F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				203A351528D06DC50087AE2F /* Announcements */,
+				203A351728D06DEA0087AE2F /* Calendar */,
+				203A351628D06DCE0087AE2F /* Requests */,
+				203A351A28D06E050087AE2F /* SchoolBus */,
+				203A351828D06DF30087AE2F /* Teachers */,
+				203A351928D06DFB0087AE2F /* Timetable */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		203A351528D06DC50087AE2F /* Announcements */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CFB28D0712300807359 /* Model */,
+				20BD7CFA28D0711E00807359 /* View */,
+				20BD7CF928D0711700807359 /* ViewModel */,
+			);
+			path = Announcements;
+			sourceTree = "<group>";
+		};
+		203A351628D06DCE0087AE2F /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CF828D0711300807359 /* Model */,
+				20BD7CF528D0710300807359 /* View */,
+				20BD7CF628D0710900807359 /* ViewModel */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
 		};
-		202C8260289A5B3A0009854E /* Timetable */ = {
+		203A351728D06DEA0087AE2F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CF728D0710F00807359 /* Model */,
+				20BD7CF328D070F800807359 /* View */,
+				20BD7CF428D070FC00807359 /* ViewModel */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		203A351828D06DF30087AE2F /* Teachers */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CF228D070F300807359 /* Model */,
+				20BD7CF028D070E600807359 /* View */,
+				20BD7CF128D070EB00807359 /* ViewModel */,
+			);
+			path = Teachers;
+			sourceTree = "<group>";
+		};
+		203A351928D06DFB0087AE2F /* Timetable */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CED28D070D600807359 /* Model */,
+				20BD7CEF28D070E100807359 /* View */,
+				20BD7CEE28D070DA00807359 /* ViewModel */,
+			);
+			path = Timetable;
+			sourceTree = "<group>";
+		};
+		203A351A28D06E050087AE2F /* SchoolBus */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CEA28D06FF200807359 /* View */,
+			);
+			path = SchoolBus;
+			sourceTree = "<group>";
+		};
+		203A351C28D06E400087AE2F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CE628D06FA900807359 /* ViewModel */,
+				20BD7CE528D06FA400807359 /* View */,
+				20BD7CE428D06F9E00807359 /* Model */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		203A351D28D06E4E0087AE2F /* Schools */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CE928D06FCE00807359 /* View */,
+				20BD7CE828D06FC900807359 /* ViewModel */,
+				20BD7CE728D06FB100807359 /* Model */,
+			);
+			path = Schools;
+			sourceTree = "<group>";
+		};
+		20BD7CDE28D06F4100807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CDF28D06F4C00807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20021F21286E467F007D5329 /* OTPViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CE028D06F5300807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20372A5E28735A9800F3C0AF /* OTPView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CE128D06F5C00807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CE228D06F8100807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2042E84228742ACD00DBA7AE /* AccountSetupView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CE328D06F8900807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CE428D06F9E00807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CE528D06FA400807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				208D5AC728981DBE0082FBD3 /* Settings.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CE628D06FA900807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */,
+				202457A82879A64000FE180E /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CE728D06FB100807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7D0628D22E3700807359 /* School.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CE828D06FC900807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20B2E329289E7D4700B75D21 /* SchoolViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CE928D06FCE00807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20B2E325289E79E600B75D21 /* SchoolListView.swift */,
+				20B2E327289E7A2A00B75D21 /* SchoolListViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CEA28D06FF200807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CED28D070D600807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				202C825C289A546A0009854E /* Timetable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CEE28D070DA00807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				202C825E289A5A7F0009854E /* TimetableViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CEF28D070E100807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				202C8261289A5B500009854E /* TimetableView.swift */,
 				2054AF8F289ACF1300D56363 /* TimetableListViewCell.swift */,
 			);
-			path = Timetable;
+			path = View;
 			sourceTree = "<group>";
 		};
-		204CFF3528955B1F00AF92A7 /* Teachers */ = {
+		20BD7CF028D070E600807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				204CFF3628955B5600AF92A7 /* TeachersListView.swift */,
 				204CFF3C289563B300AF92A7 /* TeacherListViewCell.swift */,
 				204CFF3E2895682F00AF92A7 /* TeacherView.swift */,
 			);
-			path = Teachers;
+			path = View;
 			sourceTree = "<group>";
 		};
-		208D5AC52897F15A0082FBD3 /* Announcement */ = {
+		20BD7CF128D070EB00807359 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */,
-				205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */,
-				205CAADF28873FA10050FEED /* AnnouncementView.swift */,
+				204CFF3A28955DC800AF92A7 /* TeachersViewModel.swift */,
 			);
-			path = Announcement;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		208D5AC62897F70A0082FBD3 /* Verification */ = {
+		20BD7CF228D070F300807359 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */,
-				20372A602873629900F3C0AF /* TopView.swift */,
-				20021F25286E4948007D5329 /* LoginView.swift */,
-				20372A5E28735A9800F3C0AF /* OTPView.swift */,
-				2042E84228742ACD00DBA7AE /* AccountSetupView.swift */,
+				204CFF3828955CEA00AF92A7 /* Teacher.swift */,
 			);
-			path = Verification;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		20B2E324289E79C100B75D21 /* Workspace */ = {
-			isa = PBXGroup;
-			children = (
-				20B2E325289E79E600B75D21 /* SchoolListView.swift */,
-				20B2E327289E7A2A00B75D21 /* SchoolListViewCell.swift */,
-			);
-			path = Workspace;
-			sourceTree = "<group>";
-		};
-		20C7C7E42892726F00D8FB32 /* Calendar Events */ = {
+		20BD7CF328D070F800807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				20D64B98288AC70500F7F104 /* CalendarListView.swift */,
@@ -313,7 +513,138 @@
 				20C7C7E228900E6C00D8FB32 /* UpcommingEventsView.swift */,
 				20C7C7E5289272B700D8FB32 /* EventView.swift */,
 			);
-			path = "Calendar Events";
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CF428D070FC00807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20CA01F4288B237A009AC923 /* CalendarViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CF528D0710300807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2016ADEA2892AB7E0025BA98 /* RequestView.swift */,
+				20B94881289438D600198903 /* RequestListViewCell.swift */,
+				20B9488328948CC200198903 /* RequestListView.swift */,
+				20B9488528948E7600198903 /* RequestViewInfo.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CF628D0710900807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2016ADEC2892DBDB0025BA98 /* RequestViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CF728D0710F00807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20CA01F2288B22E0009AC923 /* CalendarEvents.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CF828D0711300807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2016ADE82892A8F80025BA98 /* Request.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CF928D0711700807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20B2CB9C28855A25008C1BE8 /* AnnoucementViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7CFA28D0711E00807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				20B2CB9E28855C7E008C1BE8 /* AnnoucementListView.swift */,
+				205CAADD2886AE570050FEED /* AnnouncementListViewCell.swift */,
+				205CAADF28873FA10050FEED /* AnnouncementView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CFB28D0712300807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20B2CB9A28855976008C1BE8 /* Annoucement.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7CFC28D072E600807359 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7CFD28D072F100807359 /* View */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		20BD7CFD28D072F100807359 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2042E8402873894F00DBA7AE /* LaunchScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20BD7CFE28D0776E00807359 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				20BD7D0528D0E9B800807359 /* Model */,
+				20BD7D0028D07BF700807359 /* ViewModel */,
+				20BD7CFF28D0777400807359 /* Views */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		20BD7CFF28D0777400807359 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20EE0CD728AED7C500F92E53 /* NetworkViewCell.swift */,
+				20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */,
+				20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */,
+				208D5AC9289855360082FBD3 /* NavigationTopView.swift */,
+				20372A602873629900F3C0AF /* TopView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		20BD7D0028D07BF700807359 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */,
+				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		20BD7D0528D0E9B800807359 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7D0828D2312900807359 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				20BC55C82878B3140018AACA /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,8 +720,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				20021F06286E27C0007D5329 /* Preview Assets.xcassets in Resources */,
+				2042D33828D0582900AD50B3 /* GoogleService-Info.plist in Resources */,
 				20021F03286E27C0007D5329 /* Assets.xcassets in Resources */,
-				208D5AC22897ED6B0082FBD3 /* GoogleService-Info.plist in Resources */,
 				208D5AC42897EF570082FBD3 /* countryCode.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +744,7 @@
 				2042E84328742ACD00DBA7AE /* AccountSetupView.swift in Sources */,
 				203C6C27286F10DC003F1570 /* CountryCode.swift in Sources */,
 				20EE0C9828A6574500F92E53 /* SystemSettingsViewModel.swift in Sources */,
+				20BD7D0728D22E3700807359 /* School.swift in Sources */,
 				204CFF3D289563B300AF92A7 /* TeacherListViewCell.swift in Sources */,
 				20EE0C9A28A6594800F92E53 /* SystemOfflineView.swift in Sources */,
 				20EE0C9628A6570A00F92E53 /* SystemSettings.swift in Sources */,
@@ -437,7 +769,7 @@
 				20CA01F3288B22E0009AC923 /* CalendarEvents.swift in Sources */,
 				20D64B99288AC70500F7F104 /* CalendarListView.swift in Sources */,
 				20EE0CD428AED5BE00F92E53 /* NetworkViewModel.swift in Sources */,
-				2042E8412873895000DBA7AE /* SplashScreen.swift in Sources */,
+				2042E8412873895000DBA7AE /* LaunchScreen.swift in Sources */,
 				204CFF3928955CEA00AF92A7 /* Teacher.swift in Sources */,
 				20B9488428948CC200198903 /* RequestListView.swift in Sources */,
 				20372A612873629900F3C0AF /* TopView.swift in Sources */,
@@ -663,8 +995,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = exactVersion;
+				version = 9.5.0;
 			};
 		};
 		20EE0CD028AB847900F92E53 /* XCRemoteSwiftPackageReference "AlertToast" */ = {

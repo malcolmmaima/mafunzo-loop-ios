@@ -25,7 +25,7 @@ class User: Codable, ObservableObject, Identifiable {
     @Published var phone = ""
     @Published var enabled: Bool = false
     @Published var accountType = ""
-    @Published var schools: [SchoolData] = []
+    @Published var schools: [School] = []
     @Published var dateCreated: Int = 0
     @Published var profilePic = ""
     init() {}
@@ -53,24 +53,6 @@ class User: Codable, ObservableObject, Identifiable {
         try container.encode(dateCreated, forKey: .dateCreated)
         try container.encode(profilePic, forKey: .profilePic)
     }
-}
-
-struct SchoolData: Codable, Identifiable {
-    var id: String
-    var schoolLocation: String
-    var schoolName: String
-    var schoolEmail: String
-}
-
-struct Schools: Codable {
-    var schoolID: [String: Bool]
-}
-
-struct SelectedSchool: Codable {
-    var id: String
-    var schoolLocation: String
-    var schoolName: String
-    var schoolEmail: String
 }
 
 struct Account_Types: Codable {
