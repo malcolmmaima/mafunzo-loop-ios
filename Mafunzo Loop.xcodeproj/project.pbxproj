@@ -174,8 +174,6 @@
 			children = (
 				203A350E28D06D690087AE2F /* app */,
 				2042D33728D0582900AD50B3 /* GoogleService-Info.plist */,
-				20021F24286E4935007D5329 /* View */,
-				20021F23286E4687007D5329 /* ViewModel */,
 				20021F1E286E4385007D5329 /* Model */,
 				20021EFE286E27BB007D5329 /* Mafunzo_LoopApp.swift */,
 				20021F00286E27BB007D5329 /* ContentView.swift */,
@@ -204,46 +202,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		20021F23286E4687007D5329 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
-				202457A82879A64000FE180E /* UserViewModel.swift */,
-				20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */,
-				20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		20021F24286E4935007D5329 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				20B2E324289E79C100B75D21 /* Workspace */,
-				202C8260289A5B3A0009854E /* Timetable */,
-				208D5AC62897F70A0082FBD3 /* Verification */,
-				20BC55C82878B3140018AACA /* HomeView.swift */,
-				208D5AC728981DBE0082FBD3 /* Settings.swift */,
-				20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */,
-				20EE0CD728AED7C500F92E53 /* NetworkViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		202C8260289A5B3A0009854E /* Timetable */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Timetable;
-			sourceTree = "<group>";
-		};
 		203A350E28D06D690087AE2F /* app */ = {
 			isa = PBXGroup;
 			children = (
+				203A351428D06DB30087AE2F /* Modules */,
+				20BD7D0828D2312900807359 /* Home */,
 				20BD7CFE28D0776E00807359 /* Base */,
 				20BD7CFC28D072E600807359 /* LaunchScreen */,
 				203A351328D06DA40087AE2F /* Account-Setup */,
 				203A350F28D06D790087AE2F /* Login */,
-				203A351428D06DB30087AE2F /* Modules */,
 				203A351128D06D8E0087AE2F /* OTP */,
 				203A351D28D06E4E0087AE2F /* Schools */,
 				203A351C28D06E400087AE2F /* Settings */,
@@ -386,21 +353,6 @@
 			path = Schools;
 			sourceTree = "<group>";
 		};
-		208D5AC62897F70A0082FBD3 /* Verification */ = {
-			isa = PBXGroup;
-			children = (
-				20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */,
-			);
-			path = Verification;
-			sourceTree = "<group>";
-		};
-		20B2E324289E79C100B75D21 /* Workspace */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Workspace;
-			sourceTree = "<group>";
-		};
 		20BD7CDE28D06F4100807359 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +408,7 @@
 		20BD7CE528D06FA400807359 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				208D5AC728981DBE0082FBD3 /* Settings.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -463,6 +416,8 @@
 		20BD7CE628D06FA900807359 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				20EE0C9728A6574500F92E53 /* SystemSettingsViewModel.swift */,
+				202457A82879A64000FE180E /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -659,6 +614,9 @@
 		20BD7CFF28D0777400807359 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20EE0CD728AED7C500F92E53 /* NetworkViewCell.swift */,
+				20EE0C9928A6594800F92E53 /* SystemOfflineView.swift */,
+				20D3814B289DAF3C00D08651 /* DisabledAccountView.swift */,
 				208D5AC9289855360082FBD3 /* NavigationTopView.swift */,
 				20372A602873629900F3C0AF /* TopView.swift */,
 			);
@@ -668,6 +626,8 @@
 		20BD7D0028D07BF700807359 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				20EE0CD328AED5BB00F92E53 /* NetworkViewModel.swift */,
+				203C6C28286F110E003F1570 /* CountryCodeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -677,6 +637,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		20BD7D0828D2312900807359 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				20BC55C82878B3140018AACA /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -470,3 +470,10 @@ struct HomeView_Previews: PreviewProvider {
         HomeView(user: User())
     }
 }
+
+
+//private extension HomeView {
+//    var topView: some View {
+//        
+//    }
+//}
